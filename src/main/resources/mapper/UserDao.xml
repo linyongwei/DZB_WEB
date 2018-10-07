@@ -5,6 +5,8 @@
 
 <mapper namespace="com.dzb.dao.UserDao">
 
+
+
     <!--插入新用户-->
     <insert id="save" parameterType="com.dzb.model.User">
         INSERT INTO user
@@ -20,5 +22,34 @@
     <select id="checkStudentNum" parameterType="long" resultType="int">
         SELECT count(1) FROM user
         WHERE student_num = #{studentNum}
+    </select>
+
+    <!--检查用户密码是否正确-->
+    <select id="checkStudentPassword" resultType="int">
+        SELECT count(1) FROM user
+        where student_num=#{studentNum} and password=#{password}
+    </select>
+
+    <!--更新用户密码,newPassword是一个resetPasswordUser-->
+    <update id="resetPassword">
+        update user
+        <set>
+            <if test="newPassword!=null and newPassword!='' ">
+                password=#{newPassword}
+            </if>
+        </set>
+        where student_num=#{studentNum}
+    </update>
+
+    <!--根据用户名查找邮箱-->
+    <select id="searchEmail" parameterType="com.dzb.model.sendMailCodeUser" resultType="String">
+        SELECT (email)  FROM
+        user WHERE student_num=#{studentNum}
+    </select>
+
+    <!--根据用户学号获取一个User对象-->
+    <select id="getCurrentUser" parameterType="long" resultType="com.dzb.model.User">
+        SELECT *
+        FROM user WHERE student_num=#{studentNum}
     </select>
 </mapper>
