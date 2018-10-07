@@ -5,7 +5,9 @@ package com.dzb.commons;
  * @date: 18-9-26
  */
 public enum ResultCodeEnum {
-
+    /**
+     * 返回代码
+     */
     RESULT_CODE_SUCCESS(200, "成功处理请求"),
     RESULT_CODE_UNAUTHORIZED(401, "无权限"),
     RESULT_CODE_FORBIDDEN(403, "禁止访问"),

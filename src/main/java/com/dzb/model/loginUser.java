@@ -4,9 +4,8 @@ package com.dzb.model;
  * @description: 登录时用户需要填写的内容
  * @author lin
  */
-public class loginUser {
+public class LoginUser {
 
-    private static final long serialVersionUID = 1361595756726482849L;
 
     /**
      * 用户学号

@@ -2,14 +2,10 @@ package com.dzb.service;
 
 
 import com.dzb.commons.Result;
+import com.dzb.model.LoginUser;
+import com.dzb.model.ResetPasswordUser;
+import com.dzb.model.SendMailCodeUser;
 import com.dzb.model.User;
-import com.dzb.model.loginUser;
-import com.dzb.model.checkMailCodeUser;
-import com.dzb.model.sendMailCodeUser;
-import com.dzb.model.resetPasswordUser;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author: pinnuli
@@ -19,17 +15,38 @@ public interface UserService {
 
 
     /**
-     * @description 注册用户
+     * 保存用户到数据库
      * @param user
-     * @return 返回操作结果
+     * @return
      */
     Result<String> save(User user);
 
-    Result<String> login(loginUser user);
+    /**
+     * 登录时
+     * @param user
+     * @return
+     */
+    Result<String> login(LoginUser user);
 
-    Result<String> resetPassword(User currentUser,  resetPasswordUser user);
+    /**
+     * 重置密码
+     * @param currentUser
+     * @param user
+     * @return
+     */
+    Result<String> resetPassword(User currentUser, ResetPasswordUser user);
 
-    String getEmail(sendMailCodeUser user);
+    /**
+     * 获得用户邮箱
+     * @param user
+     * @return
+     */
+    String getEmail(SendMailCodeUser user);
 
+    /**
+     * 由学号获得用户名
+     * @param studentNum
+     * @return
+     */
     User getCurrentUser(long studentNum);
 }

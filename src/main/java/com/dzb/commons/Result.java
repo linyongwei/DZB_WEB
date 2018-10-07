@@ -44,7 +44,9 @@ public class Result<T> implements Serializable{
     }
 
     @JsonIgnore
-    //使之不在json序列化结果当中
+    /**
+     * //使之不在json序列化结果当中
+     */
     public boolean isSuccess(){
         return this.code == ResultCodeEnum.RESULT_CODE_SUCCESS.getCode();
     }

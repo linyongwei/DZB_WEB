@@ -4,7 +4,7 @@ package com.dzb.model;
  * @description: 邮箱验证码时用户需要填写的内容
  * @author lin
  */
-public class checkMailCodeUser {
+public class CheckMailCodeUser {
     /**
      * 验证码
      */

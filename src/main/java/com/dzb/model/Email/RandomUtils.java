@@ -1,9 +1,12 @@
-package com.dzb.model.Email;
+package com.dzb.model.email;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
- * 生成随机字符串
+ * @description: 生成随机字符串
+ * @author lin
  */
 public class RandomUtils {
     public String getRandom() {

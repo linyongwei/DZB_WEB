@@ -4,7 +4,7 @@ package com.dzb.model;
  * @description: 发送邮件时用户需要填写的内容
  * @author lin
  */
-public class sendMailCodeUser {
+public class SendMailCodeUser {
 
     /**
      * 账号，即学号

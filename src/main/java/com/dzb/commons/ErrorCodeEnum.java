@@ -5,8 +5,9 @@ package com.dzb.commons;
  * @date: 18-9-26
  */
 public enum ErrorCodeEnum {
-
-
+    /**
+     * 验证码错误
+     */
     VERIFICATIONCODE_ERROR(10000, "验证码错误"),
     EMAIL_NOT_BIND(10001, "该账号未绑定邮箱");
 

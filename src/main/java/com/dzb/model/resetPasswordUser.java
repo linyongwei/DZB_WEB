@@ -4,7 +4,7 @@ package com.dzb.model;
  * @description: 重置密码时用户需要填写的内容
  * @author lin
  */
-public class resetPasswordUser {
+public class ResetPasswordUser {
     /**
      * 原密码
      */

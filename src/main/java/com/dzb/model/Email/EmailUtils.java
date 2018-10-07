@@ -1,14 +1,9 @@
-package com.dzb.model.Email;
+package com.dzb.model.email;
 
-import java.util.Properties;
-import javax.mail.Authenticator;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
+import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 /**
  * 发送邮件的设置
@@ -17,7 +12,7 @@ import javax.mail.internet.MimeMessage;
 
 public class EmailUtils {
 
-    public static void send_mail(String to,String text) throws MessagingException {
+    public static void sendMail(String to,String text) throws MessagingException {
         //创建连接对象 连接到邮件服务器
         Properties properties = new Properties();
         //设置发送邮件的基本参数

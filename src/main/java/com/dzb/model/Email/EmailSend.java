@@ -1,11 +1,9 @@
-package com.dzb.model.Email;
+package com.dzb.model.email;
 
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 
 /**
  * 发送email
@@ -13,16 +11,20 @@ import java.awt.image.BufferedImage;
  *
  */
 public class EmailSend {
-    public static final String RANDOMCODEKEY = "emailcode_key";//放到session中的key
 
-    public void sendRandcode(String email, HttpServletRequest request,
-                            HttpServletResponse response){
-        HttpSession session = request.getSession();  //不知道用不用加个true
+    /**
+     * 放到session中的key
+     */
+    public static final String RANDOMCODEKEY = "emailcode_key";
+
+    public void sendRandCode(String email, HttpServletRequest request,
+                             HttpServletResponse response){
+        HttpSession session = request.getSession();
         //创建的随机数的工具类，生成验证码
         RandomUtils randomUtils = new RandomUtils();
         String random = randomUtils.getRandom();
         try {
-            EmailUtils.send_mail(email, "用户您好您的验证码为:"+random);
+            EmailUtils.sendMail(email, "用户您好您的验证码为:"+random);
             System.out.println("邮件发送成功!");
             session.removeAttribute(RANDOMCODEKEY);
             session.setAttribute(RANDOMCODEKEY, random);
