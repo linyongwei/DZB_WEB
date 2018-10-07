@@ -101,6 +101,15 @@ public class UserController {
     @RequestMapping(value = "/reset_password", method = RequestMethod.POST)  //用户重置密码
     public Result<String> resetPassword(@RequestBody resetPasswordUser user,
                                         HttpServletRequest request, HttpServletResponse response) {
+        if("".equals(user.getPassword())){
+            return Result.createByErrorMessage("请输入密码");
+        }
+        if("".equals(user.getRpassword())){
+            return Result.createByErrorMessage("请重复输入密码");
+        }
+        if(!user.getPassword().equals(user.getRpassword())){
+            return Result.createByErrorMessage("两次密码输入不一致");
+        }
         HttpSession session = request.getSession();
         User currentUser = (User)session.getAttribute("currentUser");
         return userService.resetPassword(currentUser, user);

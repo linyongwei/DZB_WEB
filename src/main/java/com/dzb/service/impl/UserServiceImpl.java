@@ -62,10 +62,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Result<String> resetPassword(User currentUser, resetPasswordUser user){
-        int resultCount = userDao.checkStudentPassword(currentUser.getStudentNum(), MD5Util.MD5Encode(user.getPassword(), "UTF-8"));
-        if(resultCount == 0){
-            return Result.createByErrorMessage("用户密码错误");
-        }
         userDao.resetPassword(currentUser.getStudentNum(), MD5Util.MD5Encode(user.getRpassword(), "UTF-8"));
         return Result.createBySuccessMessage("更改成功");
     }
