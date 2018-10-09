@@ -42,7 +42,7 @@
     </update>
 
     <!--根据用户名查找邮箱-->
-    <select id="searchEmail" parameterType="com.dzb.model.sendMailCodeUser" resultType="String">
+    <select id="searchEmail" parameterType="com.dzb.model.SendMailCodeUser" resultType="String">
         SELECT (email)  FROM
         user WHERE student_num=#{studentNum}
     </select>
