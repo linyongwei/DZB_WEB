@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dzb.dao.NoticeDao">
+
+    <!--插入新公告-->
+    <insert id="save" parameterType="com.dzb.model.Notice" >
+        INSERT INTO notice
+        (notice_title, notice_content)
+        VALUES
+        (#{noticeTitle},#{noticeContent})
+    </insert>
+
+    <!--取出所有公告-->
+    <select id="getAll"  resultType="com.dzb.model.Notice" >
+        SELECT * FROM notice WHERE is_delete = 0
+    </select>
+
+    <!--返回公告总条数-->
+    <select id="noticeTotalNum" parameterType="com.dzb.model.Notice" resultType="int">
+            SELECT COUNT(*) FROM notice WHERE is_delete = 0
+    </select>
+
+    <!--取出ID公告-->
+    <select id="getNotice"  resultType="com.dzb.model.Notice">
+        SELECT * FROM notice WHERE id = #{Id}
+    </select>
+
+    <!--按ID修改公告-->
+    <update id="updateNotice" parameterType="com.dzb.model.Notice">
+        UPDATE notice
+        SET  notice_title = #{noticeTitle},
+            notice_content = #{noticeContent}
+        WHERE id = #{Id}
+    </update>
+
+    <!--按ID删除公告-->
+    <update id="deleteNotice" parameterType="long">
+        UPDATE notice
+        SET is_delete = 1
+        WHERE  id = #{noticeId}
+    </update>
+
+</mapper>
