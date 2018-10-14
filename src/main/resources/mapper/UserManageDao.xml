@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dzb.dao.UserManageDao">
+
+
+    <!--根据学号获取用户信息-->
+    <select id="getUserInformation" resultType="com.dzb.model.User">
+        SELECT *
+        FROM user WHERE student_num=#{studentNum}
+    </select>
+
+    <!--获得用户简略信息组-->
+    <select id="selectAllUser" resultType="com.dzb.model.User">
+        SELECT  *FROM user where is_delete=0
+    </select>
+    <!--删除用户-->
+    <update id="delete" parameterType="long">
+        update user
+        <set>
+            is_delete=1,
+        </set>
+        <where>
+            student_num=#{studentNum}
+        </where>
+    </update>
+
+</mapper>

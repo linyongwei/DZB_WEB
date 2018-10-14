@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dzb.dao.UserInformationDao">
+
+
+    <!--保存修改用户-->
+    <update id="save" parameterType="com.dzb.model.User">
+        update user
+        <set>
+            <if test="studentNum != null">student_num=#{studentNum},</if>
+            <if test="name != null">name=#{name},</if>
+            <if test="password != null">password=#{password},</if>
+            <if test="grade != null">grade=#{grade},</if>
+            <if test="major != null">major=#{major},</if>
+            <if test="className != null">class_name=#{className},</if>
+            email=#{email},
+            phone=#{phone},
+            <if test="partyBranchName != null">party_branch_name=#{partyBranchName},</if>
+            <if test="role != null">role=#{role},</if>
+            <if test="identity != null">identity=#{identity},</if>
+            <if test="joinPartyTime != null">join_party_time=#{joinPartyTime},</if>
+            <if test="joinPartyContact != null">join_party_contact=#{joinPartyContact},</if>
+        </set>
+        <where>
+            student_num=#{studentNum}
+        </where>
+    </update>
+
+    <!--根据学号获取用户信息-->
+    <select id="getUserInformation" parameterType="com.dzb.model.User" resultType="com.dzb.model.User">
+        SELECT *
+        FROM user WHERE student_num=#{studentNum}
+    </select>
+
+
+</mapper>
