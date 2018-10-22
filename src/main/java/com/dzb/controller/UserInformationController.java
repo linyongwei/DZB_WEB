@@ -38,6 +38,7 @@ public class UserInformationController {
         HttpSession session = request.getSession();
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+        System.out.println("currentUser" + session.getAttribute("currentUser"));
         User currentUser;
         currentUser=(User)session.getAttribute("currentUser");
         User user = this.userInformationService.getUserInformation(currentUser);
@@ -55,6 +56,5 @@ public class UserInformationController {
         }
         return Result.createBySuccessMessage("保存成功");
     }
-
 
 }

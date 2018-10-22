@@ -1,3 +1,4 @@
+/*
 package com.dzb.service;
 
 import java.io.BufferedInputStream;
@@ -23,9 +24,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.stereotype.Controller;
+*/
 /**
  * @author: DYYing
- */
+ *//*
+
 
 public void setFileService(FileService fileService){
         this.fileService = fileService;
@@ -43,18 +46,22 @@ public interface FileService {
         return string;
     }
 
-    /*文件下载
+    */
+/*文件下载
      2018.9.30
-     */
+     *//*
+
     @RequestMapping(value = "/api/file/download?fileId=", method = RequestMethod.GET)
     public void downFile() {
         downFile(, );
     }
 
 
-    /*删除文件
+    */
+/*删除文件
  2018.10.1
- */
+ *//*
+
     @RequestMapping(value = "/api/file/delete" , ethod = RequestMethod.DELETE)
     public void deleteFile() {
         deleteFile(, );
@@ -65,3 +72,4 @@ public interface FileService {
 
 
 }
+*/

@@ -30,7 +30,7 @@ public class  NewsController {
     /**
      * 返回新闻简略信息数组
      */
-    @RequestMapping(value = "/newsList", method = RequestMethod.GET)
+    @RequestMapping(value = "/newslist", method = RequestMethod.GET)
     public Result queryList() {
 
         List<News> newsList = newsService.queryNewsList();

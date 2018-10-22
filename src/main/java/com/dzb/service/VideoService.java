@@ -1,3 +1,4 @@
+/*
 package com.dzb.service;
 
 import org.springframework.stereotype.Controller;
@@ -6,9 +7,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 //import com.dzb.model.File;
+*/
 /**
  * @author: HeAria
- */
+ *//*
+
 
 public void setVideoService(VideoService videoService){
         this.videoService = videoService;
@@ -28,11 +31,14 @@ public interface VideoService {
     }
 
 
-    /*删除文件
+    */
+/*删除文件
  2018.10.1
- */
+ *//*
+
     @RequestMapping(value = "/api/file/delete" , method = RequestMethod.DELETE)
     public void deleteFile() {
         deleteFile(, );
     }
 }
+*/

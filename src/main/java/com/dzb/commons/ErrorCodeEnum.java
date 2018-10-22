@@ -8,7 +8,7 @@ public enum ErrorCodeEnum {
     /**
      * 验证码错误
      */
-    VERIFICATIONCODE_ERROR(10000, "验证码错误"),
+    VERIFICATION_CODE_ERROR(10000, "验证码错误"),
     EMAIL_NOT_BIND(10001, "该账号未绑定邮箱");
 
     private Integer code;

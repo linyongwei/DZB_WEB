@@ -1,3 +1,4 @@
+/*
 package com.dzb.controller;
 
 import com.dzb.commons.Result;
@@ -23,9 +24,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 //import com.dzb.model.File;
+*/
 /**
  * @author: DYYing
- */
+ *//*
+
 
 @RestController
 @RequestMapping("/api/file")
@@ -90,9 +93,11 @@ public class  VideoController {
 
 
 
-    /*删除视频
+    */
+/*删除视频
          2018.10.1
-         */
+         *//*
+
     @RequestMapping(value = "/api/video/delete" , method = RequestMethod.DELETE)
     public void deleteFile(HttpServletRequest request,
                            HttpServletResponse response) {
@@ -114,4 +119,4 @@ public class  VideoController {
         }
     }
 
-}
+}*/

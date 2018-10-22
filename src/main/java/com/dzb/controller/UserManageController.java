@@ -47,7 +47,7 @@ public class UserManageController {
     }
 
     @RequestMapping(value = "/detailinfo/{studentNum}", method = RequestMethod.GET)
-    public Result getUserInformation(long studentNum, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public Result getUserInformation(@PathVariable long studentNum, HttpServletRequest request, HttpServletResponse response) throws IOException {
         /**
          * 根据学号获取用户个人信息
          */
@@ -60,7 +60,6 @@ public class UserManageController {
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-
     public Result<String> deleteUser(long studentNum) {
         /**
          * 根据学号删除用户个人信息

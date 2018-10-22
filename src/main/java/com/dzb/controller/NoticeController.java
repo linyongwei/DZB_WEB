@@ -36,7 +36,7 @@ public class NoticeController {
             return Result.createByErrorMessage("获取失败");
         }
         Map<String , Object> data = new HashMap<>();
-       data.put("NoticeList",noticeList);
+       data.put("noticeList",noticeList);
         return Result.createBySuccess(data);
     }
 

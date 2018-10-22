@@ -1,3 +1,4 @@
+/*
 package com.dzb.controller;
 
 import java.io.BufferedInputStream;
@@ -24,9 +25,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.stereotype.Controller;
+*/
 /**
  * @author: DYYing
- */
+ *//*
+
 
 @RestController
 @RequestMapping("/api/file")
@@ -90,9 +93,11 @@ public class  FileController {
 
 
 
-    /*文件下载
+    */
+/*文件下载
              2018.9.30
-             */
+             *//*
+
     @RequestMapping(value = "/api/file/download?fileId=", method = RequestMethod.GET)
     public void downFile(HttpServletRequest request , HttpServletResponse response) {
              Map<String, Object> map = new HashMap<String, Object>();
@@ -132,9 +137,11 @@ public class  FileController {
      }
 
 
-    /*删除文件
+    */
+/*删除文件
          2018.10.1
-         */
+         *//*
+
     @RequestMapping(value = "/api/file/delete" , ethod = RequestMethod.DELETE)
     public void deleteFile(HttpServletRequest request,
                          HttpServletResponse response) {
@@ -156,4 +163,4 @@ public class  FileController {
         }
     }
 
-}
+}*/
