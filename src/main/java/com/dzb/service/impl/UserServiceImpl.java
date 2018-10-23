@@ -8,6 +8,7 @@ import com.dzb.model.SendMailCodeUser;
 import com.dzb.model.User;
 import com.dzb.service.UserService;
 import com.dzb.util.MD5Util;
+import org.apache.ibatis.jdbc.Null;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +70,9 @@ public class UserServiceImpl implements UserService {
             return "";
         }
         String email = userDao.searchEmail(user);
-        if("".equals(email)){
+        System.out.println(email);
+        System.out.println();
+        if(email == null || email.length() <= 0){
             //这时是未绑定email
             email = "no";
         }

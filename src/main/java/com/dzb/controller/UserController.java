@@ -92,6 +92,9 @@ public class UserController {
         if("".equals(email)){
             return Result.createByErrorMessage("用户不存在");
         }
+        if("no".equals(email)){
+            return Result.createByErrorMessage("该用户未绑定邮箱");
+        }
         new EmailSend().sendRandCode(email, request, response);
         session.removeAttribute("currentStudentNum");
         //将当前用户存入session

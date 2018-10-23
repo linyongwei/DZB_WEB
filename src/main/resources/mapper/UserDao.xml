@@ -21,13 +21,13 @@
     <!--检查用户是否已存在-->
     <select id="checkStudentNum" parameterType="long" resultType="int">
         SELECT count(1) FROM user
-        WHERE student_num = #{studentNum}
+        WHERE student_num = #{studentNum} and is_delete = 0
     </select>
 
     <!--检查用户密码是否正确-->
     <select id="checkStudentPassword" resultType="int">
         SELECT count(1) FROM user
-        where student_num=#{studentNum} and password=#{password}
+        where student_num=#{studentNum} and password=#{password} and is_delete = 0
     </select>
 
     <!--更新用户密码,newPassword是一个resetPasswordUser-->
@@ -38,18 +38,18 @@
                 password=#{newPassword}
             </if>
         </set>
-        where student_num=#{studentNum}
+        where student_num=#{studentNum} and is_delete = 0
     </update>
 
     <!--根据用户名查找邮箱-->
     <select id="searchEmail" parameterType="com.dzb.model.SendMailCodeUser" resultType="String">
         SELECT (email)  FROM
-        user WHERE student_num=#{studentNum}
+        user WHERE student_num=#{studentNum} and is_delete = 0
     </select>
 
     <!--根据用户学号获取一个User对象-->
     <select id="getCurrentUser" parameterType="long" resultType="com.dzb.model.User">
         SELECT *
-        FROM user WHERE student_num=#{studentNum}
+        FROM user WHERE student_num=#{studentNum} and is_delete = 0
     </select>
 </mapper>
