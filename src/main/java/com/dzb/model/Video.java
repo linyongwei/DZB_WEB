@@ -1,56 +1,65 @@
-package VideoManagement;
+package com.dzb.model;
 
 import java.util.Date;
-import java.util.List;
-
 public class Video {
-    //视频ID
-    private int videoID;
-    //视频名称
-    private String videoName;
-    //视频作者
-    private String studentName;
-    //视频上传日期
-    private Date dateOfUpload;
 
-    private List<Video> videoList;
+    private int id;
+
+    private String studentNum;
+
+    private String videoName;
+
+    private Date uploadTime;
 
     private String webPath;
 
-    public Video(int videoID, String videoName, String studentName, Date date, String webPath){
+    private String realPath;
 
+    public void setRealPath(String realPath) {
+        this.realPath = realPath;
     }
 
-    public int getVideoID(){
-        return videoID;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setVideoID(Integer videoID) {
-        this.videoID = videoID;
+    public int getId() {
+        return id;
+    }
+
+    public void setStudentNum(String studentNum) {
+        this.studentNum = studentNum;
+    }
+
+    public String getStudentNum() {
+        return studentNum;
+    }
+
+    public void setVideoName(String videoName) {
+        this.videoName = videoName;
+    }
+
+    public void setWebPath(String webPath) {
+        this.webPath = webPath;
     }
 
     public String getVideoName() {
         return videoName;
     }
 
-    public void setVideoName(String title) {
-        this.videoName = title;
+    public void setUploadTime(Date uploadTime) {
+        this.uploadTime = uploadTime;
     }
 
-    public String getStudentName() {
-        return studentName;
+    public Date getUploadTime() {
+        return uploadTime;
     }
 
-    public void setStudentName(String author) {
-        this.studentName = author;
+    public String getWebPath() {
+        return webPath;
     }
 
-    public Date getDateOfUpload() {
-        return dateOfUpload;
+    public String getRealPath() {
+        return realPath;
     }
-
-    public void setDateOfUpload(Date dateOfUpload) {
-        this.dateOfUpload = dateOfUpload;
-    }
-
 }
