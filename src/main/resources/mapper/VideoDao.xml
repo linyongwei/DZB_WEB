@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dzb.dao.VideoDao">
+
+
+    <!--查询-->
+    <select id="queryVideoList"  resultType="com.dzb.model.Video">
+        SELECT * FROM video WHERE is_delete = 0
+    </select>
+
+    <!--insert-->
+    <insert id="uploadVideo" parameterType="com.dzb.model.Video">
+        INSERT INTO video
+        (video_name,web_path,real_path)
+        VALUES
+        (#{videoName},#{webPath},#{realPath})
+    </insert>
+
+    <!--Delete-->
+    <update id = "deleteVideo" parameterType="com.dzb.model.Video">
+        update video
+        <set>
+            is_delete = 1,
+        </set>
+        <where>
+            id=#{id}
+        </where>
+    </update>
+
+
+
+</mapper>
