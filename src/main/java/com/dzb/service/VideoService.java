@@ -1,44 +1,16 @@
-/*
 package com.dzb.service;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import com.dzb.commons.Result;
+import com.dzb.model.Video;
+import org.springframework.web.multipart.MultipartFile;
 
-//import com.dzb.model.File;
-*/
-/**
- * @author: HeAria
- *//*
-
-
-public void setVideoService(VideoService videoService){
-        this.videoService = videoService;
-        }
+import java.util.List;
 
 public interface VideoService {
+    List<Video> queryVideoList();
 
-    //文件上传
-    //2018.9.30
-    //
-    @Controller
-    @RequestMapping(value = "/api/file/upload",method = RequestMethod.POST)
-    public @ResponseBody
-    String upload() {
-        String string = upload();
-        return string;
-    }
+    Video uploadVideo(String videoDirPath,String appRootDir,
+                    MultipartFile videoFile,Video video);
 
-
-    */
-/*删除文件
- 2018.10.1
- *//*
-
-    @RequestMapping(value = "/api/file/delete" , method = RequestMethod.DELETE)
-    public void deleteFile() {
-        deleteFile(, );
-    }
+    Result<String> deleteVideo(Video video);
 }
-*/
