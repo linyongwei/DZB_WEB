@@ -1,6 +1,5 @@
 package com.dzb.controller;
 
-
 import com.dzb.commons.ConfigConsts;
 import com.dzb.commons.Result;
 import com.dzb.commons.ResultCodeEnum;
@@ -11,7 +10,6 @@ import com.dzb.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -59,8 +57,9 @@ public class VideoController {
         String appRootDir = request.getServletContext().getContextPath();
 
         Video video = new Video();
-        video = videoService.uploadVideo(videoDirPath, appRootDir, videoFile, video);
         video.setStudentNum(user.getStudentNum());
+        video = videoService.uploadVideo(videoDirPath, appRootDir, videoFile, video);
+
         if(video == null){
             return Result.createByErrorMessage("Upload Failed!");
         }
