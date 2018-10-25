@@ -4,14 +4,18 @@ package com.dzb.controller;
 import com.dzb.commons.ConfigConsts;
 import com.dzb.commons.Result;
 import com.dzb.commons.ResultCodeEnum;
-import com.dzb.dao.VideoDao;
+import com.dzb.model.User;
 import com.dzb.model.Video;
+import com.dzb.service.UserInformationService;
 import com.dzb.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +28,7 @@ public class VideoController {
     private VideoService videoService;
 
     @Autowired
-    private VideoDao videoDao;
+    private UserInformationService userInformationService;
 
     @RequestMapping(value = "/videolist", method = RequestMethod.GET)
     public Result queryVideoList(){
@@ -38,13 +42,25 @@ public class VideoController {
     }
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public Result uploadVideo(MultipartFile videoFile, HttpServletRequest request){
-        String videoDirPath = request.getSession().getServletContext().getRealPath(ConfigConsts.USER_IMAGE_DIRECTORY);
+    public Result uploadVideo(MultipartFile videoFile, HttpServletRequest request,
+                              HttpServletResponse response) throws IOException {
+        //添加学号信息
+        HttpSession session = request.getSession();
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        System.out.println("currentUser" + session.getAttribute("currentUser"));
+        User currentUser;
+        currentUser=(User)session.getAttribute("currentUser");
+        User user = userInformationService.getUserInformation(currentUser);
 
+
+        String videoDirPath = request.getSession().
+                getServletContext().getRealPath(ConfigConsts.USER_IMAGE_DIRECTORY);
         String appRootDir = request.getServletContext().getContextPath();
 
         Video video = new Video();
         video = videoService.uploadVideo(videoDirPath, appRootDir, videoFile, video);
+        video.setStudentNum(user.getStudentNum());
         if(video == null){
             return Result.createByErrorMessage("Upload Failed!");
         }
