@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dzb.dao.FileDao">
+
+
+    <!--查询-->
+    <select id="queryFileList"  resultType="com.dzb.model.File">
+        SELECT * FROM file WHERE is_delete = 0
+    </select>
+
+    <!--insert-->
+    <insert id="uploadFile" parameterType="com.dzb.model.File">
+        INSERT INTO file
+        (file_name,web_path,real_path)
+        VALUES
+        (#{fileName},#{webPath},#{realPath})
+    </insert>
+
+    <!--Delete-->
+    <update id = "deleteFile" parameterType="com.dzb.model.File">
+        update file
+        <set>
+            is_delete = 1,
+        </set>
+        <where>
+            id=#{id}
+        </where>
+    </update>
+
+
+
+</mapper>
