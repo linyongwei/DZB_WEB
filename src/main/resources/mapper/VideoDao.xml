@@ -14,9 +14,9 @@
     <!--insert-->
     <insert id="uploadVideo" parameterType="com.dzb.model.Video">
         INSERT INTO video
-        (video_name,web_path,real_path)
+        (video_name,web_path,real_path,student_num)
         VALUES
-        (#{videoName},#{webPath},#{realPath})
+        (#{videoName},#{webPath},#{realPath},#{studentNum})
     </insert>
 
     <!--Delete-->
