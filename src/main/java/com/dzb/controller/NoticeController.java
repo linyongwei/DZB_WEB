@@ -3,6 +3,7 @@ package com.dzb.controller;
 import com.dzb.commons.Result;
 import com.dzb.dao.NoticeDao;
 import com.dzb.model.Notice;
+import com.dzb.model.User;
 import com.dzb.service.NoticeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,38 +30,70 @@ public class NoticeController {
     private NoticeDao noticeDao;
 
     @RequestMapping(value = "/noticelist",method = RequestMethod.GET)
-    public Result noticelist(){
-        System.out.println("10");
+    public Result noticelist(HttpServletRequest request){
+
+        HttpSession session = request.getSession();
+        System.out.println("currentUser" + session.getAttribute("currentUser"));
+        User currentUser;
+        currentUser=(User)session.getAttribute("currentUser");
+        if(!currentUser.getRole().equals("支委")){
+            return Result.createBySuccessMessage("没有权限访问！");
+        }
         List<Notice> noticeList = noticeService.getAll();
         if(noticeList == null){
             return Result.createByErrorMessage("获取失败");
         }
         Map<String , Object> data = new HashMap<>();
-       data.put("noticeList",noticeList);
+        data.put("NoticeList",noticeList);
         return Result.createBySuccess(data);
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-        public Result create(@RequestBody Notice notice){
+    public Result create(@RequestBody Notice notice,HttpServletRequest request){
+
+        HttpSession session = request.getSession();
+        System.out.println("currentUser" + session.getAttribute("currentUser"));
+        User currentUser;
+        currentUser=(User)session.getAttribute("currentUser");
+        if(!currentUser.getRole().equals("支委")){
+            return Result.createBySuccessMessage("没有权限访问！");
+        }
+        notice.setStudentNum(currentUser.getStudentNum());
         return noticeService.save(notice);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public Result update(@RequestBody Notice notice){
-           int  flat= noticeService.modifyNotice(notice);
-           if(flat == 0){
-               return Result.createByErrorMessage("修改失败");
-           }
-           return Result.createBySuccess();
+    public Result update(@RequestBody Notice notice,HttpServletRequest request){
+
+        HttpSession session = request.getSession();
+        System.out.println("currentUser" + session.getAttribute("currentUser"));
+        User currentUser;
+        currentUser=(User)session.getAttribute("currentUser");
+        if(!currentUser.getRole().equals("支委")){
+            return Result.createBySuccessMessage("没有权限访问！");
+        }
+        int  flat= noticeService.modifyNotice(notice);
+        if(flat == 0){
+            return Result.createByErrorMessage("修改失败");
+        }
+        return Result.createBySuccess();
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-    public Result delete(long noticeId){
-       int flat = noticeService.deleteNotice(noticeId);
-       if(flat == 0){
-           return  Result.createBySuccessMessage("删除失败");
-       }
-       return Result.createBySuccessMessage("删除成功");
+    public Result delete(long noticeId,HttpServletRequest request){
+
+        HttpSession session = request.getSession();
+        System.out.println("currentUser" + session.getAttribute("currentUser"));
+        User currentUser;
+        currentUser=(User)session.getAttribute("currentUser");
+        if(!currentUser.getRole().equals("支委")){
+            return Result.createBySuccessMessage("没有权限访问！");
+        }
+        int flat = noticeService.deleteNotice(noticeId);
+        if(flat == 0){
+            return  Result.createBySuccessMessage("删除失败");
+        }
+        return Result.createBySuccessMessage("删除成功");
     }
 
 
