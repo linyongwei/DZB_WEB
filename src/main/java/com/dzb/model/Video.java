@@ -5,7 +5,7 @@ public class Video {
 
     private int id;
 
-    private String studentNum;
+    private Long studentNum;
 
     private String videoName;
 
@@ -27,11 +27,11 @@ public class Video {
         return id;
     }
 
-    public void setStudentNum(String studentNum) {
+    public void setStudentNum(Long studentNum) {
         this.studentNum = studentNum;
     }
 
-    public String getStudentNum() {
+    public Long getStudentNum() {
         return studentNum;
     }
 
