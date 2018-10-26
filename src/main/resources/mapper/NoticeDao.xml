@@ -8,14 +8,16 @@
     <!--插入新公告-->
     <insert id="save" parameterType="com.dzb.model.Notice" >
         INSERT INTO notice
-        (notice_title, notice_content)
+        (student_num,notice_title, notice_content)
         VALUES
-        (#{noticeTitle},#{noticeContent})
+        (#{studentNum},#{noticeTitle},#{noticeContent})
     </insert>
 
     <!--取出所有公告-->
     <select id="getAll"  resultType="com.dzb.model.Notice" >
         SELECT * FROM notice WHERE is_delete = 0
+        ORDER BY pub_time DESC
+
     </select>
 
     <!--返回公告总条数-->
