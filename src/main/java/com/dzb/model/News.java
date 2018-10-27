@@ -1,6 +1,8 @@
 package com.dzb.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.xml.crypto.Data;
 import java.util.Date;
 
@@ -9,7 +11,7 @@ import java.util.Date;
  * @author: Tomgood
  * @date: 2018-10-08
  */
-
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class News {
 
     /**
@@ -21,7 +23,7 @@ public class News {
      *       "pubTime": "/Date(1520937880227)/"
      */
 
-    private int Id;
+    private int id;
 
     private long studentNum;
 
@@ -33,12 +35,12 @@ public class News {
 
     private Date pubTime;
 
-    public int getId() {
-        return Id;
+    public int getid() {
+        return id;
     }
 
-    public void setId(int Id) {
-        this.Id = Id;
+    public void setid(int id) {
+        this.id = id;
     }
 
     public long getStudentNum() {

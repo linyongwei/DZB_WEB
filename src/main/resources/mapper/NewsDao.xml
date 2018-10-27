@@ -20,8 +20,14 @@
     </insert>
 
     <!--删除指定新闻-->
-    <delete id="deleteNews" parameterType="com.dzb.model.News">
-        DELETE FROM news WHERE id = #{newsId}
-    </delete>
+    <update id="deleteNews" parameterType="com.dzb.model.News">
+        UPDATE news
+        SET is_delete = 1
+        WHERE  id = #{id}
+    </update>
+
+    <!--<delete id="deleteNews" parameterType="com.dzb.model.News">-->
+        <!--DELETE FROM news WHERE id = #{newsId}-->
+    <!--</delete>-->
 
 </mapper>

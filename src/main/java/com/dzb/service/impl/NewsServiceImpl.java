@@ -47,10 +47,10 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public Result<String> deleteNews(News news) {
-        int deleteResult = newsDao.deleteNews(news.getId());
+    public Result<String> deleteNews(int id) {
+        int deleteResult = newsDao.deleteNews(id);
         if (deleteResult==0){
-            return Result.createByErrorMessage("插入新闻失败!");
+            return Result.createByErrorMessage("删除新闻失败!");
         }
         else {
             return Result.createBySuccess("成功!");
