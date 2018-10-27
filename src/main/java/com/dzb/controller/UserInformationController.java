@@ -60,6 +60,7 @@ public class UserInformationController {
         if (flat == 0) {
             return Result.createBySuccessMessage("保存失败");
         }
+        session.setAttribute("currentUser", currentUser);
         return Result.createBySuccessMessage("保存成功");
     }
 

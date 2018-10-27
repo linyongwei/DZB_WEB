@@ -3,14 +3,17 @@ package com.dzb.service.impl;
 import com.dzb.commons.ConfigConsts;
 import com.dzb.commons.Result;
 import com.dzb.dao.FileDao;
-import com.dzb.model.File;
+import com.dzb.model.FileInfo;
 import com.dzb.service.FileService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -22,7 +25,8 @@ import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 /**
  * Created by DYYing on 2018/10/21.
  */
-public class FileServicelmpl implements FileService {
+@Service
+public class FileServiceImpl implements FileService {
 
     private static Logger logger = LoggerFactory.getLogger(FileService.class);
 
@@ -35,17 +39,17 @@ public class FileServicelmpl implements FileService {
      * @return
      */
     @Override
-    public List<File> queryFileList(){
+    public List<FileInfo> queryFileList(){
 
-        List<File> fileList = new ArrayList<>();
-        fileList = fileDao.queryFileList();
+        List<FileInfo> fileInfoList = new ArrayList<>();
+        fileInfoList = fileDao.queryFileList();
 
-        return fileList;
+        return fileInfoList;
     }
 
     @Override
-    public File uploadFile(String fileDirPath, String appRootDir,
-                          MultipartFile File1, File file) {
+    public FileInfo uploadFile(String fileDirPath, String appRootDir,
+                               MultipartFile File1, FileInfo fileInfo) {
         String uploadFileName = File1.getOriginalFilename();
 
         //Set child catalog
@@ -54,10 +58,10 @@ public class FileServicelmpl implements FileService {
         String childDir = formatter.format(currentTime);
 
         //Set web path
-        String webPath = appRootDir + ConfigConsts.USER_IMAGE_DIRECTORY + childDir +  uploadFileName;
+        String webPath = appRootDir + ConfigConsts.FILE_DIRECTORY + childDir + File.separator + uploadFileName;
 
         //Set real path
-        String realPath = fileDirPath + childDir;
+        String realPath = fileDirPath + childDir + java.io.File.separator;
         java.io.File fileDir = new java.io.File(realPath);
         if(!fileDir.exists()){
             fileDir.setWritable(true);
@@ -72,27 +76,27 @@ public class FileServicelmpl implements FileService {
             return null;
         }
 
-        file.setRealPath(realPath);
-        file.setWebPath(webPath);
-        file.setFileName(uploadFileName);
-        int uploadResult = fileDao.uploadFile(file);
+        fileInfo.setRealPath(realPath);
+        fileInfo.setWebPath(webPath);
+        fileInfo.setFileName(uploadFileName);
+        int uploadResult = fileDao.uploadFile(fileInfo);
         if(uploadResult == 0){
             return null;
         }
 
-        return file;
+        return fileInfo;
 
     }
 
 
     @Override
-    public Result<String> downFile(HttpServletResponse response, File file) {
+    public Result<String> downFile(HttpServletResponse response, FileInfo fileInfo) {
 
         // 得到要下载的文件名
-        String fileName = file.getFileName();
+        String fileName = fileInfo.getFileName();
         try {
             // 上传位置
-            String fileSaveRootPath = file.getRealPath();
+            String fileSaveRootPath = fileInfo.getRealPath();
             // 读取要下载的文件，保存到文件输入流
             FileInputStream in = new FileInputStream(fileSaveRootPath + "\\" + fileName);
             // 创建输出流
@@ -110,16 +114,16 @@ public class FileServicelmpl implements FileService {
             // 关闭输出流
             out.close();
         } catch (Exception e) {
-            Result.createByErrorMessage("download file Failed!");
+            Result.createByErrorMessage("download fileInfo Failed!");
         }
         Map<String, Object> data = new HashMap<>();
-        data.put("file", file);
+        data.put("file", fileInfo);
         return Result.createBySuccess("Success!");
     }
 
     @Override
-    public Result<String> deleteFile(File file){
-        int deleteResult = fileDao.deleteFile((int) file.getId());
+    public Result<String> deleteFile(@RequestParam Integer fileId){
+        int deleteResult = fileDao.deleteFile(fileId);
         if(deleteResult == 0){
             return Result.createByErrorMessage("Delete Error.");
         } else {

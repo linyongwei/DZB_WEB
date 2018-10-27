@@ -9,6 +9,7 @@
     <!--查询-->
     <select id="queryVideoList"  resultType="com.dzb.model.Video">
         SELECT * FROM video WHERE is_delete = 0
+        ORDER BY upload_time DESC
     </select>
 
     <!--insert-->

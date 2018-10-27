@@ -7,12 +7,12 @@
 
 
     <!--查询-->
-    <select id="queryFileList"  resultType="com.dzb.model.File">
+    <select id="queryFileList"  resultType="com.dzb.model.FileInfo">
         SELECT * FROM file WHERE is_delete = 0
     </select>
 
     <!--insert-->
-    <insert id="uploadFile" parameterType="com.dzb.model.File">
+    <insert id="uploadFile" parameterType="com.dzb.model.FileInfo">
         INSERT INTO file
         (file_name,web_path,real_path)
         VALUES
@@ -20,7 +20,7 @@
     </insert>
 
     <!--Delete-->
-    <update id = "deleteFile" parameterType="com.dzb.model.File">
+    <update id = "deleteFile" parameterType="com.dzb.model.FileInfo">
         update file
         <set>
             is_delete = 1,

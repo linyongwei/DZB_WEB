@@ -12,5 +12,5 @@ public interface VideoService {
     Video uploadVideo(String videoDirPath,String appRootDir,
                     MultipartFile videoFile,Video video);
 
-    Result<String> deleteVideo(Video video);
+    Result<String> deleteVideo(Integer videoId);
 }

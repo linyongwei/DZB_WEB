@@ -18,7 +18,7 @@ import java.util.List;
 import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
 @Service
-public class VideoServiceImpl implements VideoService {
+public class VideoServiceImpI implements VideoService {
     @Autowired
     private VideoDao videoDao;
 
@@ -44,7 +44,7 @@ public class VideoServiceImpl implements VideoService {
         String childDir = formatter.format(currentTime);
 
         //Set web path
-        String webPath = appRootDir + ConfigConsts.USER_IMAGE_DIRECTORY + childDir +  uploadVideoName;
+        String webPath = appRootDir + ConfigConsts.VIDEO_DIRECTORY + childDir + File.separator + uploadVideoName;
 
         //Set real path
         String realPath = videoDirPath + childDir;
@@ -75,8 +75,8 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public Result<String> deleteVideo(Video video){
-        int deleteResult = videoDao.deleteVideo(video.getId());
+    public Result<String> deleteVideo(Integer videoId){
+        int deleteResult = videoDao.deleteVideo(videoId);
         if(deleteResult == 0){
             return Result.createByErrorMessage("Delete Error.");
         } else {

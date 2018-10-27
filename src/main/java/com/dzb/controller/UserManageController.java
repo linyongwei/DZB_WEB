@@ -39,7 +39,8 @@ public class UserManageController {
         System.out.println("currentUser" + session.getAttribute("currentUser"));
         User currentUser;
         currentUser=(User)session.getAttribute("currentUser");
-        if(!currentUser.getRole().equals("支委")){
+        System.out.println("角色：" + currentUser.getRole());
+        if(!"支委".equals(currentUser.getRole())){
             return Result.createBySuccessMessage("没有权限访问！");
         }
         List<User> userList = userManageService.selectAllUser();
@@ -53,7 +54,7 @@ public class UserManageController {
     }
 
     @RequestMapping(value = "/detailinfo/{studentNum}", method = RequestMethod.GET)
-    public Result getUserInformation( long studentNum, HttpServletRequest request) throws IOException {
+    public Result getUserInformation( @PathVariable long studentNum, HttpServletRequest request) throws IOException {
         /**
          * 根据学号获取用户个人信息
          */
@@ -61,7 +62,7 @@ public class UserManageController {
         System.out.println("currentUser" + session.getAttribute("currentUser"));
         User currentUser;
         currentUser=(User)session.getAttribute("currentUser");
-        if(!currentUser.getRole().equals("支委")){
+        if(!"支委".equals(currentUser.getRole())){
             return Result.createBySuccessMessage("没有权限访问！");
         }
         User user = this.userManageService.getUserInformation(studentNum);
@@ -81,7 +82,7 @@ public class UserManageController {
                 ("currentUser" + session.getAttribute("currentUser"));
         User currentUser;
         currentUser=(User)session.getAttribute("currentUser");
-        if(!currentUser.getRole().equals("支委")){
+        if(!"支委".equals(currentUser.getRole())){
             return Result.createBySuccessMessage("没有权限访问！");
         }
         int flat = userManageService.delete(studentNum);

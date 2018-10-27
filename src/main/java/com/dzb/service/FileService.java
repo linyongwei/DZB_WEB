@@ -1,7 +1,7 @@
 package com.dzb.service;
 
 import com.dzb.commons.Result;
-import com.dzb.model.File;
+import com.dzb.model.FileInfo;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
@@ -9,14 +9,14 @@ import java.util.List;
 
 public interface FileService {
 
-    List<File> queryFileList();
+    List<FileInfo> queryFileList();
 
-    File uploadFile(String fileDirPath, String appRootDir,
-                   MultipartFile File1, File file);
+    FileInfo uploadFile(String fileDirPath, String appRootDir,
+                        MultipartFile File1, FileInfo fileInfo);
 
-    Result<String> downFile(HttpServletResponse response,File file);
+    Result<String> downFile(HttpServletResponse response,FileInfo fileInfo);
 
-    Result<String> deleteFile(File file);
+    Result<String> deleteFile(Integer fileId);
 
 
 

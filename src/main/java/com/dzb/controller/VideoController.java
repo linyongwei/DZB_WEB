@@ -53,7 +53,7 @@ public class VideoController {
 
 
         String videoDirPath = request.getSession().
-                getServletContext().getRealPath(ConfigConsts.USER_IMAGE_DIRECTORY);
+                getServletContext().getRealPath(ConfigConsts.VIDEO_DIRECTORY);
         String appRootDir = request.getServletContext().getContextPath();
 
         Video video = new Video();
@@ -69,9 +69,9 @@ public class VideoController {
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-    public Result<String> deleteVideo(Video video){
+    public Result<String> deleteVideo(@RequestParam Integer videoId){
         System.out.println("Deleted");
-        return videoService.deleteVideo(video);
+        return videoService.deleteVideo(videoId);
     }
 
 }

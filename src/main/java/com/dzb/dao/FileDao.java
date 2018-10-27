@@ -1,5 +1,5 @@
 package com.dzb.dao;
-import com.dzb.model.File;
+import com.dzb.model.FileInfo;
 
 import java.util.List;
 
@@ -8,20 +8,20 @@ public interface FileDao {
      * 返回公告列表
      *  @return
      */
-    List<File> queryFileList();
+    List<FileInfo> queryFileList();
 
     /**
      * 上传
      *  @return
      */
-    int uploadFile(File file);
+    int uploadFile(FileInfo fileInfo);
 
 
     /**
      * 获得
      *  @return
      */
-    int downFile(File file);
+    int downFile(FileInfo fileInfo);
 
     /**
      * 删除

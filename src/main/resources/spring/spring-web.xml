@@ -58,16 +58,44 @@
     </bean>
 
 
-    <!--注册拦截器-->
-    <!--<mvc:interceptors>
+    <!--拦截器-->
+    <mvc:interceptors>
+        <!--登录拦截器-->
         <mvc:interceptor>
-            &lt;!&ndash; 进行拦截：/**表示拦截所有controller &ndash;&gt;
-            <mvc:mapping path="/**" />
-            &lt;!&ndash; 不进行拦截 &ndash;&gt;
+            <!-- 进行拦截：/**表示拦截所有controller -->
+            <mvc:mapping path="/api/**" />
+            <!-- 不进行拦截 -->
             <mvc:exclude-mapping path="/api/user/login" />
-            <mvc:exclude-mapping path="/api/user/create" />
-            <bean class="com.pinnuli.interceptor.JWTInterceptor" />
+            <mvc:exclude-mapping path="/api/user/register" />
+            <mvc:exclude-mapping path="/api/user/verification_code" />
+            <mvc:exclude-mapping path="/api/user/send_mail_code" />
+            <mvc:exclude-mapping path="/api/user/check_mail_code" />
+            <mvc:exclude-mapping path="/api/user/reset_password" />
+            <mvc:exclude-mapping path="/api/notice/noticelist" />
+            <mvc:exclude-mapping path="/api/news/newslist" />
+            <mvc:exclude-mapping path="/api/video/videolist" />
+            <bean class="com.dzb.interceptor.LoginInterceptor" />
         </mvc:interceptor>
-    </mvc:interceptors>-->
+
+        <mvc:interceptor>
+            <!-- 进行拦截：/**表示拦截所有controller -->
+            <mvc:mapping path="/api/**" />
+            <!-- 不进行拦截 -->
+            <mvc:exclude-mapping path="/api/user/login" />
+            <mvc:exclude-mapping path="/api/user/register" />
+            <mvc:exclude-mapping path="/api/user/verification_code" />
+            <mvc:exclude-mapping path="/api/user/send_mail_code" />
+            <mvc:exclude-mapping path="/api/user/check_mail_code" />
+            <mvc:exclude-mapping path="/api/user/reset_password" />
+            <mvc:exclude-mapping path="/api/notice/noticelist" />
+            <mvc:exclude-mapping path="/api/news/newslist" />
+            <mvc:exclude-mapping path="/api/video/videolist" />
+            <mvc:exclude-mapping path="/api/person/info" />
+            <mvc:exclude-mapping path="/api/person/save" />
+            <mvc:exclude-mapping path="/api/file/filelist" />
+
+            <bean class="com.dzb.interceptor.RoleInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

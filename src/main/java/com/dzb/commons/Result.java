@@ -82,6 +82,10 @@ public class Result<T> implements Serializable{
         return new Result<T>(errorCodeEnum.getCode(), errorCodeEnum.getMessage());
     }
 
+    public static <T> Result<T> createByResultCodeEnum(ResultCodeEnum resultCodeEnum) {
+        return new Result<T>(resultCodeEnum.getCode(), resultCodeEnum.getMessage());
+    }
+
     public static <T> Result<T> createBySuccess() {
         return new Result(ResultCodeEnum.RESULT_CODE_SUCCESS);
     }

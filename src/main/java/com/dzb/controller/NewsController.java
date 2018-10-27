@@ -55,11 +55,11 @@ public class  NewsController {
     /**
      *删除指定的新闻
      */
-    @RequestMapping(value = "/delete",method = RequestMethod.POST)
-    public Result<String> deleteNews(@RequestBody News news){
+    @RequestMapping(value = "/delete",method = RequestMethod.DELETE)
+    public Result<String> deleteNews(@RequestParam Integer newsId){
 
         System.out.println("删除了");
-        return newsService.deleteNews(news);
+        return newsService.deleteNews(newsId);
     }
 }
 

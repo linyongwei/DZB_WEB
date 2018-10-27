@@ -212,7 +212,7 @@
   </dependencies>
 
   <build>
-    <finalName>Scau-Circle-Server</finalName>
+    <finalName>DZB_WEB</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

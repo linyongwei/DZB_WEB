@@ -1,10 +1,12 @@
 package com.dzb.model;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by DYYing on 2018/10/21.
  */
-public class File {
+public class FileInfo implements Serializable{
+    private static final long serialVersionUID = 6545042575145022622L;
     //    编号
     private int Id;
 

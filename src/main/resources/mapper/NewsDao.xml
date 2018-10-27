@@ -9,6 +9,7 @@
     <!--查询-->
     <select id="queryNewsList"  resultType="com.dzb.model.News">
         SELECT * FROM news WHERE is_delete = 0
+        ORDER BY pub_time DESC
     </select>
 
     <!--插入新建新闻-->
