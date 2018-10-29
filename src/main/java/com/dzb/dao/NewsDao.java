@@ -28,5 +28,5 @@ public interface NewsDao {
      * 删除指定新闻
      * @return
      */
-    int deleteNews(int news);
+    int deleteNews(int id);
 }

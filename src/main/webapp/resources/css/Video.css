@@ -1,0 +1,128 @@
+﻿		body,div,h3{margin:0px;padding:0px;}
+		body{
+			font: 12px/1.5 Tahoma,Helvetica,Arial;
+			background:#333;
+		}
+		.myBox{
+			display: none;
+			padding:0px 20px;
+		}
+		.left{
+			display: inline-block;
+			width:75%;
+			padding: 0px;
+			background: #fff;
+		}
+		.right{
+			float:right;
+			height: 600px;
+			width:24%;
+			padding: 0px;
+			border: 1px solid gray;
+			background:#fff;
+		}
+		.title{
+			padding: 10px 0px;
+			margin:0px;
+			color:#fff;
+			text-align: center;
+		}
+		.leftTitle{
+			width: 100%;
+			height:10%;
+			padding:2% 0;
+			background: orange;
+			text-align: center;
+			border-radius: 5px 5px;
+		}
+		.rightTitle{
+			width: 100%;
+			height:10%;
+			padding:3% 0;
+			background: orange;
+			text-align: center;
+			border-radius: 5px 5px;
+		}
+		.chatBox{
+			height: 90%;
+			position: relative;
+			background: #fff;
+			width:100%;
+
+		}
+		.inputMessage{
+			position: absolute;
+			bottom: 0px;
+		}
+		.changeAdd{
+			padding:0px;
+			border: none;
+		}
+		.roomNumber{
+			display: none;
+		}
+		#message{
+			display: none;
+			height:40px;
+			margin:3px 0 0 0 ;
+			padding: 8px 0 0 0;
+			color:#fff;
+			font-size:15px;
+			text-align: center;
+			background: #fc4a12;
+			border-radius: 5px;
+		}
+		.videos{
+			height:100%;
+			width:100%;
+			border: 1px solid #000;
+			/*display: none;*/
+		}
+		.video1{
+			height:250px;
+			width:24.5%;
+			margin:0 0 0 2px;
+			float:left;
+			border: 1px solid #000;
+		}
+		.noteBlue{
+				float:left;
+				width:80%;
+				border:1px solid orange;
+				border-radius: 15px;
+				margin:10px 5px;
+				padding:15px;
+				font-size:16px;
+				background: #cd985f;
+				word-wrap:break-word;
+				text-align:justify;
+		}
+		.scroll{
+			height: 100%;
+			overflow-x: hidden;
+			overflow-y: scroll;
+		}
+		@media screen and (max-width: 768px){
+			.myBox{
+				height: 620px;
+				padding: 0px;
+			}
+			.left{
+				width:100%;
+			}
+			.right{
+				width:100%;
+			}
+			#openSend{
+				display: none;
+			}
+			.right{
+				display: block;
+			}
+			.video1{
+				height:360px;
+				width:100%;
+				float:left;
+				border: 1px solid #000;
+			}
+		}

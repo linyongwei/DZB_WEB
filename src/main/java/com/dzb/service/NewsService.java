@@ -12,4 +12,5 @@ public interface NewsService {
     Result<String> addNews(News news);
 
     Result<String> deleteNews(Integer newsId);
+
 }

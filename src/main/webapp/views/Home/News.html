@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计机第二党支部通知</title>
+    <link rel="stylesheet" type="text/css" href="/Style/main.css">
+</head>
+<body>
+    <div class="notice_style_img"><img src="/Image/05.jpg" alt=""></div>
+    <div class="notice_style">
+        <h2>@ViewData.Model.NewsName</h2>                                                        //？？
+        <p class="notice_style_text" style="line-height: 45px;text-align: left">
+            @(new HtmlString(ViewData.Model.Link))
+        </p>
+        <div style="margin-right:200px ;text-align: right">@ViewData.Model.Time.ToString("yyyy年MM月dd日")</div>
+
+    </div>
+</body>
+</html>

@@ -209,6 +209,14 @@
       <version>0.9.1</version>
     </dependency>
 
+
+    <!-- jstl -->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
   </dependencies>
 
   <build>

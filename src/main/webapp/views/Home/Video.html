@@ -1,0 +1,444 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>本科生计算机与技术第二党支部管理平台视频会议</title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link rel="shortcut icon" href="/Image/favicon.ico" type="image/x-icon">
+    <link href="~/Style/Video.css" rel="stylesheet" type="text/css" />
+    <link href="~/Style/VideoLogin.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <div class="box col-sm-offset-4 col-sm-3">
+        <h3 class="logo"><i class="glyphicon glyphicon-flag"></i>党支部会议</h3>
+        <div class="form-group my-group appId">
+            <div class="input-group col-sm-10 col-sm-offset-1">
+                <span class="input-group-addon" id="appId"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" class="form-control" placeholder="密匙" aria-describedby="appId" name="appId">
+            </div>
+        </div>
+        <div class="form-group my-group roomNumber">
+            <div class="input-group col-sm-10 col-sm-offset-1">
+                <span class="input-group-addon" id="roomNumber"><i class="glyphicon glyphicon-home"></i></span>
+                <input type="text" class="form-control" placeholder="房间号" aria-describedby="roomNumber" name="roomNumber">
+            </div>
+        </div>
+        <div class="form-group my-group">
+            <div class="col-sm-8 col-sm-offset-2">
+                <a class="btn btn-success" id="connectMeeting">连接服务器</a>
+                <a class="btn btn-warning" id="returnCenter">返 回 中 心</a>
+            </div>
+        </div>
+        <div class="form-group my-group">
+            <div class="col-sm-12 ">
+                <button class="close" style="display: none">&times;</button>
+                <p id="message"></p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class=" myBox">
+            <h2 class="title">本科生计算机科学与技术第二党支部视频会议</h2>
+
+            <div class=" left">
+                <h3 class="leftTitle">
+                    <b>视 频 会 议</b>
+                    <button class="btn btn-warning pull-right" id="openSend">关闭留言区</button>
+                    <button class="btn btn-warning pull-right" id="leaveMeeting">离开房间</button>
+                </h3>
+                <div class="videos">
+                    <video id="local" controls class="video1" autoplay></video>
+                    <video id="remote" controls class="video1" autoplay hidden></video>
+                </div>
+            </div>
+            <!-- 留言区 -->
+            <div class="right">
+                <h3 class="rightTitle"><b>留 言 区</b></h3>
+                <div class="chatBox">
+                    <div id="chatMsg" class="scroll">
+                    </div>
+                    <div class="inputMessage">
+                        <div class="input-group ">
+                            <input id="editor_id" type="text" class="form-control" placeholder="Send Message" name="message">
+                            <span class="input-group-addon changeAdd"><button id="sub-Btn" class="btn  btn-warning">发送</button></span>
+                            <span class="input-group-addon changeAdd"><button id="reflesh" class="btn  btn-warning">刷新</button></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script type="text/javascript" src='https://cdn.wilddog.com/sdk/js/2.5.6/wilddog.js'></script>
+    <script type="text/javascript" src='https://cdn.wilddog.com/sdk/js/2.0.1-beta/wilddog-video-room.js'></script>
+
+    <script type="text/javascript">
+
+        //wd4148201183iyvimm
+        //获取所使用到的所有元素
+        let box = $(".box");
+        let myBox = $(".myBox");
+
+        //登陆进入房间使用到的EL
+        let appidEl = $("input[name=appId]");
+        let roomIdEl = $("input[name=roomNumber]");
+        let messageEl = $("#message");
+        let closeEl = $(".close");
+        let roomNumberDivEl = $(".roomNumber");
+        let appIdDivEl = $(".appId");
+        let connectMeetingEl = $("#connectMeeting");
+        let returnCenterEl = $("#returnCenter");
+
+        //视频会议使用到的EL
+        let openSendEl = $("#openSend");
+        let leaveMeetingEl = $("#leaveMeeting");
+        let leftEl = $(".left");
+        let rightEl = $(".right");
+
+        //视频EL
+        let videosEl = $(".videos");
+        let localEl = $("#local");
+        let remoteEl = $("#remote");
+
+        let localStream = null;
+        let roomInstance = null;
+        //控制功能
+        //隐藏消息
+        function messageHide() {
+            closeEl.hide();
+            messageEl.hide();
+        }
+        //显示消息
+        function messageShow() {
+            closeEl.show();
+            messageEl.show();
+        }
+        //登陆窗口
+        function loginStatus() {
+            connectMeetingEl.text("连接服务器");
+            appIdDivEl.show();
+            roomNumberDivEl.hide();
+        }
+        //链接窗口
+        function connectStatus() {
+            connectMeetingEl.text("连接房间");
+            appIdDivEl.hide();
+            roomNumberDivEl.show();
+        }
+        //打开关闭留言栏
+        function openSendToggle() {
+            if (openSendEl.text() == "打开留言区") {
+                openSendEl.text("关闭留言区");
+                leftEl.animate({ "width": "75%" }, 500, function () {
+                    leftEl.attr("width", "75%");
+                });
+                rightEl.show(1000);
+            }
+            else {
+                leftEl.animate({ "width": "100%" }, 1200, function () {
+                    leftEl.attr("width", "100%");
+                });
+                rightEl.hide(1000);
+                openSendEl.text("打开留言区");
+            }
+        }
+
+        //连接断开功能
+        //使用Appid登陆
+        function login() {
+            if (!appidEl.val()) {
+                messageEl.text("输入不能为空！");
+                messageShow();
+                return;
+            }
+            let config = {
+                authDomain: appidEl.val() + '.wilddog.com'
+            };
+            wilddog.initializeApp(config);
+
+            wilddog.auth().signInAnonymously().then(function (user) {
+                messageEl.text("登陆成功！请选择房间");
+                connectStatus();
+                // //通过wilddogVideo初始化 WilddogRoom SDK
+                wilddogVideo.initialize({ 'appId': appidEl.val(), 'token': user.getToken() });
+                //通过wilddogVideo创建本地媒体流
+                wilddogVideo.createLocalStream({
+                    captureVideo: true,
+                    captureAudio: true,
+                    dimension: '480p',
+                    maxFPS: 15
+                }).then(function (wdStream) {
+                    localStream = wdStream;
+                    localStream.attach(localEl);
+                }).catch(function (err) {
+                    messageEl.text("其他错误：可能是未打开摄像头或者麦克风！");
+                    console.log(err);
+                });
+
+            }).catch(function (err) {
+                messageEl.text("连接服务器失败，请检查你的密匙！");
+                console.log(err);
+            });
+            messageShow();
+        }
+
+        //加入房间
+        function connect() {
+            let roomId = null;
+            let currentConference = null;
+            roomId = roomIdEl.val();
+            if (!roomId) {
+                message.text("输入不能为空！");
+                messageShow();
+                return; //空值返回
+            }
+            //进入房间的时候隐藏登陆窗口
+            box.hide();
+            myBox.show();
+
+            //拿到房间号
+            roomId = roomIdEl.val();
+            //通过wilddogRoom创建WilddogRoom实例
+            roomInstance = wilddogVideo.room(roomId);
+
+            //**********
+            meetingName = roomId;
+            $.ajax("/Home/CheckAttendance_signin", {
+                type: "POST",
+                data: "meetingId=" + roomId,
+                error: function (err) { alert(err) },
+                success: function (result) {
+                    if (result == "Success") {
+                        //alert("您已完成签到");
+                    }
+                }
+            });
+            //**********
+
+            //进入到room
+            roomInstance.connect();
+            //room事件
+            roomInstance.on('connected', function () {
+                console.log('connected success');
+                //单个人的时候
+                //发布本地流
+                roomInstance.publish(localStream, function (error) {
+                    if (error == null) {
+                        console.log('publish success');
+                        localStream.attach(localEl[0]);
+                    } else {
+                        console.log('publish error' + error);
+                    }
+                });
+
+                //多人的时候
+                //Room内有流加入，此时不是真正的流，需要选择订阅才能获取
+                roomInstance.on('stream_added', function (roomStream) {
+                    //订阅远端流
+                    roomInstance.subscribe(roomStream, function (error) {
+                        if (error == null) {
+                            console.log('subscribe success');
+                        }
+                    });
+                });
+                //此时接受的了真正的流，可以把获取到的远端流放入远端标签
+                roomInstance.on('stream_received', function (roomStream) {
+                    let newRemote = remoteEl.clone(true);
+                    console.log("roomStream");
+                    console.log("roomStream.streamId");
+                    newRemote[0].id = roomStream.streamId;
+                    videosEl.append(newRemote);
+                    newRemote.show();
+                    roomStream.attach(newRemote[0]);
+
+                });
+                //Room内有流离开，将流从远端移除
+                roomInstance.on('stream_removed', function (roomStream) {
+                    let removeEl = document.getElementById(roomStream.streamId);
+                    roomStream.detach(removeEl);
+                    videosEl[0].removeChild(removeEl);
+                });
+                roomInstance.on('disconnected', function () {
+                    console.log('disconnected room')
+                })
+            });
+        };
+        //离开房间
+        function disconnect() {
+            //**********
+            if (meetingName != null) {
+                $.ajax("/Home/CheckAttendance_signout", {
+                    type: "POST",
+                    data: "meetingId=" + meetingName,
+                    error: function (err) { alert(err) },
+                    success: function (result) {
+                        if (result == "Success") {
+                            //alert("您已完成签退");
+                        }
+                    }
+                });
+            }
+            //**********
+
+            roomInstance.disconnect();
+            myBox.hide();
+            box.show();
+            connectStatus();
+            videosEl.empty();
+            videosEl.append(localEl).append(remoteEl);
+        };
+
+
+
+        //触发事件
+        //连接会议
+        connectMeetingEl.click(function () {
+            if (connectMeetingEl.text() == "连接服务器") {
+                login();
+            } else {
+                connect();
+            }
+        });
+
+        //返回中心
+        returnCenterEl.click(function () {
+            this.href = "/Home/UserCenter";
+        });
+
+        //关闭消息
+        closeEl.click(function () {
+            messageHide();
+        });
+
+        //打开关闭留言栏
+        openSendEl.click(function () {
+            openSendToggle();
+        });
+
+        //离开房间
+        leaveMeetingEl.click(function () {
+            disconnect();
+        });
+
+        var json;
+        function msgShow() {
+            var chatDiv = document.getElementById('chatMsg');
+            //重置显示的内容
+            while (chatDiv.hasChildNodes()) {
+                chatDiv.removeChild(chatDiv.lastChild);
+            }
+            //循环查看留言
+            for (i = 0; i < json.length; ++i) {
+                var noteDiv = document.createElement("div");
+                noteDiv.className = 'noteBlue';
+                var pUser = document.createElement("p");
+                var pCon = document.createElement("p");
+                var pTime = document.createElement("p");
+                pTime.className = 'pull-right';
+                noteDiv.appendChild(pUser);
+                noteDiv.appendChild(pCon);
+                noteDiv.appendChild(pTime);
+                pUser.innerHTML = json[i].StudentName + ':';
+                pCon.innerHTML = htmldecode(json[i].Contents);
+                pTime.innerHTML = getTime(json[i].Time);
+                chatDiv.appendChild(noteDiv);
+            }
+        }
+
+        $(function () {
+            //box.hide();
+            //myBox.show();
+            var nameTemp = roomIdEl.toString();
+            var meetingName = "全部";
+            getContents(meetingName);
+
+            //刷新操作
+            $("#reflesh").click(function () {
+                getContents(meetingName);
+            });
+
+            //发送时刷新留言，因为是非实时聊天，之后会改
+            $("#sub-Btn").click(function () {
+                var content = $("#editor_id").val().trim();
+                if (content == "") {
+                    alert("请输入信息再发送！");
+                    return false;
+                }
+                content = content.replace(/\n/gi, "<br>");
+                content = content.replace(/</gi, "&lt;");
+                content = content.replace(/>/gi, "&gt;");
+                content = content.replace(/ /gi, "&nbsp;");
+                content = content.replace(/&/gi, "&amp;");
+                content = content.replace(/'/gi, "&#39;");
+                content = content.replace(/"/gi, "&quot;");
+                $.ajax({
+                    type: "post",
+                    url: "/Home/Add",
+                    dataType: "json",
+                    data: {
+                        name: meetingName,
+                        content: content,
+                    },
+                    success: function (data) {
+                        if (data == "Yes") {
+                            getContents(meetingName);
+                            $("#editor_id").val("");
+                        }
+                        else {
+                            alert("留言失败，请重新留言！");
+                            $("#editor_id").val("");
+                        }
+                    }
+                });
+                return false;
+            });
+        });
+
+        function getContents(meetingName) {
+
+            $.getJSON("/Home/GetContents", { meetingName: meetingName }, function (data) {
+                if (data.length != 0) {
+                    json = data;
+                    msgShow();
+                }
+            });
+        }
+
+        function htmldecode(str) {
+            str = str.replace(/&amp;/gi, '&');
+            str = str.replace(/&nbsp;/gi, ' ');
+            str = str.replace(/&quot;/gi, '"');
+            str = str.replace(/&#39;/g, "'");
+            str = str.replace(/&lt;/gi, '<');
+            str = str.replace(/&gt;/gi, '>');
+            str = str.replace(/<br[^>]*>(?:(rn)|r|n)?/gi, '\n');
+            return str;
+        }
+
+        function getTime(time) {
+            if (time != "") {
+                var dt = new Date(parseInt(time.slice(6, 19)));
+                var year = dt.getFullYear();
+                var month = dt.getMonth() + 1 < 10 ? "0" + (dt.getMonth() + 1) : dt.getMonth() + 1;
+                var date = dt.getDate() < 10 ? "0" + (dt.getDate()) : dt.getDate();
+                var hour = dt.getHours() < 10 ? "0" + (dt.getHours()) : dt.getHours();
+                var minute = dt.getMinutes() < 10 ? "0" + (dt.getMinutes()) : dt.getMinutes();
+                var second = dt.getSeconds() < 10 ? "0" + (dt.getSeconds()) : dt.getSeconds();
+                return month + "-" + date + " " + hour + ":" + minute + ":" + second;
+            }
+            else {
+                return time;
+            }
+        }
+    </script>
+</body>
+</html>

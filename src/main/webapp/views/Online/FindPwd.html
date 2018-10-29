@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>找回密码</title>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    @*<link href="~/Style/bootstrap.min.css" rel="stylesheet" />*@
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="~/Style/Login.css">
+    @*<script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/bootstrap.help.js"></script>*@
+
+    <!--图标-->
+    <link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon">
+    
+</head>
+<body>
+    <div id="Div1" class="box col-sm-offset-4 col-sm-3">
+        <h3 class="logo"><i class="glyphicon glyphicon-flag"></i>找回密码</h3>
+            <div class="form-group my-group">
+                <div class="input-group col-sm-10 col-sm-offset-1">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="FindPwd" type="text" name="FindPwd" class="form-control" placeholder="请输入账号" aria-describedby="FindPwd">
+                </div>
+            </div>
+
+            <div class="form-group my-group">
+                <div class="input-group col-sm-10 col-sm-offset-1">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                    <input id="code" type="text" name="code" style="width: 130px ; height: 43px" placeholder="验证码" aria-describedby="code">
+                    <div style="width: 110px; float: right;padding-left: 14px;">
+                        看不清？<a id="switchCode" href="javascript:void();" style="text-decoration: none;" >换一张</a>
+                        <img id="imgcode" class="authcode" src="/Online/GetAuthCode" width="80" height="25" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group my-group">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <button id="Next1" style="width:150px;" class="btn btn-success">下一步</button>
+                </div>
+            </div>
+    </div>
+
+    <div id="Div2" hidden="" class="box col-sm-offset-4 col-sm-3">
+        <h3 class="logo"><i class="glyphicon glyphicon-flag"></i>输入验证码</h3>
+        <div class="form-group my-group">
+            <div class="input-group col-sm-10 col-sm-offset-1">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+                <input id="MailCode" type="text" name="MailCode" class="form-control" placeholder="请输入验证码" aria-describedby="MailCode">
+            </div>
+        </div>
+
+        <div class="form-group my-group">
+            <div class="col-sm-8 col-sm-offset-2">
+                <button id="Next2" style="width:150px;" class="btn btn-success">下一步</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="Div3" hidden="" class="box col-sm-offset-4 col-sm-3">
+        <h3 class="logo"><i class="glyphicon glyphicon-flag"></i>重置密码</h3>
+        <div class="form-group my-group">
+            <div class="input-group col-sm-10 col-sm-offset-1">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="NewPwd" type="text" name="NewPwd" class="form-control" placeholder="请输入新密码" aria-describedby="NewPwd">
+            </div>
+        </div>
+
+        <div class="form-group my-group">
+            <div class="input-group col-sm-10 col-sm-offset-1">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="AgainNewPwd" type="password" name="AgainNewPwd" class="form-control" placeholder="请再次输入密码" aria-describedby="AgainNewPwd">
+            </div>
+        </div>
+
+        <div class="form-group my-group">
+            <div class="col-sm-8 col-sm-offset-2">
+                <button id="FinishPwd" style="width:150px;" class="btn btn-success">完成</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Scripts/FindPwd.js"></script>
+
+</body>
+</html>
+

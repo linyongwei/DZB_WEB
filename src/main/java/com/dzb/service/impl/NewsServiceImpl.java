@@ -50,7 +50,7 @@ public class NewsServiceImpl implements NewsService {
     public Result<String> deleteNews(Integer newsId) {
         int deleteResult = newsDao.deleteNews(newsId);
         if (deleteResult==0){
-            return Result.createByErrorMessage("插入新闻失败!");
+            return Result.createByErrorMessage("删除新闻失败!");
         }
         else {
             return Result.createBySuccess("成功!");

@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>注册页面</title>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="~/Style/Register.css">
+    <!--图标-->
+    <link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="box col-sm-offset-2 col-sm-8">
+        <h3 class="logo"><i class="glyphicon glyphicon-flag"></i>Register</h3>
+        <form action="" method="get">
+            <div class="col-sm-6 col-sm-offset-3">
+                <h3 class="title">账户信息</h3>
+                <div class="form-group   my-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="username" type="text" class="form-control" placeholder="姓名" aria-describedby="username" name="username">
+                    </div>
+                </div>
+                <div class="form-group   my-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
+                        <input id="usernumber" type="text" class="form-control" placeholder="学号" aria-describedby="usernumber">
+                    </div>
+                </div>
+                <div class="form-group   my-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input id="password" type="password" class="form-control" placeholder="密码" aria-describedby="password">
+                    </div>
+                </div>
+                <div class="form-group   my-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input id="repassword" type="password" class="form-control" placeholder="再次输入密码" aria-describedby="repassword">
+                    </div>
+                </div>
+                <div class="form-group   my-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
+                        <select id="userGrade" name="" class="form-control" aria-describedby="userGrade">
+                            <option value="">2013级</option>
+                            <option value="">2014级</option>
+                            <option value="">2015级</option>
+                            <option value="">2016级</option>
+                            <option value="">2017级</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group   my-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+                        <input id="userMajor" type="text" class="form-control" placeholder="专业" aria-describedby="userMajor">
+                    </div>
+                </div>
+                <div class="form-group   my-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+                        <input id="userClass" type="text" class="form-control" placeholder="班级" aria-describedby="userClass">
+                    </div>
+                </div>
+                <div class="form-group   my-group">
+                    <div class="input-group ">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                        <input id="dzbTime" type="date" class="form-control" placeholder="入党时间(格式:2017/10/05)" aria-describedby="dzbTime">
+                    </div>
+                </div>
+                <div class="form-group   my-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-cloud"></i></span>
+                        <select id="dzbName" name="" class="form-control" aria-describedby="userGrade" aria-describedby="dzbName">
+                            <option value="">本科生计算机科学与技术第二党支部</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group   my-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-heart"></i></span>
+                        <select id="dzbIdentify" name="" class="form-control" aria-describedby="userGrade" aria-describedby="dzbIdentify">
+                            <option value="">中共党员</option>
+                            <option value="">预备党员</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group   my-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-heart"></i></span>
+                        <select id="role" name="" class="form-control" aria-describedby="userGrade" aria-describedby="role">
+                            <option value="">支委</option>
+                            <option value="">成员</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group   my-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-bullhorn"></i></span>
+                        <input id="dzbFriend" type="text" class="form-control" placeholder="入党联系人" aria-describedby="dzbFriend">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="col-sm-8 col-sm-offset-4">
+                        <a class="btn btn-warning" onclick="confirm()">注 册</a>
+                        <a href="/Online/Login">已有账号？马上登陆</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+            function confirm() {
+                var username = document.getElementById('username').value;
+                var usernumber = document.getElementById('usernumber').value;
+                var password = document.getElementById('password').value;
+                var repassword = document.getElementById('repassword').value;
+
+                var obj = document.getElementById('userGrade');
+                var userGrade = obj.options[obj.selectedIndex].text;
+
+                var userMajor = document.getElementById('userMajor').value;
+                var userClass = document.getElementById('userClass').value;
+                var dzbTime = document.getElementById('dzbTime').value;
+
+                var obj1 = document.getElementById('dzbName');
+                var dzbName = obj1.options[obj1.selectedIndex].text;
+
+                var obj2 = document.getElementById('dzbIdentify');
+                var dzbIdentify = obj2.options[obj2.selectedIndex].text;
+
+                var obj3 = document.getElementById('role');
+                var role = obj3.options[obj3.selectedIndex].text;
+                var dzbFriend = document.getElementById('dzbFriend').value;
+
+                if (username != "" && password != "" && repassword != "" && repassword == password && usernumber != "" && userGrade != ""
+                && userMajor!=""&& userClass != "" && dzbTime != "" && dzbName != "" && dzbIdentify != "" && role != "" && dzbFriend != "") {
+                    $.ajax({
+                        url: "Register",
+                        type: "POST",
+                        datatype: "json",
+                        data: {
+                            "username": username,
+                            "password": password,
+                            "usernumber": usernumber,
+                            "userGrade": userGrade,
+                            "userMajor":userMajor,
+                            "userClass": userClass,
+                            "dzbTime": dzbTime,
+                            "dzbName": dzbName,
+                            "dzbIdentify": dzbIdentify,
+                            "dzbFriend": dzbFriend,
+                            "role": role
+                        },
+                        error: function (err) { alert(err) },
+                        success: function (result) {
+                            if (result == "Success") {
+                                alert("注册成功！");
+                                window.location.href = "@Url.Action("Login", "Online")";
+                            }
+                            else if (result == "Error") {
+                                alert("该账号已注册！");
+                                window.location.href = "@Url.Action("Register", "Online")";
+                            }
+                            else {
+                                alert("出错！");
+                            }
+                        }
+                    });
+                }
+                else if (repassword != password) {
+                    alert("密码不一致，请重新确认！");
+                    document.getElementById('repassword').value = "";
+                }
+                else{
+                    alert("请填写好相关信息！");
+                }
+            }
+    </script>
+</body>
+</html>
