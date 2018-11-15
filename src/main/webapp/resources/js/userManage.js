@@ -22,35 +22,28 @@ $(document).ready(function(){
         return str;
     }
 
-    function getTime(time) {
-        if (time != "") {
-            var dt = new Date(parseInt(time.slice(6, 19)));
-            var year = dt.getFullYear();
-            var month = dt.getMonth() + 1 < 10 ? "0" + (dt.getMonth() + 1) : dt.getMonth() + 1;
-            var date = dt.getDate() < 10 ? "0" + (dt.getDate()) : dt.getDate();
-            return year + "-" + month + "-" + date;
-        }
-        else {
-            return time;
-        }
-    }
+
 
     //创建一行公告数据
     function createRaw(rawData,i) {
         var tbody = document.getElementById("userManageTable");
         var tr = document.createElement("tr");
 
+        var num =document.createElement("td");
+        num.innerHTML = i+1;
+
         var name = document.createElement("td");
-        name.innerHTML = rawData.Name;
+         name.innerHTML = rawData.name;
 
-        var studentNum = document.createElement("td");                                                                      //
-        studentNum.innerHTML  = rawData.StudentNum;                                                                        //
+        var studentNum = document.createElement("td");
+         studentNum.innerHTML  = rawData.studentNum;
 
-        var joinPartyTime = document.createElement("td");                                                                / /
-         joinPartyTime.innerHTML = getTime(rawData.JoinPartyTime);//
+        var joinPartyTime = document.createElement("td");
+          joinPartyTime.innerHTML = rawData.joinPartyTime;
 
-        var identity = document.createElement("td");
-        identity.innerHTML = rawData.Identity;//
+         var identity = document.createElement("td");
+        identity.innerHTML = rawData.identity;
+
 
         var tdModify = document.createElement("td");
         var btnModify  = document.createElement("button");
@@ -64,9 +57,11 @@ $(document).ready(function(){
         btnDelete.innerHTML = "删除";
         tdDelete.appendChild(btnDelete);
 
+
+        tr.appendChild(num);
         tr.appendChild(name);
-        tr.appendChild(studentNum);//
-        tr.appendChild(joinPartyTime);//
+        tr.appendChild(studentNum);
+        tr.appendChild(joinPartyTime);
         tr.appendChild(identity);
         tr.appendChild(tdModify);
         tr.appendChild(tdDelete);
@@ -83,9 +78,10 @@ $(document).ready(function(){
     }
     //从后台得到数据
     function init() {
-        $.getJSON("/api/person/info", function (data) {//
-            if (data != "no") {
-                json = data;
+        $.getJSON("/api/usermanage/userlist", function (result) {
+
+            if (result != "no") {
+                json = result.data.userlist;
                 hasDataInit();
             }
             else {
@@ -132,15 +128,7 @@ $(document).ready(function(){
         showNoticeNum(0);
     }
 
-    //删除后页面重置函数
-    function afterDelete() {
 
-    }
-
-    //修改后页面重置函数
-    function afterModify() {
-
-    }
 
     //显示公告总数
     function showNoticeNum(noticeNum) {
@@ -244,19 +232,23 @@ $(document).ready(function(){
 
     // 给删除按钮添加事件
     $("#userManageTable").delegate(".remove","click",function () {
-        var studentNum = $(this).parents("tr").children()[1].innerHTML;//
+        var studentNum1 = $(this).parents("tr").children()[2].innerHTML;
+        var studentNum = parseInt(studentNum1);
+
         $.ajax({
-            type: "post",
-            url: "/api/usermanage/delete",//删除用户
+            type: "DELETE",
+            url: "/api/usermanage/delete",
             dataType: "json",
-            data: {
-                studentNum: studentNum                                                                                   //
-            },
-            success: function (data) {
-                if (data != "no") {
-                    json = data;
+            contentType : 'application/json',
+            data: JSON.stringify( {
+                studentNum:studentNum
+            }),
+            success: function (result) {
+
+                if (result != "no") {
+                  alert("删除成功");
+                  init();
                     //删除一条数据后，显示的仍是当前页码
-                    show_current();
                 }
                 else {
                     alert("删除失败，请重新删除！");
@@ -267,38 +259,40 @@ $(document).ready(function(){
 
     // 给修改按钮添加事件
     $("#userManageTable").delegate(".modify","click",function () {
-        var userId = $(this).parents("tr").children()[1].innerHTML;
+        var studentNum1= $(this).parents("tr").children()[2].innerHTML;
+        var studentNum = parseInt(studentNum1);
         const target =  $(this);
         const dataName ="modifyPersonInfo";
         const section = $(`.content-wrapper>section[data-name='${dataName}']`);
         section.show().siblings("section").hide();
         target.addClass("active").siblings("li").removeClass("active");
+        var api1 = "/api/usermanage/detailinfo/";
+        var api = api1+studentNum;
 
         $.ajax({
-            url: "/api/person/save",                                                                                     //保存用户信息接口
-            type: "POST",
+            url: api,
+            type: "GET",
             datatype: "json",
+            contentType : 'application/json',
             data: {
-                "userId": userId,
             },
-            error: function (err) { alert(err) },
-            success: function (result1) {
-                var result = $.parseJSON(result1);
-                $("#username1").val(result["Name"]);
-                $("#usernumber1").val(result["studentNum"]);                                                              //
-                $("#password1").val(result["Password"]);
-                $("#email1").val(result["Email"]);
-                $("#dzbConnect1").val(result["Phone"]);
-                $("#userGrade1").val(result["Grade"]);
-                $("#userMajor1").val(result["Major"]);
-                $("#userClass1").val(result["Class"]);
-                var time = result["JoinPartyTime"];//
-                var date = getTime(time);
-                $("#dzbTime1").val(date);
-                $("#dzbName1").val(result["PartyBranchName"]);//
-                $("#dzbIdentify1").val(result["Identity"]);//
-                $("#dzbRole1").val(result["Role"]);
-                $("#dzbFriend1").val(result["JoinPartyContact"]);//
+            error: function (err) {
+                alert(JSON.stringify(err)); },
+            success: function (result) {
+                var stuMessage = result.data.user;
+                $("#name1").val(stuMessage.name);
+                $("#studentNum1").val(stuMessage.studentNum);
+                $("#password1").val(stuMessage.password);
+                $("#email1").val(stuMessage.email);
+                $("#phone1").val(stuMessage.phone);
+                $("#grade1").val(stuMessage.grade);
+                $("#major1").val(stuMessage.major);
+                $("#className1").val(stuMessage.className);
+                $("#joinPartyTime1").val(stuMessage.joinPartyTime);
+                $("#partyBranchName1").val(stuMessage.partyBranchName);
+                $("#identity1").val(stuMessage.identity);
+                $("#role1").val(stuMessage.role);
+                $("#joinPartyContact1").val(stuMessage.joinPartyContact);
                
             }
         });

@@ -13,8 +13,11 @@ $(document).ready(function () {
     $("#inFile").change(function (e) {
         if (e.currentTarget.files.length > 0) {
             document.getElementById("fileForm").submit();
+            alert("上传成功！");
         }
-        setTimeout(function () { init(); }, 1000);
+        setTimeout(function () {
+            init();
+        }, 1000);
     });
     //初始化
     init();
@@ -33,34 +36,19 @@ $(document).ready(function () {
     }
 
     //时间转换函数
-    function getTime(time) {
-        if (time != "") {
-            var dt = new Date(parseInt(time.slice(6, 19)));
-            var year = dt.getFullYear();
-            var month = dt.getMonth() + 1 < 10 ? "0" + (dt.getMonth() + 1) : dt.getMonth() + 1;
-            var date = dt.getDate() < 10 ? "0" + (dt.getDate()) : dt.getDate();
-            var hour = dt.getHours() < 10 ? "0" + (dt.getHours()) : dt.getHours();
-            var minute = dt.getMinutes() < 10 ? "0" + (dt.getMinutes()) : dt.getMinutes();
-            var second = dt.getSeconds() < 10 ? "0" + (dt.getSeconds()) : dt.getSeconds();
-            return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
-        }
-        else {
-            return time;
-        }
-    }
 
     function createRaw(rawData, i) {
         var tr = document.createElement("tr");
-        var fileName = document.createElement("td");//
-        fileName.innerHTML = rawData.FileName;//
+        var fileName = document.createElement("td");
+        fileName.innerHTML = rawData.fileName;
 
-        var uploadTime = document.createElement("td");//
-        uploadTime.innerHTML = getTime(rawData.Time);//
+        var uploadTime = document.createElement("td");
+        uploadTime.innerHTML = rawData.uploadTime;
 
         var downloadTimes = document.createElement("td");
         var DownloadsSpan = document.createElement("span")
         DownloadsSpan.setAttribute("class", "label label-warning");
-        DownloadsSpan.innerHTML = rawData.Downloads;
+        DownloadsSpan.innerHTML = rawData.downloadTimes;
         downloadTimes.appendChild(DownloadsSpan);
 
         var downloadBtnTd = document.createElement("td");
@@ -73,13 +61,14 @@ $(document).ready(function () {
         var deleteTd = document.createElement("td");
         var deleteBtn = document.createElement("button");
         deleteBtn.innerHTML = "删除";
+        deleteBtn.onclick = deleteFile;
         deleteBtn.className = "btn btn-danger remove";
         deleteBtn.id = i;
         deleteTd.appendChild(deleteBtn);
 
-        tr.appendChild(fileName);//
-        tr.appendChild(uploadTime);//
-        tr.appendChild(downloadTimes);//
+        tr.appendChild(fileName);
+        tr.appendChild(uploadTime);
+        tr.appendChild(downloadTimes);
         tr.appendChild(downloadBtnTd);
         tr.appendChild(deleteTd);
         tbody.appendChild(tr);
@@ -92,11 +81,13 @@ $(document).ready(function () {
             tbody.removeChild(tbody.lastChild);
         }
     }
+
     //从后台得到数据
     function init() {
-        $.getJSON("/api/file/filelist", function (data) {                                                                //
-            if (data != null) {
-                json = data;
+        $.getJSON("/api/file/filelist", function (result) {
+
+            if (result != null) {
+                json = result.data.fileList;
                 hasDataInit();
             }
             else {
@@ -148,14 +139,17 @@ $(document).ready(function () {
     function showNoticeNum(noticeId) {
         $("#dataNum").text(noticeId);                                                                                    //
     }
+
     //显示当前页数
     function show_current_page_num(currentPageNum) {
         $("#data-currentRecordPage").text(currentPageNum);
     }
+
     //显示总页数
     function show_total_page_num(totalPageNum) {
         $("#data-totalRecordPage").text(totalPageNum);
     }
+
     //计算并显示内容
     function show() {
         var start = (currentPage - 1) * num;
@@ -245,32 +239,38 @@ $(document).ready(function () {
     });
 
 
-
     // 给下载按钮添加事件，下载量加一
     $("#dataTable").delegate(".download", "click", function () {
-        var fileId = $(this).parents('tr').children('td').eq(0).text();                                                  //
-        var downloadTimes = $(this).parents('tr').children('td').eq(2).text();                                           //
-        var newdownloads = parseInt(downloadTimes);//
+        var fileId = $(this).parents('tr').children('td').eq(0).text();
+        var downloadTimes = $(this).parents('tr').children('td').eq(2).text();
+        var newdownloads = parseInt(downloadTimes);
         newdownloads++;
         $(this).parents('tr').children('td').eq(2).children("span").text(newdownloads.toString());
-        window.location.href = "/api/file/download?fileId=" + fileId;                                                    //
+        var downloadBtn = document.createElement("button");
+        downloadBtn.src = '/api/file/download?fileId=';
+
     });
 
 
     //删除按钮添加事件
-    $("#dataTable").delegate(".remove", "click", function () {
-        var fileId = $(this).parents('tr').children('td').eq(0).text();                                                  //
-        $(this).parents('tr').remove();
+    function deleteFile() {
+        index = parseInt(this.id);
+        var fileId = parseInt(json[index].id);
         $.ajax({
-            url: "/api/file/delete",                                                                                     //
-            type: "POST",
-            data: { "fileId": fileId },                                                                                  //
-            error: function (err) { alert(err) },
+            url: "/api/file/delete",
+            type: "DELETE",
+            contentType: 'application/json',
+            data: JSON.stringify(
+                {
+                    fileId: fileId
+                }),
+            error: function (err) {
+                alert(JSON.stringify(err))
+            },
             success: function (data) {
                 if (data != null) {
-                    json = data;
-                    //alert("json的长度：" + json.length);
-                    hasDataInit();
+                    alert("删除成功");
+                    init();
                 }
                 else {
                     alert("数据获取失败！");
@@ -278,6 +278,5 @@ $(document).ready(function () {
                 }
             }
         });
-    });
-    
+    }
 });

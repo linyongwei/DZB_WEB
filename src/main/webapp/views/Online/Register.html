@@ -1,15 +1,15 @@
-﻿<!DOCTYPE html>
+﻿﻿﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>注册页面</title>
-    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="/resources/js/jquery-3.2.1.min.js"></script>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="~/Style/Register.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/Register.css">
     <!--图标-->
     <link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon">
 </head>
@@ -22,13 +22,13 @@
                 <div class="form-group   my-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="username" type="text" class="form-control" placeholder="姓名" aria-describedby="username" name="username">
+                        <input id="name" type="text" class="form-control" placeholder="姓名" aria-describedby="name" name="name">
                     </div>
                 </div>
                 <div class="form-group   my-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-                        <input id="usernumber" type="text" class="form-control" placeholder="学号" aria-describedby="usernumber">
+                        <input id="studentNum" type="text" class="form-control" placeholder="学号" aria-describedby="studentNum">
                     </div>
                 </div>
                 <div class="form-group   my-group">
@@ -40,43 +40,43 @@
                 <div class="form-group   my-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="repassword" type="password" class="form-control" placeholder="再次输入密码" aria-describedby="repassword">
+                        <input id="rpassword" type="password" class="form-control" placeholder="再次输入密码" aria-describedby="rpassword">
                     </div>
                 </div>
                 <div class="form-group   my-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
-                        <select id="userGrade" name="" class="form-control" aria-describedby="userGrade">
-                            <option value="">2013级</option>
+                        <select id="grade" name="" class="form-control" aria-describedby="grade">
                             <option value="">2014级</option>
                             <option value="">2015级</option>
                             <option value="">2016级</option>
                             <option value="">2017级</option>
+                            <option value="">2018级</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group   my-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
-                        <input id="userMajor" type="text" class="form-control" placeholder="专业" aria-describedby="userMajor">
+                        <input id="major" type="text" class="form-control" placeholder="专业" aria-describedby="major">
                     </div>
                 </div>
                 <div class="form-group   my-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
-                        <input id="userClass" type="text" class="form-control" placeholder="班级" aria-describedby="userClass">
+                        <input id="className" type="text" class="form-control" placeholder="班级" aria-describedby="className">
                     </div>
                 </div>
                 <div class="form-group   my-group">
                     <div class="input-group ">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-                        <input id="dzbTime" type="date" class="form-control" placeholder="入党时间(格式:2017/10/05)" aria-describedby="dzbTime">
+                        <input id="joinPartyTime" type="date" class="form-control" placeholder="入党时间(格式:2017/10/05)" aria-describedby="joinPartyTime">
                     </div>
                 </div>
                 <div class="form-group   my-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-cloud"></i></span>
-                        <select id="dzbName" name="" class="form-control" aria-describedby="userGrade" aria-describedby="dzbName">
+                        <select id="partyBranchName" name="" class="form-control" aria-describedby="grade" aria-describedby="partyBranchName">
                             <option value="">本科生计算机科学与技术第二党支部</option>
                         </select>
                     </div>
@@ -84,7 +84,7 @@
                 <div class="form-group   my-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-heart"></i></span>
-                        <select id="dzbIdentify" name="" class="form-control" aria-describedby="userGrade" aria-describedby="dzbIdentify">
+                        <select id="identity" name="" class="form-control" aria-describedby="grade" aria-describedby="identity">
                             <option value="">中共党员</option>
                             <option value="">预备党员</option>
                         </select>
@@ -93,7 +93,7 @@
                 <div class="form-group   my-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-heart"></i></span>
-                        <select id="role" name="" class="form-control" aria-describedby="userGrade" aria-describedby="role">
+                        <select id="role" name="" class="form-control" aria-describedby="grade" aria-describedby="role">
                             <option value="">支委</option>
                             <option value="">成员</option>
                         </select>
@@ -102,13 +102,13 @@
                 <div class="form-group   my-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-bullhorn"></i></span>
-                        <input id="dzbFriend" type="text" class="form-control" placeholder="入党联系人" aria-describedby="dzbFriend">
+                        <input id="joinPartyContact" type="text" class="form-control" placeholder="入党联系人" aria-describedby="joinPartyContact">
                     </div>
                 </div>
                 <div class="form-group ">
                     <div class="col-sm-8 col-sm-offset-4">
                         <a class="btn btn-warning" onclick="confirm()">注 册</a>
-                        <a href="/Online/Login">已有账号？马上登陆</a>
+                        <a href="/views/Online/Login.html">已有账号？马上登陆</a>
                     </div>
                 </div>
             </div>
@@ -116,66 +116,73 @@
     </div>
     <script>
             function confirm() {
-                var username = document.getElementById('username').value;
-                var usernumber = document.getElementById('usernumber').value;
+                var name = document.getElementById('name').value;
+                var studentNum1 = document.getElementById('studentNum').value;
+                var studentNum = parseInt(studentNum1);
                 var password = document.getElementById('password').value;
-                var repassword = document.getElementById('repassword').value;
+                var rpassword = document.getElementById('rpassword').value;
 
-                var obj = document.getElementById('userGrade');
-                var userGrade = obj.options[obj.selectedIndex].text;
+                var obj = document.getElementById('grade');
+                var grade = obj.options[obj.selectedIndex].text;
 
-                var userMajor = document.getElementById('userMajor').value;
-                var userClass = document.getElementById('userClass').value;
-                var dzbTime = document.getElementById('dzbTime').value;
+                var major = document.getElementById('major').value;
+                var className = document.getElementById('className').value;
+                var joinPartyTime = document.getElementById('joinPartyTime').value;
 
-                var obj1 = document.getElementById('dzbName');
-                var dzbName = obj1.options[obj1.selectedIndex].text;
+                var obj1 = document.getElementById('partyBranchName');
+                var partyBranchName = obj1.options[obj1.selectedIndex].text;
 
-                var obj2 = document.getElementById('dzbIdentify');
-                var dzbIdentify = obj2.options[obj2.selectedIndex].text;
+                var obj2 = document.getElementById('identity');
+                var identity = obj2.options[obj2.selectedIndex].text;
 
                 var obj3 = document.getElementById('role');
                 var role = obj3.options[obj3.selectedIndex].text;
-                var dzbFriend = document.getElementById('dzbFriend').value;
+                var joinPartyContact = document.getElementById('joinPartyContact').value;
 
-                if (username != "" && password != "" && repassword != "" && repassword == password && usernumber != "" && userGrade != ""
-                && userMajor!=""&& userClass != "" && dzbTime != "" && dzbName != "" && dzbIdentify != "" && role != "" && dzbFriend != "") {
+                if (name != "" && password != "" && rpassword != "" && rpassword == password && studentNum != 0 && grade != ""
+               && major!=""&& className != "" && joinPartyTime != "" && partyBranchName != "" && identity != "" && role != "" && joinPartyContact != "") {
+
                     $.ajax({
-                        url: "Register",
+                        url: "/api/user/register",
                         type: "POST",
                         datatype: "json",
-                        data: {
-                            "username": username,
-                            "password": password,
-                            "usernumber": usernumber,
-                            "userGrade": userGrade,
-                            "userMajor":userMajor,
-                            "userClass": userClass,
-                            "dzbTime": dzbTime,
-                            "dzbName": dzbName,
-                            "dzbIdentify": dzbIdentify,
-                            "dzbFriend": dzbFriend,
-                            "role": role
-                        },
-                        error: function (err) { alert(err) },
+                        contentType : 'application/json',
+                        data: JSON.stringify({
+                            name: name,
+                            password: password,
+                            studentNum: studentNum,
+                            grade: grade,
+                            major:major,
+                            className: className,
+                            joinPartyTime: joinPartyTime,
+                            partyBranchName: partyBranchName,
+                            identity: identity,
+                            joinPartyContact: joinPartyContact,
+                            role: role
+                        }),
+
+                        error: function (err) { alert("出错") },
                         success: function (result) {
-                            if (result == "Success") {
+
+                            if (result.code == 200) {
                                 alert("注册成功！");
-                                window.location.href = "@Url.Action("Login", "Online")";
+                                window.location.href = "/views/Online/Login.html";
                             }
+
                             else if (result == "Error") {
                                 alert("该账号已注册！");
-                                window.location.href = "@Url.Action("Register", "Online")";
+                                //window.location.href = "@Url.Action("Register", "Online")";
                             }
                             else {
                                 alert("出错！");
                             }
                         }
+
                     });
                 }
-                else if (repassword != password) {
+                else if (rpassword != password) {
                     alert("密码不一致，请重新确认！");
-                    document.getElementById('repassword').value = "";
+                    document.getElementById('rpassword').value = "";
                 }
                 else{
                     alert("请填写好相关信息！");

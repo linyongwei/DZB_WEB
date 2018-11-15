@@ -5,12 +5,12 @@ $(".sidebar-menu>li").click(function(){
     const section = $(`.content-wrapper>section[data-name='${dataName}']`);
     var password = document.getElementById("password");
     var email = document.getElementById("email");
-    var dzbConnect = document.getElementById("dzbConnect");
-    if(password.value!=""&&email.value!=""&&dzbConnect.value!="")
+    var joinPartyContact = document.getElementById("joinPartyContact");
+    if(password.value!=""&&email.value!=""&&joinPartyContact.value!="")
     {
         $("#password").attr("disabled", "true");
         $("#email").attr("disabled", "true");
-        $("#dzbConnect").attr("disabled", "true");
+        $("#joinPartyContact").attr("disabled", "true");
         var save = document.getElementById("savePersonData");
         var back = document.getElementById("Return");
         save.style.display="none";

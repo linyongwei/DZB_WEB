@@ -9,10 +9,11 @@
     //提交表单
     var json = [];
 
-    $("#inVideo").change(function (e) {
-        if (e.currentTarget.files.length > 0) {
-            document.getElementById("videoForm").submit();
-        }
+     $("#inVideo").change(function (e) {
+       if (e.currentTarget.files.length > 0) {
+           document.getElementById("videoForm").submit();
+           alert("上传成功！");
+      }
         setTimeout(function () { init(); }, 1000);
     });
 
@@ -32,21 +33,7 @@
     }
 
     //时间转换函数
-    function getTime(time) {
-        if (time != "") {
-            var dt = new Date(parseInt(time.slice(6, 19)));
-            var year = dt.getFullYear();
-            var month = dt.getMonth() + 1 < 10 ? "0" + (dt.getMonth() + 1) : dt.getMonth() + 1;
-            var date = dt.getDate() < 10 ? "0" + (dt.getDate()) : dt.getDate();
-            var hour = dt.getHours() < 10 ? "0" + (dt.getHours()) : dt.getHours();
-            var minute = dt.getMinutes() < 10 ? "0" + (dt.getMinutes()) : dt.getMinutes();
-            var second = dt.getSeconds() < 10 ? "0" + (dt.getSeconds()) : dt.getSeconds();
-            return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
-        }
-        else {
-            return time;
-        }
-    }
+
 
     //创建一行视频数据
     function createRaw(rawData, i) {
@@ -55,26 +42,27 @@
         tdNumber.innerHTML = i+1;
         tdNumber.setAttribute("class", "text-danger");
 
-        var studentName = document.createElement("td");                                                                   //
-        studentName.innerHTML = rawData.StudentName;
+        var studentNum = document.createElement("td");                                                                   //
+        studentNum.innerHTML = rawData.studentNum;
 
         var videoName = document.createElement("td");
         videoName.innerHTML = rawData.videoName; 
 
         var uploadTime = document.createElement("td");
-        uploadTime.innerHTML = getTime(rawData.Time);
+        uploadTime.innerHTML = rawData.uploadTime;
 
         var deleteTd = document.createElement("td");
         var deleteBtn = document.createElement("button");
         deleteBtn.innerHTML = "删除";
         deleteBtn.className = "btn btn-danger remove";
         deleteBtn.id = i;
+        deleteBtn.onclick = deleteVideo;
         deleteTd.appendChild(deleteBtn);
 
         tr.appendChild(tdNumber);
-        tr.appendChild(studentName);//
+        tr.appendChild(studentNum);
         tr.appendChild(videoName);
-        tr.appendChild(uploadTime); //
+        tr.appendChild(uploadTime);
         tr.appendChild(deleteTd);      
         tbody.appendChild(tr);
         $("td").css("text-align", "center");
@@ -88,9 +76,9 @@
     }
     //从后台得到数据
     function init() {
-        $.getJSON("/api/video/videolist", function (data) {//
-            if (data != null) {
-                json = data;
+        $.getJSON("/api/video/videolist", function (result) {
+            if (result != null) {
+                json = result.data.videoList;
                 hasDataInit();
             }
             else {
@@ -238,20 +226,27 @@
     $("#video-lnkBtnPrevious").click(function () {
         pre();
     });
+    //触发上传事件
+
 
     //删除按钮添加事件
-    $("#VideoBody").delegate(".remove", "click", function () {
-        var videoName = $(this).parents('tr').children('td').eq(2).text();
-        $(this).parents('tr').remove();
+    function deleteVideo() {
+
+       var index = parseInt(this.id);
+        var videoId = parseInt(json[index].id);
         $.ajax({
-            url: "/api/video/delete",                                                                                     //删除新闻
-            type: "POST",
-            data: { "videoName": videoName },
-            error: function (err) { alert(err) },
+            url: "/api/video/delete",
+            type: "DELETE",
+            contentType: 'application/json',
+            data: JSON.stringify(
+                {
+                    videoId: videoId
+                }),
+            error: function (err) { alert(JSON.stringify(err)) },
             success: function (data) {
                 if (data != null) {
-                    json = data;
-                    hasDataInit();
+                    alert("删除成功");
+                    init();
                 }
                 else {
                     alert("数据获取失败！");
@@ -259,5 +254,5 @@
                 }
             }
         });
-    });
+    };
 });

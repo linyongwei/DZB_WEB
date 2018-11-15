@@ -13,22 +13,25 @@ $(document).ready(function () {
     
     //从后台得到数据
     function init() {
-        $.getJSON("api/news/newslist", function (result) {//
-            if (result.data.newsList != null) {
-                news_all = result.data.newsList;
+        $.getJSON("/api/news/newslist", function (result) {
+
+            if (result != "no") {
+                news_all = result.data.newslist;
                 partNews();
                 hasDataInit();
             }
             else {
                 alert("数据获取失败！");
+                noDataInit();
             }
+
+
         });
     }
-
     //分开校内校外新闻
     function partNews() {
         for (var i = 0 ; i < news_all.length; i++) {
-            console.log(news_all[i].newsType);
+
             if (news_all[i].newsType == "校内新闻") {
                 news_inSchool.push(news_all[i]);
             }
@@ -61,43 +64,27 @@ $(document).ready(function () {
     function creatRaw(rawData) {
         var li = document.createElement("li");
         li.setAttribute("class", "content-main-li");
-
         var span = document.createElement("span");
         span.setAttribute("class", "circle");
-
-        if (rawData.newsType == "学习十九大") {                                                                          //
-            var link = document.createElement("a");
-            var newsId = rawData.id;                                                                                 //
-            /*link.setAttribute("href", "/api/news/create？id="+ newsId);*/                                                  //？？
+        var newsLink = document.createElement("a");
+        if(rawData.newsType == "学习十九大"){
+            newsLink.href = "/views/Home/News.html?"+"newsTitle="+rawData.newsTitle+"&newsContent="+rawData.newsContent+"&pubTime="+rawData.putTime;
         }
-        else {
-            var newsLink = document.createElement("a");//
-            newsLink.setAttribute("href", rawData.newsTitle);//
+        else{
+            newsLink.href = rawData.newsContent;
         }
-        
-        newsLink.setAttribute("target", "_blank");//
-        newsLink.innerHTML = rawData.newsTitle;//
+        newsLink.setAttribute("target", "_blank");
+        newsLink.innerHTML = rawData.newsTitle;
 
-        var pubTime = document.createElement("span");
+        var pubTime = document.createElement("span")
         pubTime.setAttribute("class", "time");
-        pubTime.innerHTML = getTime(rawData.pubTime);
+        pubTime.innerHTML = rawData.putTime;
 
         li.appendChild(span);
-        li.appendChild(newsLink);                                                                                         //
-        li.appendChild(pubTime);                                                                                          //
+        li.appendChild(newsLink);
+        li.appendChild(pubTime);
         return li;
     }
-    //时间转换函数
-    function getTime(time) {
-        if (time != "") {
-            var dt = new Date(parseInt(time.slice(6, 19)));
-            var year = dt.getFullYear();
-            var month = dt.getMonth() + 1 < 10 ? "0" + (dt.getMonth() + 1) : dt.getMonth() + 1;
-            var date = dt.getDate() < 10 ? "0" + (dt.getDate()) : dt.getDate();
-            return year + "-" + month + "-" + date ;
-        }
-        else {
-            return time;
-        }
-    }
+
+
 });

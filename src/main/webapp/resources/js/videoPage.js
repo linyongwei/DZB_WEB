@@ -13,13 +13,15 @@ $(document).ready(function () {
     init();
 
     function init() {
-        $.getJSON("api/video/videolist", function (data) {                                                              //
-            if (data != "no") {
-                videoJson = data;
+        $.getJSON("/api/video/videolist", function (result) {
+
+            if (result != null) {
+                videoJson = result.data.videoList;
                 hasDataInit();
             }
             else {
-                alert("数据获取失败！");               
+                alert("数据获取失败！");
+                noDataInit();
             }
         });
     }
@@ -79,7 +81,7 @@ $(document).ready(function () {
     //创建要显示的html元素
     function createRaw(rawData, index) {
         video[index].style.visibility = "visible";
-        var link = "../Video/" +  rawData.videoName;
+        var link = rawData.webPath;
         videoSrc[index].src = link;
         video[index].load();
         videoName[index].style.visibility = "visible";

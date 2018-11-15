@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 
 <html>
 <head>
@@ -9,11 +9,11 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="~/Style/font-awesome.min.css">
-    <link rel="stylesheet" href="~/Style/ionicons.min.css">
-    <link rel="stylesheet" href="~/Style/AdminLTE.min.css">
-    <link rel="stylesheet" href="~/Style/skin-red.min.css">
-    <link rel="shortcut icon" href="~/Image/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/resources/css/ionicons.min.css">
+    <link rel="stylesheet" href="/resources/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/resources/css/skin-red.min.css">
+    <link rel="shortcut icon" href="/resources/image/favicon.ico" type="image/x-icon">
 
     <style>
         .my-group {
@@ -47,7 +47,7 @@
                     <span class="sr-only">Toggle navigation</span>
                 </a>
                 <!-- Navbar Right Menu -->
-                @*<div class="navbar-custom-menu">
+                <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
                         <li class="dropdown messages-menu">
@@ -66,7 +66,7 @@
                                             <a href="#">
                                                 <div class="pull-left">
                                                     <!-- User Image -->
-                                                    <img src="~/Image/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                    <img src="/resources/image/user2-160x160.jpg" class="img-circle" alt="User Image">
                                                 </div>
                                                 <!-- Message title and timestamp -->
                                                 <h4>
@@ -155,14 +155,14 @@
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                <img src="~/Image/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <img src="/resources/image/user2-160x160.jpg" class="user-image" alt="User Image">
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">@ViewBag.people.Name</span>                                      //////？？
+                                <span class="hidden-xs"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    <img src="~/Image/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                    <img src="/resources/image/user2-160x160.jpg" class="img-circle" alt="User Image">
                                     <p>
                                         爸爸 - 深藏功与名
                                         <small>Member since Nov. 2012</small>
@@ -199,7 +199,7 @@
                             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                         </li>
                     </ul>
-                </div>*@
+                </div>
             </nav>
         </header>
         <!-- Left side column. contains the logo and sidebar -->
@@ -210,10 +210,10 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="~/Image/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="/resources/image/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>@ViewBag.people.Name</p>                                                                     ///？？
+                        <p></p>
                         <!-- Status -->
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
@@ -235,15 +235,15 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">HEADER</li>
                     <!-- Optionally, you can add icons to the links -->
-                    <li name="personInfo" id="id_personInfo"><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>个人信息</span></a></li>
-                    @*<li name="downloadInfo"><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>下载文件</span></a></li>*@
-                    <li><a href="/Home/Video"><i class="fa fa-link"></i> <span>视频会议</span></a></li>
+                    <li name="personInfo" id="id_personInfo"  ><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>个人信息</span></a></li>
+                 <!--  <li name="downloadInfo"><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>下载文件</span></a></li> -->
+                    <!--<li><a href="/Home/Video"><i class="fa fa-link"></i> <span>视频会议</span></a></li>-->
 
                     <li name="userManage"><a href="javascript:void(0)e"><i class="fa fa-link"></i> <span>用户管理</span></a></li>
                     <li name="noticeManage"><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>公告管理</span></a></li>
-                    <li name="meetingManage"><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>会议管理</span></a></li>
+                  <!--  <li name="meetingManage"><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>会议管理</span></a></li> -->
                     <li name="dataManage"><a href="#"><i class="fa fa-link"></i> <span>文件管理</span>  </a></li>
-                    <li name="checkAttendenceManage"><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>考勤管理</span></a></li>
+                 <!--  <li name="checkAttendenceManage"><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>考勤管理</span></a></li> -->
                     <li name="NewsLink"><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>新闻管理</span></a></li>
                     <li name="videoManage"><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>视频管理</span></a></li>
                 </ul>
@@ -259,19 +259,19 @@
             <section class="content container myDie" data-name="personInfo">
                 <div class="col-sm-offset-3">
                     <!-- 账户信息表 -->
-                    @*<form action="" method="get">*@
+                    <form>
                         <div class="col-sm-7 my-group">
                             <h3>账户信息</h3>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i><label style="width:60px;text-align: center">姓名</label></span>
-                                    <input id="username" type="text" class="form-control" placeholder="姓名" disabled aria-describedby="username" name="username" value="">
+                                    <input id="name" type="text" class="form-control" placeholder="姓名" disabled aria-describedby="name" name="name" value="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i><label style="width:60px;text-align: center">学号</label></span>
-                                    <input id="usernumber" type="text" class="form-control" placeholder="学号" disabled aria-describedby="usernumber" value="">
+                                    <input id="studentNum" type="text" class="form-control" placeholder="学号" disabled aria-describedby="studentNum" value="">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -289,162 +289,69 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i><label style="width:60px;text-align: center">联系方式</label></span>
-                                    <input id="dzbConnect" type="text" class="form-control" placeholder="联系方式" aria-describedby="dzbConnect" value="@ViewBag.people.Phone">
+                                    <input id="phone" type="text" class="form-control" placeholder="联系方式" aria-describedby="phone" value="@ViewBag.people.Phone">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i><label style="width:60px;text-align: center">年级</label></span>
-                                    <input id="userGrade" type="text" class="form-control" placeholder="年级" disabled aria-describedby="userGrade" value="">
+                                    <input id="grade" type="text" class="form-control" placeholder="年级" disabled aria-describedby="grade" value="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i><label style="width:60px;text-align: center">专业</label></span>
-                                    <input id="userMajor" type="text" class="form-control" placeholder="专业" disabled aria-describedby="userMajor" value="">
+                                    <input id="major" type="text" class="form-control" placeholder="专业" disabled aria-describedby="major" value="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i><label style="width:60px;text-align: center">班级</label></span>
-                                    <input id="userClass" type="text" class="form-control" placeholder="班级" disabled aria-describedby="userClass" value="">
+                                    <input id="className" type="text" class="form-control" placeholder="班级" disabled aria-describedby="className" value="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i><label style="width:60px;text-align: center">入党时间</label></span>
-                                    <input id="dzbTime" type="text" class="form-control" placeholder="入党时间" disabled aria-describedby="dzbTime" value="">
+                                    <input id="joinPartyTime" type="text" class="form-control" placeholder="入党时间" disabled aria-describedby="joinPartyTime" value="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-cloud"></i><label style="width:60px;text-align: center">党支部名称</label></span>
-                                    <input id="dzbName" type="text" class="form-control" placeholder="党支部名称" disabled aria-describedby="dzbName" value="">
+                                    <input id="partyBranchName" type="text" class="form-control" placeholder="党支部名称" disabled aria-describedby="partyBranchName" value="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-heart"></i><label style="width:60px;text-align: center">身份</label></span>
-                                    <input id="dzbIdentify" type="text" class="form-control" placeholder="身份" disabled aria-describedby="dzbIdentify" value="">
+                                    <input id="identity" type="text" class="form-control" placeholder="身份" disabled aria-describedby="identity" value="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-heart"></i><label style="width:60px;text-align: center">职务</label></span>
-                                    <input id="dzbRole" type="text" class="form-control" placeholder="职务" disabled aria-describedby="dzbRole" value="">
+                                    <input id="role" type="text" class="form-control" placeholder="职务" disabled aria-describedby="role" value="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-bullhorn"></i><label style="width:60px;text-align: center">入党联系人</label></span>
-                                    <input id="dzbFriend" type="text" class="form-control" placeholder="入党联系人" disabled aria-describedby="dzbFriend" value="">
+                                    <input id="joinPartyContact" type="text" class="form-control" placeholder="入党联系人" disabled aria-describedby="joinPartyContact" value="">
                                 </div>
                             </div>
                             <div class="form-group col-sm-offset-5">
-                                <button id="savePersonData" class="btn btn-success" onclick="Save();">保存信息</button>
+                                <button id="savePersonData" class="btn btn-success" onclick="Save()">保存信息</button>
                                 <button id="Return" class="btn btn-success" style="display:none" onclick="document.location.href='/Home/UserCenter'">返回</button>
                             </div>
                         </div>
-                    @*</form>*@
+                    </form>
                     
                     <!-- /.个人信息表 -->
                 </div>
             </section>
 
-            <!-- 修改个人信息 -->
-            <section class="content container myDie" data-name="modifyPersonInfo">
-                <div class="col-sm-offset-3">
-                    <!-- 账户信息表 -->
-                    @*<form action="" method="get">*@
-                        <div class="col-sm-7 my-group">
-                            <h3>账户信息</h3>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i><label style="width:60px;text-align: center">姓名</label></span>
-                                    <input id="username1" type="text" class="form-control" placeholder="姓名" aria-describedby="username" name="username1" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i><label style="width:60px;text-align: center">学号</label></span>
-                                    <input id="usernumber1" type="text" class="form-control" placeholder="学号" aria-describedby="usernumber1" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i><label style="width:60px;text-align: center">密码</label></span>
-                                    <input id="password1" type="text" class="form-control" placeholder="密码" aria-describedby="password1" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-envelope"></i><label style="width:60px;text-align: center">邮箱</label></span>
-                                    <input id="email1" type="text" class="form-control" placeholder="邮箱" aria-describedby="email1" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i><label style="width:60px;text-align: center">联系方式</label></span>
-                                    <input id="dzbConnect1" type="text" class="form-control" placeholder="联系方式" aria-describedby="dzbConnect" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i><label style="width:60px;text-align: center">年级</label></span>
-                                    <input id="userGrade1" type="text" class="form-control" placeholder="年级" aria-describedby="userGrade1" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i><label style="width:60px;text-align: center">专业</label></span>
-                                    <input id="userMajor1" type="text" class="form-control" placeholder="专业" aria-describedby="userMajor" value=@ViewBag.people.Major>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i><label style="width:60px;text-align: center">班级</label></span>
-                                    <input id="userClass1" type="text" class="form-control" placeholder="班级" aria-describedby="userClass1" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i><label style="width:60px;text-align: center">入党时间</label></span>
-                                    <input id="dzbTime1" type="text" class="form-control" placeholder="入党时间" aria-describedby="dzbTime1" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-cloud"></i><label style="width:60px;text-align: center">党支部名称</label></span>
-                                    <input id="dzbName1" type="text" class="form-control" placeholder="党支部名称" aria-describedby="dzbName1" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-heart"></i><label style="width:60px;text-align: center">身份</label></span>
-                                    <input id="dzbIdentify1" type="text" class="form-control" placeholder="身份" aria-describedby="dzbIdentify1" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-bullhorn"></i><label style="width:60px;text-align: center">职务</label></span>
-                                    <input id="dzbRole1" type="text" class="form-control" placeholder="职务" aria-describedby="dzbRole1" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-bullhorn"></i><label style="width:60px;text-align: center">入党联系人</label></span>
-                                    <input id="dzbFriend1" type="text" class="form-control" placeholder="入党联系人" aria-describedby="dzbFriend1" value="">
-                                </div>
-                            </div>                         
-                            <div class="form-group col-sm-offset-5">
-                                <button class="btn btn-success back" onclick="Edit()">确认修改</button>
-                                <button class="btn btn-success return" >返回</button>
-                            </div>
-                        </div>
-                    @*</form>*@
-                    <!-- /.个人信息表 -->
-                </div>
-            </section>           
+            <
             <!-- 用户管理 -->
             <section class="content container myDie" data-name="userManage">
                 <div class="box box-info">
@@ -456,7 +363,7 @@
                             <table class="table no-margin">
                                 <thead>
                                     <tr>
-                                        @*<th>序号</th>*@
+                                        <th>序号</th>
                                         <th style="text-align:center;">姓名</th>
                                         <th style="text-align:center;">学号</th>
                                         <th style="text-align:center;">入党时间</th>
@@ -496,7 +403,101 @@
                     </ul>
                 </div>
             </section>
-           
+            <!-- 修改个人信息 -->
+            <section class="content container myDie" data-name="modifyPersonInfo">
+                <div class="col-sm-offset-3">
+                    <!-- 账户信息表 -->
+                    <form action="" method="get">
+                        <div class="col-sm-7 my-group">
+                            <h3>账户信息</h3>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i><label style="width:60px;text-align: center">姓名</label></span>
+                                    <input id="name1" type="text" class="form-control" placeholder="姓名" aria-describedby="name" name="name1" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i><label style="width:60px;text-align: center">学号</label></span>
+                                    <input id="studentNum1" type="text" class="form-control" placeholder="学号" aria-describedby="studentNum1" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i><label style="width:60px;text-align: center">密码</label></span>
+                                    <input id="password1" type="text" class="form-control" placeholder="密码" aria-describedby="password1" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope"></i><label style="width:60px;text-align: center">邮箱</label></span>
+                                    <input id="email1" type="text" class="form-control" placeholder="邮箱" aria-describedby="email1" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i><label style="width:60px;text-align: center">联系方式</label></span>
+                                    <input id="phone1" type="text" class="form-control" placeholder="联系方式" aria-describedby="phone" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i><label style="width:60px;text-align: center">年级</label></span>
+                                    <input id="grade1" type="text" class="form-control" placeholder="年级" aria-describedby="grade1" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i><label style="width:60px;text-align: center">专业</label></span>
+                                    <input id="major1" type="text" class="form-control" placeholder="专业" aria-describedby="major1" value=@ViewBag.people.Major>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i><label style="width:60px;text-align: center">班级</label></span>
+                                    <input id="className1" type="text" class="form-control" placeholder="班级" aria-describedby="className1" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i><label style="width:60px;text-align: center">入党时间</label></span>
+                                    <input id="joinPartyTime1" type="text" class="form-control" placeholder="入党时间" aria-describedby="joinPartyTime1" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-cloud"></i><label style="width:60px;text-align: center">党支部名称</label></span>
+                                    <input id="partyBranchName1" type="text" class="form-control" placeholder="党支部名称" aria-describedby="partyBranchName1" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-heart"></i><label style="width:60px;text-align: center">身份</label></span>
+                                    <input id="identity1" type="text" class="form-control" placeholder="身份" aria-describedby="identity1" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-bullhorn"></i><label style="width:60px;text-align: center">职务</label></span>
+                                    <input id="role1" type="text" class="form-control" placeholder="职务" aria-describedby="role1" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-bullhorn"></i><label style="width:60px;text-align: center">入党联系人</label></span>
+                                    <input id="joinPartyContact1" type="text" class="form-control" placeholder="入党联系人" aria-describedby="joinPartyContact1" value="">
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-offset-5">
+                                <button class="btn btn-success back" onclick="Save()">确认修改</button>
+                                <button class="btn btn-success return"  >返回</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- /.个人信息表 -->
+                </div>
+            </section>
             <!-- 公告管理 -->
             <section class="content container myDie" data-name="noticeManage">
                 <div class="box box-info" id="releaseDiv">
@@ -553,8 +554,8 @@
                     <form action="#" method="post" style="width:100%; margin:0 auto;">
                         <br />
                         <label>标题：</label>
-                        <input id="noticeName" type="text" placeholder="公告标题" style="width: 300px;height: 30px;"><br /><br />
-                        <textarea id="editor_id" name="content" style="width:100%;height:400px;border:1px solid #000;"></textarea>
+                        <input id="noticeTitle" type="text" placeholder="公告标题" style="width: 300px;height: 30px;"><br /><br />
+                        <textarea id="editor_id" name="noticeContent" style="width:100%;height:400px;border:1px solid #000;"></textarea>
                         <div class="box-tools">
                             <button class="btn btn-link pull-left" id="btn-cancel">返回列表<<<</button>
                             <button class="btn btn-success pull-right" id="btn-input">发布</button>
@@ -563,72 +564,72 @@
                 </div>
             </section>
            
-            @*会议管理*@
-            <section class="content container myDie" data-name="meetingManage">
-                <div class="box box-info" style="background-color: ghostwhite">
+<!--会议管理-->
+            <!--<section class="content container myDie" data-name="meetingManage">-->
+                <!--<div class="box box-info" style="background-color: ghostwhite">-->
 
-                    <div class="box-header with-border">
-                        <h3 class="box-title" style="height:32px;">会议留言记录</h3>
-                    </div>
+                    <!--<div class="box-header with-border">-->
+                        <!--<h3 class="box-title" style="height:32px;">会议留言记录</h3>-->
+                    <!--</div>-->
 
-                    <form style="position:absolute; right:10%; top:2%" role="form">
-                        <div id="sel">
-                            <input id="searchContent">
-                            <select id="select">
-                                <option>全部</option>
-                                @foreach (string name in ViewData.Model)
-                                {
-                                    <option>@name</option>
-                                }
-                            </select>
-                            <button id="btnCheck" type="button" class="btn-info">查看</button>
-                        </div>
-                    </form>
+                    <!--<form style="position:absolute; right:10%; top:2%" role="form">-->
+                        <!--<div id="sel">-->
+                            <!--<input id="searchContent">-->
+                            <!--<select id="select">-->
+                                <!--<option>全部</option>-->
+                                <!--@foreach (string name in ViewData.Model)-->
+                                <!--{-->
+                                    <!--<option>@name</option>-->
+                                <!--}-->
+                            <!--</select>-->
+                            <!--<button id="btnCheck" type="button" class="btn-info">查看</button>-->
+                        <!--</div>-->
+                    <!--</form>-->
 
-                    <div class="box-body">
-                        <div class="table-responsive" style="height:400px; ">
-                            <table class="table no-margin">
-                                <thead>
-                                    <tr>
-                                        <th class="text-danger" style="width: 5%;text-align: center; ">序号</th>
-                                        <th class="text-info" style="width: 45%;text-align: center; ">留言</th>
-                                        <th class="text-success" style="width: 15%;text-align: center">留言者</th>
-                                        <th class="text-muted" style="width: 15%;text-align: center">时间</th>
-                                        <th class="text-danger" style="width: 20%;text-align: center">操作</th>
-                                    </tr>
-                                </thead>
+                    <!--<div class="box-body">-->
+                        <!--<div class="table-responsive" style="height:400px; ">-->
+                            <!--<table class="table no-margin">-->
+                                <!--<thead>-->
+                                    <!--<tr>-->
+                                        <!--<th class="text-danger" style="width: 5%;text-align: center; ">序号</th>-->
+                                        <!--<th class="text-info" style="width: 45%;text-align: center; ">留言</th>-->
+                                        <!--<th class="text-success" style="width: 15%;text-align: center">留言者</th>-->
+                                        <!--<th class="text-muted" style="width: 15%;text-align: center">时间</th>-->
+                                        <!--<th class="text-danger" style="width: 20%;text-align: center">操作</th>-->
+                                    <!--</tr>-->
+                                <!--</thead>-->
 
-                                <tbody id="recordBody"></tbody>
+                                <!--<tbody id="recordBody"></tbody>-->
 
-                            </table>
-                        </div>
-                    </div>
+                            <!--</table>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                </div>
+                <!--</div>-->
 
-                <div class="pageturn" >
-                    <ul class="pager">
-                        <li>
-                            <label>共搜索到&nbsp;<span id="recordNum" class="text-success">0</span>&nbsp;条记录</label>
-                        </li>
-                        <li>
-                            <a id="lnkBtnFirst" class="btn">首页</a>
-                        </li>
-                        <li>
-                            <a id="lnkBtnPrevious" class="btn index">上一页</a>
-                        </li>
-                        <li>
-                            <span class="label" id="currentRecordPage" style="color: #0d6aad">1</span>/<span class="label" id="totalRecordPage" style="color: #0d6aad">3</span>
-                        </li>
-                        <li>
-                            <a id="lnkBtnNext" class=" btn index">下一页</a>
-                        </li>
-                        <li>
-                            <a id="lnkBtnLast" class="btn index">尾页</a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+                <!--<div class="pageturn" >-->
+                    <!--<ul class="pager">-->
+                        <!--<li>-->
+                            <!--<label>共搜索到&nbsp;<span id="recordNum" class="text-success">0</span>&nbsp;条记录</label>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a id="lnkBtnFirst" class="btn">首页</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a id="lnkBtnPrevious" class="btn index">上一页</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<span class="label" id="currentRecordPage" style="color: #0d6aad">1</span>/<span class="label" id="totalRecordPage" style="color: #0d6aad">3</span>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a id="lnkBtnNext" class=" btn index">下一页</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a id="lnkBtnLast" class="btn index">尾页</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</section>-->
 
             <!-- 文件管理 -->
             <section class=" content container myDie" data-name="dataManage">
@@ -636,7 +637,7 @@
                     <div class="box-header with-border">
                         <h3 class="box-title" style="height:50px;">文件中心</h3>
                         <div class="box-tools">
-                            <form action="/Home/UploadFile" method="post" enctype="multipart/form-data" id="fileForm" target="frame1">
+                            <form action="/api/file/upload" method="post" enctype="multipart/form-data" id="fileForm" target="frame1">
                                 <label>上传文件</label>
                                 <input type="file" name="file" id="inFile" />
                             </form>
@@ -684,61 +685,61 @@
                     </ul>
                 </div>
             </section>
-            <!-- 考勤管理 -->
-            <section class=" content container myDie" data-name="checkAttendenceManage">
-                <div class="box box-info">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">考勤情况</h3>
-                        <div class="box-tools">
-                            选择查询日期：
-                            <input type="date" id="CheckTime" value="2017-10-01">
-                            选择查询会议：                    
-                            <input type="text" id="CheckMeeting" placeholder="全部" />&nbsp;&nbsp;
-                            <button id="query" >查询</button>
-                        </div>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <div class="table-responsive" style="height:400px;">
-                            <table class="table no-margin" id="attendenceInfoTable">
-                                <thead>
-                                    <tr>
-                                        <th style="text-align:center">学号</th>
-                                        <th style="text-align:center">姓名</th>
-                                        <th style="text-align:center">签到时间</th>
-                                        <th style="text-align:center">签退时间</th>
-                                        <th style="text-align:center">会议</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="attendenceInfoTable_tbody">
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="pageturn">
-                    <ul class="pager">
-                        <li>
-                            <label>共有&nbsp;<span id="checkAttendenceNum" class="text-success">0</span>&nbsp;条记录</label>
-                        </li>
-                        <li>
-                            <a id="checkAttendence-lnkBtnFirst" class="btn">首页</a>
-                        </li>
-                        <li>
-                            <a id="checkAttendence-lnkBtnPrevious" class="btn index">上一页</a>
-                        </li>
-                        <li>
-                            <span class="label" id="checkAttendence-currentRecordPage" style="color: #0d6aad">0</span>/<span class="label" id="checkAttendence-totalRecordPage" style="color: #0d6aad">0</span>
-                        </li>
-                        <li>
-                            <a id="checkAttendence-lnkBtnNext" class=" btn index">下一页</a>
-                        </li>
-                        <li>
-                            <a id="checkAttendence-lnkBtnLast" class="btn index">尾页</a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+            <!--&lt;!&ndash; 考勤管理 &ndash;&gt;-->
+            <!--<section class=" content container myDie" data-name="checkAttendenceManage">-->
+                <!--<div class="box box-info">-->
+                    <!--<div class="box-header with-border">-->
+                        <!--<h3 class="box-title">考勤情况</h3>-->
+                        <!--<div class="box-tools">-->
+                            <!--选择查询日期：-->
+                            <!--<input type="date" id="CheckTime" value="2017-10-01">-->
+                            <!--选择查询会议：                    -->
+                            <!--<input type="text" id="CheckMeeting" placeholder="全部" />&nbsp;&nbsp;-->
+                            <!--<button id="query" >查询</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; /.box-header &ndash;&gt;-->
+                    <!--<div class="box-body">-->
+                        <!--<div class="table-responsive" style="height:400px;">-->
+                            <!--<table class="table no-margin" id="attendenceInfoTable">-->
+                                <!--<thead>-->
+                                    <!--<tr>-->
+                                        <!--<th style="text-align:center">学号</th>-->
+                                        <!--<th style="text-align:center">姓名</th>-->
+                                        <!--<th style="text-align:center">签到时间</th>-->
+                                        <!--<th style="text-align:center">签退时间</th>-->
+                                        <!--<th style="text-align:center">会议</th>-->
+                                    <!--</tr>-->
+                                <!--</thead>-->
+                                <!--<tbody id="attendenceInfoTable_tbody">-->
+                                <!--</tbody>-->
+                            <!--</table>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="pageturn">-->
+                    <!--<ul class="pager">-->
+                        <!--<li>-->
+                            <!--<label>共有&nbsp;<span id="checkAttendenceNum" class="text-success">0</span>&nbsp;条记录</label>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a id="checkAttendence-lnkBtnFirst" class="btn">首页</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a id="checkAttendence-lnkBtnPrevious" class="btn index">上一页</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<span class="label" id="checkAttendence-currentRecordPage" style="color: #0d6aad">0</span>/<span class="label" id="checkAttendence-totalRecordPage" style="color: #0d6aad">0</span>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a id="checkAttendence-lnkBtnNext" class=" btn index">下一页</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a id="checkAttendence-lnkBtnLast" class="btn index">尾页</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</section>-->
 
             <!-- 新闻管理 -->
             <section class="content container myDie" data-name="NewsLink">
@@ -796,7 +797,7 @@
                         <br />
                         <div style="margin:0 auto;">
                             <label>标题：</label>
-                            <input id="newsName" type="text" placeholder="新闻标题" style="width: 300px;height: 30px;">
+                            <input id="newsTitle" type="text" placeholder="新闻标题" style="width: 300px;height: 30px;">
                         </div>                     
                         <br />
                         <div style="margin:0 auto;">
@@ -811,7 +812,7 @@
                             <input id="newsLink" type="text" placeholder="新闻链接" style="width: 300px;height: 30px;">
                         </div>
                         <div id="new_Text">
-                            <textarea id="editor_new" name="content" style="width:100%;height:370px;"></textarea>
+                            <textarea id="editor_new" name="newsContent" style="width:100%;height:370px;"></textarea>
                         </div>
                         <div class="box-tools">
                             <button class="btn btn-link pull-left" id="btn-return">返回列表<<<</button>
@@ -820,15 +821,17 @@
                     </form>
                 </div>
             </section>
+
             <!-- 视频管理 -->
             <section class=" content container myDie" data-name="videoManage">
                 <div class="box box-info">
                     <div class="box-header with-border">
                         <h3 class="box-title">视频管理</h3>
                         <div class="box-tools">
-                            <form action="/Home/UploadVideo" method="post" enctype="multipart/form-data" id="videoForm" target="frame2">
-                                <label>上传视频</label>
-                                <input type="file" name="videofile" id="inVideo">
+                            <form action="/api/video/upload" method="post" enctype="multipart/form-data" id="videoForm" target="frame1">
+                                <label>上传文件</label>
+                                <input type="file" name="videoFile" id="inVideo" />
+                            </form>
                             </form>
                             <iframe name="frame2" frameborder="0" height="20"></iframe>                           
                         </div>
@@ -841,7 +844,7 @@
                                     <tr>
                                         <th style="text-align:center">序号</th>
                                         <th style="text-align:center">上传人</th>
-                                        <th style="text-align:center">文件名</th>                                      
+                                        <th style="text-align:center">视频名</th>
                                         <th style="text-align:center">上传时间</th>
                                         <th style="text-align:center">删除</th>
                                     </tr>
@@ -967,119 +970,84 @@
         <div class="control-sidebar-bg"></div>
     </div>
     <!-- ./wrapper -->
-    <script src="~/Scripts/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="~/Scripts/meetingManage.js"></script>
-    <script src="~/Scripts/adminlte.min.js"></script>
-    <script src="~/Scripts/userCenter.js"></script>
-    <script src="~/Scripts/kindeditor.js"></script>
-    <script src="~/Scripts/zh-CN.js"></script>
-    <script src="~/Scripts/userManage.js"></script>
-    <script src="~/Scripts/noticeManage.js"></script>
-    <script src="~/Scripts/dataManage.js"></script>
-    <script src="~/Scripts/checkAttendenceManage.js"></script>
-    <script src="~/Scripts/personInfo.js"></script>
-    <script src="~/Scripts/newsManage.js"></script>
-    <script src="~/Scripts/videoManage.js"></script>
-    <link href="~/Style/default.css" rel="stylesheet" />
-    <script>
+    <script src="/resources/js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+   <!-- <script src="/resources/js/meetingManage.js"></script> -->
+    <script src="/resources/js/adminlte.min.js"></script>
+    <script src="/resources/js/userCenter.js"></script>
+    <script src="/resources/js/kindeditor.js"></script>
+    <script src="/resources/js/zh-CN.js"></script>
+    <script src="/resources/js/userManage.js"></script>
+    <script src="/resources/js/noticeManage.js"></script>
+    <script src="/resources/js/dataManage.js"></script>
+    <script src="/resources/js/checkAttendenceManage.js"></script>
+    <script src="/resources/js/personInfo.js"></script>
+    <script src="/resources/js/newsManage.js"></script>
+    <script src="/resources/js/videoManage.js"></script>
+    <link href="/resources/css/default.css" rel="stylesheet" />
+
        
-        function Save() {
-            var password = document.getElementById("password");
-            var email = document.getElementById("email");
-            var dzbConnect = document.getElementById("dzbConnect");
-            var userMajor = document.getElementById("userMajor");
 
-            if(email.value!=""&&dzbConnect.value!="")
-            {
-                $.ajax({
-                    url: "SaveMessage",
-                    type: "POST",
-                    datatype: "json",
-                    data: {
-                        "password": password.value,
-                        "email": email.value,
-                        "dzbConnect": dzbConnect.value,
-                        "userMajor": userMajor.value
-                    },
-                    error: function (err) { alert("出错了") },
-                    success: function (result) {                   
-                        var data = $.parseJSON(result);
-                        $("#password").val(data["Password"]);
-                        $("#email").val(data["Email"]);
-                        $("#dzbConnect").val(data["Phone"]);
-                        $("#password").attr("disabled", "true");
-                        $("#email").attr("disabled", "true");
-                        $("#dzbConnect").attr("disabled", "true");
-                        var save = document.getElementById("savePersonData");
-                        var back = document.getElementById("Return");
-                        save.style.display="none";
-                        back.style.display="block";
-                    }
-                });
-            }
-            else
-            {
-                alert("请完整填写信息");
-            }           
-        }
-    </script>
 
     <script>
-        function Edit() {
-            var username = document.getElementById("username1");
-            var usernumber = document.getElementById("usernumber1");
-            var password = document.getElementById("password1");
-            var email = document.getElementById("email1");
-            var dzbConnect = document.getElementById("dzbConnect1");
-            var userGrade = document.getElementById("userGrade1"); 
-            var userMajor = document.getElementById("userMajor1");
-            var userClass = document.getElementById("userClass1");
-            var dzbTime = document.getElementById("dzbTime1");
-            var dzbName = document.getElementById("dzbName1");
-            var dzbIdentify = document.getElementById("dzbIdentify1");
-            var dzbRole = document.getElementById("dzbRole1");
-            var dzbFriend = document.getElementById("dzbFriend1");
+        function Save() {
 
-            if(username.value!=""&&usernumber.value!=""&&password.value!=""&&email.value!=""&&dzbConnect.value!=""&&userGrade.value!=""
-                &&userMajor.value!=""&&userClass.value!=""&&dzbTime.value!=""&&dzbName.value!=""&&dzbIdentify.value!=""&&dzbRole.value!=""&&dzbFriend.value!="")
-            {
-                $.ajax({
-                    url: "EditMessage",
+            var name = document.getElementById('name').value;
+            var studentNum1 = document.getElementById('studentNum').value;
+            var studentNum = parseInt(studentNum1);
+            var password = document.getElementById('password').value;
+
+            var grade = document.getElementById('grade').value;
+
+            var major = document.getElementById('major').value;
+            var className = document.getElementById('className').value;
+            var joinPartyTime = document.getElementById('joinPartyTime').value;
+
+            var partyBranchName = document.getElementById('partyBranchName').value;
+
+            var identity = document.getElementById('identity').value;
+
+            var role = document.getElementById('role').value;
+            var joinPartyContact = document.getElementById('joinPartyContact').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+
+                $.ajax ({
+                    url: "/api/person/save",
                     type: "POST",
                     datatype: "json",
-                    data: {
-                        "username": username.value,
-                        "usernumber": usernumber.value,
-                        "password": password.value,
-                        "email": email.value,
-                        "dzbConnect": dzbConnect.value,
-                        "userGrade": userGrade.value,
-                        "userMajor":userMajor.value,
-                        "userClass": userClass.value,
-                        "dzbTime": dzbTime.value,
-                        "dzbName": dzbName.value,
-                        "dzbIdentify": dzbIdentify.value,
-                        "dzbRole": dzbRole.value,
-                        "dzbFriend": dzbFriend.value
-                    },
-                    error: function (err) { alert(err) },
+                    contentType : 'application/json',
+                    data:JSON.stringify({
+                        name: name,
+                        password: password,
+                        studentNum: studentNum,
+                        grade: grade,
+                        major:major,
+                        className: className,
+                        joinPartyTime: joinPartyTime,
+                        partyBranchName: partyBranchName,
+                        identity: identity,
+                        joinPartyContact: joinPartyContact,
+                        role: role,
+                        email:email,
+                        phone:phone
+                    }),
+                    error: function (err) {
+                        var error = json.stringify(err);
+                        alert(error); },
                     success: function (result) {
-                        if (result == "Success") {
-                            alert("修改成功！");
+                        if (result.code == 200) {
+                            alert("保存成功！");
                             const dataName ="userManage";
                             const section = $(`.content-wrapper>section[data-name='${dataName}']`);
-                            //const section = $(".content-wrapper>section[data-name='${dataName}']");
                             section.show().siblings("section").hide();
                             target.addClass("active").siblings("li").removeClass("active");
                         }
                     }
                 });
             }
-            else
-            {
-                alert("修改内容不能为空");
-            }           
-        }     
+
+
     </script>
+
 </body>
 </html>

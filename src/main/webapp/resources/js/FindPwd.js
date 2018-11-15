@@ -1,4 +1,4 @@
-﻿//找回用户密码页面
+﻿
 $(document).ready(function () {
     
     var Div1 = document.getElementById("Div1");
@@ -6,24 +6,16 @@ $(document).ready(function () {
     var Div3 = document.getElementById("Div3");
     var Next1 = document.getElementById("Next1");
     var Next2 = document.getElementById("Next2");
+    var studentNum = document.getElementById("studentNum");
     var FinishPwd = document.getElementById("FinishPwd");
-    var A_Code = document.getElementById("switchCode");
-    var Img_Code = document.getElementById("imgcode");
-
-    A_Code.onclick = function () {
-        Img_Code.src = '/Online/GetAuthCode?' + Math.random();
-    }
-    Img_Code.onclick = function () {
-        Img_Code.src = '/Online/GetAuthCode?' + Math.random();
-    }
 
     Next1.onclick = function () {
-        var FindPwd = document.getElementById("FindPwd"); 
-        var code = document.getElementById("code");//
-        if (FindPwd == "") {
+        var studentNum = document.getElementById("studentNum"); 
+        var code = document.getElementById("code");
+        if (studentNum == "") {
             alert("请输入账号!");
         }         
-        else if code == "") {
+        else if( code == "") {
             alert("请输入验证码!")
         }
         else {
@@ -31,22 +23,23 @@ $(document).ready(function () {
                 url: "/api/user/send_mail_code",                                                                        //用邮箱找回密码
                 type: "POST",
                 datatype: "json",
-                data: {
-                    "FindPwd": FindPwd.value,
-                    "code": code.value
-                },
+                contentType : 'application/json',
+                data:  JSON.stringify({
+                    studentNum: studentNum.value,
+                    code: code.value
+                }),
                 error: function (err) { alert("出错了") },
                 success: function (result) {
-                    if (result == "Error1") {
+                    if (result.code == 10000) {
                         alert("验证码输入错误，请重新输入！");
                         code.value = "";
                     }
-                    else if (result == "Error2") {
+                    else if (result.message == "该用户未绑定邮箱") {
                         alert("该账号未绑定邮箱，请联系管理员！");
-                        FindPwd.value = "";
+                        studentNum.value = "";
                         code.value = "";
                     }
-                    else if (result == "Success") {
+                    else if (result.code == 200) {
                         Div1.style.display = 'none';
                         Div2.style.display = 'block';
                         Div3.style.display = 'none';
@@ -69,16 +62,17 @@ $(document).ready(function () {
                 url: "/api/user/check_mail_code",                                                                       //
                 type: "POST",
                 datatype: "json",
-                data: {
-                    "mailCode": mailCode.value//
-                },
+                contentType : 'application/json',
+                data:  JSON.stringify({
+                    mailCode: mailCode.value
+                }),
                 error: function (err) { alert("出错了") },
                 success: function (result) {
-                    if (result == "Error") {
+                    if (result.message == "验证码错误") {
                         alert("验证码输入错误，请重新输入！");
-                        mailCode.value = "";//
+                        mailCode.value = "";
                     }
-                    else if (result == "Success") {
+                    else if (result.code == 200) {
                         Div1.style.display = 'none';
                         Div2.style.display = 'none';
                         Div3.style.display = 'block';
@@ -92,31 +86,33 @@ $(document).ready(function () {
     }
 
     FinishPwd.onclick = function () {
-        var password = document.getElementById("password");                                                              //
-        var rpassword = document.getElementById("rpassword");                                                            //重复密码
+        var password = document.getElementById("password");
+        var rpassword = document.getElementById("rpassword");
         if (password.value == "") {
             alert("请输入新密码！");
         }
         else if (rpassword.value == "") {
             alert("请再次输入密码！");
         }
-        else if (password.value != rpassword.value) {                                                                    //
+        else if (password.value != rpassword.value) {
             alert("密码不一致，请重新输入！");
-            rpassword.value == ""                                                                                        //
+            rpassword.value == ""
         }
         else {
             $.ajax({
-                url: "/api/user/reset_password",                                                                         //
+                url: "/api/user/reset_password",
                 type: "POST",
                 datatype: "json",
-                data: {
-                    "password": password.value                                                                          //
-                },
+                contentType : 'application/json',
+                data: JSON.stringify({
+                    "password": password.value ,
+                    "rpassword":rpassword.value
+                }),
                 error: function (err) { alert("出错了") },
                 success: function (result) {
-                    if (result == "Success") {
-                        alert("新密码修改完成！");
-                        window.location.href = "/api/user/login";                                                       //
+                    if (result.code == 200) {
+                        alert("新密码修改成功！");
+                        window.location.href = "/views/Online/Login.html";
                     }
                     else {
                         alert("出错！");

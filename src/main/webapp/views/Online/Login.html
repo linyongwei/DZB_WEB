@@ -1,19 +1,20 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>登陆页面</title>
-    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="/resources/js/jquery-3.2.1.min.js"></script>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    @*<link href="~/Style/bootstrap.min.css" rel="stylesheet" />*@
-    <link href="~/Style/Login.css" rel="stylesheet" />
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/resources/css/Login.css" rel="stylesheet" />
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="~/Style/Login.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/Login.css">
 
     <!--图标-->
     <link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon">
@@ -22,11 +23,11 @@
 <body>
     <div class="box col-sm-offset-4 col-sm-3">
         <h3 class="logo"><i class="glyphicon glyphicon-flag"></i>Login</h3>
-        <form action="/Online/PeopleLogin" method="post" class="my-form">
+        <form class="my-form "   >
             <div class="form-group my-group">
                 <div class="input-group col-sm-10 col-sm-offset-1">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input id="username" type="text" name="username" class="form-control" placeholder="账号" aria-describedby="username">
+                    <input id="studentNum" type="text" name="studentNum" class="form-control" placeholder="账号" aria-describedby="studentNum">
                 </div>
             </div>
 
@@ -37,31 +38,68 @@
                 </div>
             </div>
 
-            <div class="form-group my-group">
-                <div class="input-group col-sm-10 col-sm-offset-1">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                    <input id="code" type="text" name="code" style="width: 130px ; height: 43px" placeholder="验证码" aria-describedby="code">
-                    <div style="width: 110px; float: right;padding-left: 14px;">
-                        看不清？<a id="switchCode" href="javascript:void();" style="text-decoration: none;" onclick="NewCode()">换一张</a>
-                        <img id="imgcode" class="authcode" src="/Online/GetAuthCode" width="80" height="25" onclick="NewCode()"/>
-                    </div>
+        <div class="form-group my-group">
+            <div class="input-group col-sm-10 col-sm-offset-1">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                <input id="verificationCode" type="text" name="verificationCode" style="width: 130px ; height: 43px"  placeholder="验证码" aria-describedby="verificationCode">
+                <div style="width: 110px; float: right;padding-left: 14px;">
+                    看不清？<a id="switchCode" href="javascript:void(0);" style="text-decoration: none;" onclick="NewCode()">换一张</a>
+                    <img id="imgcode" class="authcode" src="/api/user/verification_code" width="80" height="25" onclick="NewCode()"/>
                 </div>
             </div>
-    
-            <div class="form-group my-group">
-                <div class="col-sm-12 col-sm-offset-1">
-                    <input type="submit" class="btn btn-success" name="action" value="登 录">
-                    <a class="btn btn-warning" href="/Online/Register">注 册</a>
-                    <a class="btn btn-primary" href="/Online/FindPwd">找回密码</a>
-                </div>
+
+            <div class="col-sm-12 col-sm-offset-1">
+                <a class="btn btn-warning" onclick="login()">登陆</a>
+                <a class="btn btn-warning" href="/views/Online/Register.html">注 册</a>
+                <a class="btn btn-primary" href="/views/Online/FindPwd.html">找回密码</a>
             </div>
+        </div>
+
         </form>
     </div>
     <script>
         function NewCode() {
             var newcode = document.getElementById("imgcode");
-            newcode.src = '/Online/GetAuthCode?'+Math.random();
+            newcode.src = '/api/user/verification_code?'+Math.random();
     }
+        function  login() {
+            var studentNum1 = document.getElementById('studentNum').value;
+            var studentNum = parseInt(studentNum1);
+            var password = document.getElementById('password').value;
+            var verificationCode = document.getElementById('verificationCode').value;
+         if(studentNum != ""&&password != "" && verificationCode != "" ) {
+            $.ajax({
+                url: "/api/user/login",
+                type: "POST",
+                datatype: "json",
+                contentType: 'application/json',
+                data: JSON.stringify({
+
+                    studentNum: studentNum,
+                    password: password,
+                    verificationCode: verificationCode
+                }),
+                error: function (err) {
+                    alert("出错");
+                },
+                success: function (result) {
+
+                     if(result.code == 200) {
+                          alert("登陆成功！");
+                          window.location.href = "/views/Home/UserCenter.html";
+                      }
+                    else if(result.code == 10000){
+                        alert("验证码错误！");
+                    }
+                }
+
+            })
+        }
+
+         else{
+             alert("请填写好相关信息！");
+         }
+       }
     </script>
 </body>
 </html>

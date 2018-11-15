@@ -34,25 +34,15 @@ public class NewsController {
     /**
      * 返回新闻简略信息数组
      */
-    @RequestMapping(value = "/newsList", method = RequestMethod.GET)
+    @RequestMapping(value = "/newslist", method = RequestMethod.GET)
     public Result queryList(HttpServletRequest request, HttpServletResponse response) {
 
-        HttpSession session = request.getSession();
-        System.out.println("currentUser " + session.getAttribute("currentUser"));
-        User currentUser = new User();
-        currentUser = (User) session.getAttribute("currentUser");
-        if ((session.getAttribute("currentUser")) == null) {
-            return Result.createBySuccessMessage("还没有登录！");
-        }
-        if (!currentUser.getRole().equals("支委")) {
-            return Result.createBySuccessMessage("没有权限访问！");
-        }
         List<News> newsList = newsService.queryNewsList();
         if (newsList == null) {
             return Result.createByError(ResultCodeEnum.RESULT_CODE_NOT_FOUND);
         }
         Map<String, Object> data = new HashMap<>();
-        data.put("newsList", newsList);
+        data.put("newslist", newsList);
         return Result.createBySuccess(data);
     }
 

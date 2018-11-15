@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿﻿<!DOCTYPE html>
 
 <html>
 <head>
@@ -9,11 +9,11 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="~/Style/font-awesome.min.css">
-    <link rel="stylesheet" href="~/Style/ionicons.min.css">
-    <link rel="stylesheet" href="~/Style/AdminLTE.min.css">
-    <link rel="stylesheet" href="~/Style/skin-red.min.css">
-    <link rel="shortcut icon" href="~/Style/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="resources/css/font-awesome.min.css">
+    <link rel="stylesheet" href="resources/css/ionicons.min.css">
+    <link rel="stylesheet" href="resources/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="resources/css/skin-red.min.css">
+    <link rel="shortcut icon" href="resources/css/favicon.ico" type="image/x-icon">
 
 
     <style>
@@ -66,7 +66,7 @@
                                             <a href="#">
                                                 <div class="pull-left">
                                                     <!-- User Image -->
-                                                    <img src="~/Image/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                    <img src="resources/image/user2-160x160.jpg" class="img-circle" alt="User Image">
                                                 </div>
                                                 <!-- Message title and timestamp -->
                                                 <h4>
@@ -155,14 +155,14 @@
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                <img src="~/Image/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <img src="resources/image/user2-160x160.jpg" class="user-image" alt="User Image">
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                                 <span class="hidden-xs">@ViewBag.people.Name</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    <img src="~/Image/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                    <img src="resources/image/user2-160x160.jpg" class="img-circle" alt="User Image">
                                     <p>
                                         爸爸 - 深藏功与名
                                         <small>Member since Nov. 2012</small>
@@ -210,7 +210,7 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="~/Image/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="resources/image/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
                         <p>@ViewBag.people.Name</p>
@@ -237,8 +237,8 @@
                     <!-- Optionally, you can add icons to the links -->
                     <li name="personInfo"><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>个人信息</span></a></li>
                     <li name="downloadInfo"><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>下载文件</span></a></li>
-                    <li><a href="/Home/Video"><i class="fa fa-link"></i> <span>视频会议</span></a></li>
-                    <li name="meetingManage"><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>会议管理</span></a></li>
+                   // <li><a href="/Home/Video"><i class="fa fa-link"></i> <span>视频会议</span></a></li>
+                 //   <li name="meetingManage"><a href="javascript:void(0)"><i class="fa fa-link"></i> <span>会议管理</span></a></li>
 
                 </ul>
                 <!-- /.sidebar-menu -->
@@ -253,19 +253,19 @@
             <section class="content container myDie" data-name="personInfo">
                 <div class="col-sm-offset-3">
                     <!-- 账户信息表 -->
-                    @*<form action="" method="get">*@
+                    @*<form action="/api/person/info" method="get">*@
                     <div class="col-sm-7 my-group">
                         <h3>账户信息</h3>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i><label style="width:60px;text-align: center">姓名</label></span>
-                                <input id="username" type="text" class="form-control" placeholder="姓名" disabled aria-describedby="username" name="username" value=@ViewBag.people.Name>
+                                <input id="name" type="text" class="form-control" placeholder="姓名" disabled aria-describedby="name" name="name" value=@ViewBag.people.Name>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i><label style="width:60px;text-align: center">学号</label></span>
-                                <input id="usernumber" type="text" class="form-control" placeholder="学号" disabled aria-describedby="usernumber" value=@ViewBag.people.StuNumber>
+                                <input id="studentNum" type="text" class="form-control" placeholder="学号" disabled aria-describedby="studentNum" value=@ViewBag.people.StuNumber>
                             </div>
                         </div>
                         <div class="form-group">
@@ -283,55 +283,55 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i><label style="width:60px;text-align: center">联系方式</label></span>
-                                <input id="dzbConnect" type="text" class="form-control" placeholder="联系方式" aria-describedby="dzbConnect" value=@ViewBag.people.Phone>
+                                <input id="phone" type="text" class="form-control" placeholder="联系方式" aria-describedby="phone" value=@ViewBag.people.Phone>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i><label style="width:60px;text-align: center">年级</label></span>
-                                <input id="userGrade" type="text" class="form-control" placeholder="年级" disabled aria-describedby="userGrade" value=@ViewBag.people.Grade>
+                                <input id="grade" type="text" class="form-control" placeholder="年级" disabled aria-describedby="grade" value=@ViewBag.people.Grade>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i><label style="width:60px;text-align: center">专业</label></span>
-                                <input id="userMajor" type="text" class="form-control" placeholder="专业" disabled aria-describedby="userMajor" value=@ViewBag.people.Major>
+                                <input id="major" type="text" class="form-control" placeholder="专业" disabled aria-describedby="major" value=@ViewBag.people.Major>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i><label style="width:60px;text-align: center">班级</label></span>
-                                <input id="userClass" type="text" class="form-control" placeholder="班级" disabled aria-describedby="userClass" value=@ViewBag.people.Class>
+                                <input id="className" type="text" class="form-control" placeholder="班级" disabled aria-describedby="className" value=@ViewBag.people.Class>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i><label style="width:60px;text-align: center">入党时间</label></span>
-                                <input id="dzbTime" type="text" class="form-control" placeholder="入党时间" disabled aria-describedby="dzbTime" value=@ViewBag.people.RDTime>
+                                <input id="joinPartyTime" type="text" class="form-control" placeholder="入党时间" disabled aria-describedby="joinPartyTime" value=@ViewBag.people.RDTime>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-cloud"></i><label style="width:60px;text-align: center">党支部全称</label></span>
-                                <input id="dzbName" type="text" class="form-control" placeholder="党支部名称" disabled aria-describedby="dzbName" value=@ViewBag.people.DZBName>
+                                <input id="partyBranchName" type="text" class="form-control" placeholder="党支部名称" disabled aria-describedby="partyBranchName" value=@ViewBag.people.DZBName>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-heart"></i><label style="width:60px;text-align: center">身份</label></span>
-                                <input id="dzbIdentify" type="text" class="form-control" placeholder="身份" disabled aria-describedby="dzbIdentify" value=@ViewBag.people.Identities>
+                                <input id="identity" type="text" class="form-control" placeholder="身份" disabled aria-describedby="identity" value=@ViewBag.people.Identities>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-heart"></i><label style="width:60px;text-align: center">职务</label></span>
-                                <input id="dzbRole" type="text" class="form-control" placeholder="职务" disabled aria-describedby="dzbRole" value=@ViewBag.people.Role>
+                                <input id="role" type="text" class="form-control" placeholder="职务" disabled aria-describedby="role" value=@ViewBag.people.Role>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-bullhorn"></i><label style="width:60px;text-align: center">入党联系人</label></span>
-                                <input id="dzbFriend" type="text" class="form-control" placeholder="入党联系人" disabled aria-describedby="dzbFriend" value=@ViewBag.people.RDJSR>
+                                <input id="joinPartyContact" type="text" class="form-control" placeholder="入党联系人" disabled aria-describedby="joinPartyContact" value=@ViewBag.people.RDJSR>
                             </div>
                         </div>
                         <div class="form-group col-sm-offset-5">
@@ -391,6 +391,7 @@
                 </div>
             </section>
             <!-- 会议管理 -->
+           
             <section class="content container myDie" data-name="meetingManage">
                 <div class="box box-info" style="background-color: ghostwhite">
 
@@ -548,29 +549,29 @@
         function Save() {
             var password = document.getElementById("password");
             var email = document.getElementById("email");
-            var dzbConnect = document.getElementById("dzbConnect");
-            var userMajor = document.getElementById("userMajor");
+            var joinPartyContact = document.getElementById("joinPartyContact");
+            var major = document.getElementById("major");
 
             if (email.value != "" && dzbConnect.value != "") {
                 $.ajax({
-                    url: "/Home/SaveMessage",
+                    url: "/api/person/save",
                     type: "POST",
                     datatype: "json",
                     data: {
                         "password": password.value,
                         "email": email.value,
-                        "dzbConnect": dzbConnect.value,
-                        "userMajor": userMajor.value
+                        "joinPartyContact": joinPartyContact.value,
+                        "major": major.value
                     },
                     error: function (err) { alert("出错了") },
                     success: function (result) {
                         var data = $.parseJSON(result);
                         $("#password").val(data["Password"]);
                         $("#email").val(data["Email"]);
-                        $("#dzbConnect").val(data["Phone"]);
+                        $("#phone").val(data["Phone"]);
                         $("#password").attr("disabled", "true");
                         $("#email").attr("disabled", "true");
-                        $("#dzbConnect").attr("disabled", "true");
+                        $("#joinPartyContact").attr("disabled", "true");
                         var save = document.getElementById("savePersonData");
                         var back = document.getElementById("Return");
                         save.style.display = "none";
@@ -583,10 +584,10 @@
             }
         }
     </script>
-    <script src="~/Scripts/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="~/Scripts/adminlte.min.js"></script>
-    <script src="~/Scripts/userCenter.js"></script>
-    <script src="~/Scripts/normalMeetingManage.js"></script>
-    <script src="~/Scripts/NormalFileManager.js"></script>
+    <script src="resources/js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="resources/js/adminlte.min.js"></script>
+    <script src="resources/js/userCenter.js"></script>
+    <script src="resources/js/normalMeetingManage.js"></script>
+    <script src="resources/js/NormalFileManager.js"></script>
 </body>
 </html>

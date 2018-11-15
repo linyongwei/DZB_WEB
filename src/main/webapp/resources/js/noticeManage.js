@@ -16,6 +16,7 @@
     var releaseDiv = document.getElementById('releaseDiv');
     var inputDiv = document.getElementById('inputDiv');
     var btnInput = document.getElementById('btn-input');
+    var notice_pageTurn =document.getElementById('notice_pageTurn');
     btnInput.onclick = function () {
         releaseDiv.style.display = 'block';
         notice_pageTurn.style.display = 'block';
@@ -24,7 +25,7 @@
     btnRelease.onclick = function () {
         //打开发布公告页面时清空内容，以便再次输入。
         KindEditor.html("#editor_id", "");
-        document.getElementById('noticeName').value = "";
+        document.getElementById('noticeTitle').value = "";
         releaseDiv.style.display = 'none';
         notice_pageTurn.style.display = 'none';
         inputDiv.style.display = 'block';
@@ -53,40 +54,42 @@
 
     //发布按钮响应事件
     $("#btn-input").click(function () {
-        var noticeName = $("#noticeName").val().trim();
-        if (noticeName == "") {
+        var noticeTitle = $("#noticeTitle").val().trim();
+        if (noticeTitle == "") {
             alert("请输入公告标题！");
             return false;
         }
-        var content = $("#editor_id").val().trim();
-        if (content == "") {
+        var noticeContent = $("#editor_id").val().trim();
+        if (noticeContent == "") {
             alert("请输入公告内容！");
             return false;
         }
-        content = content.replace(/\n/gi, "<br>");
-        content = content.replace(/<br>/gi, "");
-        content = content.replace(/</gi, "&lt;");
-        content = content.replace(/>/gi, "&gt;");
-        content = content.replace(/ /gi, "&nbsp;");
-        content = content.replace(/&/gi, "&amp;");
-        content = content.replace(/'/gi, "&#39;");
-        content = content.replace(/"/gi, "&quot;");
+        noticeContent = noticeContent.replace(/\n/gi, "<br>");
+        noticeContent = noticeContent.replace(/<br>/gi, "");
+        noticeContent = noticeContent.replace(/</gi, "&lt;");
+        noticeContent = noticeContent.replace(/>/gi, "&gt;");
+        noticeContent = noticeContent.replace(/ /gi, "&nbsp;");
+        noticeContent = noticeContent.replace(/&/gi, "&amp;");
+        noticeContent = noticeContent.replace(/'/gi, "&#39;");
+        noticeContent = noticeContent.replace(/"/gi, "&quot;");
         if (index != -1) {
-            var noticeId = json[index].NoticeId;                                                                          //
+            var id1 = json[index].id;
+            var id =  parseInt(id1);
             $.ajax({
                 type: "post",
-                url: "/api/notice/update",                                                                               //修改公告
+                url: "/api/notice/update",
                 dataType: "json",
-                data: {
-                    noticeId: noticeId,                                                                                  //
-                    noticeName: noticeName,
-                    content: content,
-                },
+                contentType : 'application/json',
+                data: JSON.stringify( {
+                    id: id,
+                    noticeTitle: noticeTitle,
+                    noticeContent: noticeContent,
+                }),
                 success: function (data) {
                     if (data != "no") {
-                        json = data;
+                        alert("修改成功！");
                         currentPage = 1;
-                        show_current();
+                        init();
                         index = -1;
                     }
                     else {
@@ -98,18 +101,19 @@
         }
         $.ajax({
             type: "post",
-            url: "/api/notice/create",                                                                                   //
+            url: "/api/notice/create",
             dataType: "json",
-            data: {
-                noticeName: noticeName,                                                                                 //?
-                content: content,
-            },
+            contentType : 'application/json',
+            data: JSON.stringify({
+            	noticeTitle: noticeTitle,
+            	noticeContent : noticeContent,
+            }),
             success: function (data) {
                 if (data != "no") {
-                    json = data;
                     // 发布成功后显示最新公告
+                    alert("发布成功！")
                     currentPage = 1;
-                    show_current();
+                    init();
                 }
                 else {
                     alert("发布失败，请重新发布！");
@@ -122,11 +126,11 @@
     //修改公告
     function updateNotice() {
         index = parseInt(this.id);
-        var noticeName = json[index].NoticeName;
-        var noticeContent = htmldecode(json[index].NoticeContent);
+        var noticeTitle = json[index].noticeTitle;
+        var noticeContent = htmldecode(json[index].noticeContent);
         KindEditor.html("#editor_id", noticeContent);
         document.getElementById("editor_id").value = noticeContent;
-        document.getElementById('noticeName').value = noticeName;
+        document.getElementById('noticeTitle').value = noticeTitle;
         releaseDiv.style.display = 'none';
         notice_pageTurn.style.display = 'none';
         inputDiv.style.display = 'block';
@@ -134,19 +138,19 @@
     //删除公告
     function deleteNotice() {
         index = parseInt(this.id);
-        var noticeId = json[index].NoticeID;
+        var noticeId = parseInt(json[index].id);
         $.ajax({
-            type: "post",
-            url: "/api/notice/delete",                                                                                   //删除公告
+            type: "DELETE",
+            url: "/api/notice/delete",
             dataType: "json",
-            data: {
-                noticeId: noticeId                                                                                       //
-            },
+            contentType : 'application/json',
+            data:JSON.stringify(  {
+                noticeId:noticeId
+            }),
             success: function (data) {
                 if (data != "no") {
-                    json = data;
-                    //删除一条数据后，显示的仍是当前页码
-                    show_current();
+                    alert("删除成功!");
+                    init();
                 }
                 else {
                     alert("删除失败，请重新删除！");
@@ -169,36 +173,23 @@
         return str;
     }
 
-    function getTime(time) {
-        if (time != "") {
-            var dt = new Date(parseInt(time.slice(6, 19)));
-            var year = dt.getFullYear();
-            var month = dt.getMonth() + 1 < 10 ? "0" + (dt.getMonth() + 1) : dt.getMonth() + 1;
-            var date = dt.getDate() < 10 ? "0" + (dt.getDate()) : dt.getDate();
-            var hour = dt.getHours() < 10 ? "0" + (dt.getHours()) : dt.getHours();
-            var minute = dt.getMinutes() < 10 ? "0" + (dt.getMinutes()) : dt.getMinutes();
-            var second = dt.getSeconds() < 10 ? "0" + (dt.getSeconds()) : dt.getSeconds();
-            return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
-        }
-        else {
-            return time;
-        }
-    }
+
 
     //创建一行公告数据
     function createRaw(rawData, i) {
         var tbody = document.getElementById("noticeTable");
         var tr = document.createElement("tr");
-        var studentName = document.createElement("td");                                                                  //
-        studentName.innerHTML = rawData.StudentName;
-        var noticeName = document.createElement("td");
+        var studentNum = document.createElement("td");
+        studentNum.innerHTML = rawData.studentNum;
+        var noticeTitle = document.createElement("td");
         var linkHtml = document.createElement("a");
-        linkHtml.href = "/Home/Notice?id=" + rawData.NoticeId;                                                           //?
+
+        linkHtml.href = "/views/Home/Notice.html?"+"noticeTitle="+rawData.noticeTitle+"&noticeContent="+rawData.noticeContent+"&pubTime="+rawData.pubTime;
         linkHtml.target = "_blank";
-        linkHtml.innerHTML = rawData.NoticeName;
-        noticeName.appendChild(linkHtml);
-        var pubTime = document.createElement("td");                                                                      //
-        pubTime.innerHTML = getTime(rawData.Time);
+        linkHtml.innerHTML = rawData.noticeTitle;
+        noticeTitle.appendChild(linkHtml);
+        var pubTime = document.createElement("td");
+        pubTime.innerHTML = rawData.pubTime;
         var updateTd = document.createElement("td");
         var updateBtn = document.createElement("button");
         updateBtn.innerHTML = "修改";
@@ -213,8 +204,8 @@
         deleteBtn.id = i;
         deleteBtn.onclick = deleteNotice;
         deleteTd.appendChild(deleteBtn);
-        tr.appendChild(studentName);
-        tr.appendChild(noticeName);
+        tr.appendChild(studentNum);
+        tr.appendChild(noticeTitle);
         tr.appendChild(pubTime);
         tr.appendChild(updateTd);
         tr.appendChild(deleteTd);
@@ -231,9 +222,10 @@
     }
     //从后台得到数据
     function init() {
-        $.getJSON("/api/notice/noticelist", function (data) {//
-            if (data != "no") {
-                json = data;
+        $.getJSON("/api/notice/noticelist",function (result) {
+
+            if ( result != "no") {
+                json = result.data.NoticeList;
                 hasDataInit();
             }
             else {
@@ -252,6 +244,7 @@
     //显示
     function show_current() {
         reset();
+        //重新获得公告列表
         countValue();
         show();
         show_current_page_num(currentPage);
@@ -280,20 +273,7 @@
         showNoticeNum(0);
     }
 
-    //删除后页面重置函数
-    function afterDelete() {
 
-    }
-
-    //修改后页面重置函数
-    function afterModify() {
-
-    }
-
-    //新发布后页面重置函数
-    function afterAdd() {
-
-    }
 
     //显示公告总数
     function showNoticeNum(noticeNum) {

@@ -15,20 +15,20 @@ $(document).ready(function () {
 
     var newsDiv = document.getElementById('newsDiv');
     var inputDiv = document.getElementById('inputNewsDiv');
-    var news_pageTurn = document.getElementById('news_pageTurn'); 
-    var newText = document.getElementById('newText');//
-
+    var newsPageTurn = document.getElementById('news_pageTurn');
+    var newsText = document.getElementById('new_Text');
+    var newsLink =document.getElementById('new_Link');
     //右上角的发布新闻按钮的点击事件
     $("#btn-newsRelease").click(function () {
-        document.getElementById('newsName').value = "";
+
         newsDiv.style.display = 'none';
-        newsPageTurn.style.display = 'none';//11
+        newsPageTurn.style.display = 'none';
         inputDiv.style.display = 'block';
     });
     //右下角的发布新闻按钮的点击事件（即真正发布新闻的按钮）
     $("#btn-newsReallyRelease").click(function () {
         newsDiv.style.display = 'block';
-        newsPageTurn.style.display = 'block';//11
+        newsPageTurn.style.display = 'block';
         inputDiv.style.display = 'none';
     });
 
@@ -37,73 +37,71 @@ $(document).ready(function () {
     $(":radio").click(function () {
         var newsType = $('input[name="newsType"]:checked').val();
         if (newsType == "学习十九大") {
-            newsLink.style.display = 'none';//
-            newsText.style.display = 'block';//
+            newsLink.style.display = 'none';
+            newsText.style.display = 'block';
         }
         else {
-            newsLink.style.display = 'block';//
-            newsText.style.display = 'none';//
+            newsLink.style.display = 'block';
+            newsText.style.display = 'none';
         }
     });
     
     //返回列表响应事件
     $("#btn-return").click(function () {
         newsDiv.style.display = 'block';
-        newsPageTurn.style.display = 'block';//11
-        inputNewsDiv.style.display = 'none';
+        newsPageTurn.style.display = 'block';
+        inputDiv.style.display = 'none';
         return false;
     });
 
     //发布按钮响应事件
     $("#btn-newsReallyRelease").click(function () {
-        var newsName = $("#newsName").val().trim();
-        if (newsName == "") {
+        var newsTitle = $("#newsTitle").val().trim();
+        if (newsTitle == "") {
             alert("请输入新闻标题！");
             return false;
-        }       
-
+        }
         var newsType1 = $('input[name="newsType"]:checked').val();
-        var content = $("#editor_new").val().trim();
-        if (newsType1 == "学习十九大") {          
-            if (content == "") {
+        if (newsType1 == "学习十九大") {
+            var newsContent = $("#editor_new").val().trim();
+            if (newsContent  == "") {
                 alert("请输入新闻内容！");
                 return false;
             }
-            else
-            {
-                content = content.replace(/\n/gi, "<br>");
-                content = content.replace(/<br>/gi, "");
-                content = content.replace(/</gi, "&lt;");
-                content = content.replace(/>/gi, "&gt;");
-                content = content.replace(/ /gi, "&nbsp;");
-                content = content.replace(/&/gi, "&amp;");
-                content = content.replace(/'/gi, "&#39;");
-                content = content.replace(/"/gi, "&quot;");
-            }          
+            	newsContent = newsContent.replace(/\n/gi, "<br>");
+            	newsContent = newsContent.replace(/<br>/gi, "");
+            	newsContent = newsContent.replace(/</gi, "&lt;");
+            	newsContent = newsContent.replace(/>/gi, "&gt;");
+            	newsContent = newsContent.replace(/ /gi, "&nbsp;");
+            	newsContent = newsContent.replace(/&/gi, "&amp;");
+            	newsContent = newsContent.replace(/'/gi, "&#39;");
+            	newsContent = newsContent.replace(/"/gi, "&quot;");
         }
-        else {
-            if (content == "") {
-                alert("请输入新闻内容！");
-                return false;
-            }
-        }
+       else{
+            var newsContent = $("#newsLink").val().trim();
+            if (newsContent  == "") {
 
+                alert("请输入新闻内容！");
+                return false;
+            }
+        }
         $.ajax({
             type: "post",
-            url:  "/api/news/create",                                                                                    //发布新闻
+            url:  "/api/news/create",
             dataType: "json",
-            data: {
-                newsName: newsName,
-                newsLink: content,
-                newsType: newsType1
-            },
-            error: function (err) { alert("出错了") },
+            contentType : 'application/json',
+            data: JSON.stringify({
+            	newsTitle:newsTitle,
+                newsContent:newsContent,
+                newsType:newsType1
+            }),
+            error: function (err) { alert(JSON.stringify(err)); },
             success: function (data) {
                 if (data != "no") {
-                    json = data;
+                   alert("发布成功！");
                     // 发布成功后显示最新公告
                     currentPage = 1;
-                    show_current();
+                    init();
                 }
                 else {
                     alert("发布失败，请重新发布！");
@@ -116,19 +114,20 @@ $(document).ready(function () {
     //删除新闻
     function deleteNews() {
         index = parseInt(this.id);
-        var newsId = json[index].newsId;                                                                                 //
+        var newsId = json[index].id;
         $.ajax({
-            type: "post",
+            type: "DELETE",
             url: "/api/news/delete",                                                                                    //删除新闻
             dataType: "json",
-            data: {
-                newsId: newsId                                                                                          //
-            },
+            contentType : 'application/json',
+            data:  JSON.stringify({
+                newsId:newsId                                                                                          //
+            }),
             success: function (data) {
                 if (data != "no") {
-                    json = data;
+                    alert("删除成功！");
                     //删除一条数据后，显示的仍是当前页码
-                    show_current();
+                    init();
                 }
                 else {
                     alert("删除失败，请重新删除！");
@@ -150,38 +149,35 @@ $(document).ready(function () {
     }
 
     //时间转换函数
-    function getTime(time) {
-        if (time != "") {
-            var dt = new Date(parseInt(time.slice(6, 19)));
-            var year = dt.getFullYear();
-            var month = dt.getMonth() + 1 < 10 ? "0" + (dt.getMonth() + 1) : dt.getMonth() + 1;
-            var date = dt.getDate() < 10 ? "0" + (dt.getDate()) : dt.getDate();
-            var hour = dt.getHours() < 10 ? "0" + (dt.getHours()) : dt.getHours();
-            var minute = dt.getMinutes() < 10 ? "0" + (dt.getMinutes()) : dt.getMinutes();
-            var second = dt.getSeconds() < 10 ? "0" + (dt.getSeconds()) : dt.getSeconds();
-            return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
-        }
-        else {
-            return time;
-        }
-    }
+
 
     //创建一行公告数据
     function createRaw(rawData, i) {
 
         var tr = document.createElement("tr");
-        var studentName = document.createElement("td");                                                                 //
-        studentName.innerHTML = rawData.StudentName;//
+        var studentNum = document.createElement("td");                                                                 //
+        studentNum.innerHTML = rawData.studentNum;
 
-        var newsName = document.createElement("td");
-        newsName.innerHTML = rawData.NewsName;
+        var newsTitle = document.createElement("td");
+        var linkHtml = document.createElement("a");
+        var newsType = rawData.newsType;
+        if(newsType == "学习十九大"){
+            //判断类型是不是学习十九大，以决定是跳去网页or链接
+            linkHtml.href = "/views/Home/News.html?"+"newsTitle="+rawData.newsTitle+"&newsContent="+rawData.newsContent+"&pubTime="+rawData.putTime;
+        }
+        else{
+            linkHtml.href = rawData.newsContent;
+        }
+        linkHtml.target = "_blank";
+        linkHtml.innerHTML = rawData.newsTitle;
+        newsTitle.appendChild(linkHtml);
 
         var newsType = document.createElement("td");
-        newsType.innerHTML = rawData.NewsType;
+        newsType.innerHTML = rawData.newsType;
        
-        var pubTime = document.createElement("td");
-        pubTime.innerHTML = getTime(rawData.Time);                                                                      //
-        
+        var putTime = document.createElement("td");
+        putTime.innerHTML = rawData.putTime;                                                                      //
+
         var deleteTd = document.createElement("td");
         var deleteBtn = document.createElement("button");
         deleteBtn.innerHTML = "删除";
@@ -190,10 +186,10 @@ $(document).ready(function () {
         deleteBtn.onclick = deleteNews;
         deleteTd.appendChild(deleteBtn);
 
-        tr.appendChild(studentName);
-        tr.appendChild(newsName);
+        tr.appendChild(studentNum);
+        tr.appendChild(newsTitle);
         tr.appendChild(newsType);
-        tr.appendChild(pubTime);
+        tr.appendChild(putTime);
         tr.appendChild(deleteTd);
 
         tbody.appendChild(tr);
@@ -209,9 +205,11 @@ $(document).ready(function () {
     }
     //从后台得到数据
     function init() {
-        $.getJSON("/api/news/newslist", function (data) {//
-            if (data != "no") {
-                json = data;
+        $.getJSON("/api/news/newslist", function (result) {
+
+            if (result != "no") {
+                json = result.data.newslist;
+
                 hasDataInit();
             }
             else {

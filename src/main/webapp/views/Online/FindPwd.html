@@ -1,20 +1,20 @@
-﻿<!DOCTYPE html>
+﻿﻿﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>找回密码</title>
-    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="/resources/js/jquery-3.2.1.min.js"></script>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    @*<link href="~/Style/bootstrap.min.css" rel="stylesheet" />*@
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet" />
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="~/Style/Login.css">
-    @*<script src="~/Scripts/bootstrap.min.js"></script>
-        <script src="~/Scripts/bootstrap.help.js"></script>*@
+    <link rel="stylesheet" type="text/css" href="/resources/css/Login.css">
+    <script src="/resources/js/bootstrap.min.js"></script>
+        <script src="/resources/js/bootstrap.help.js"></script>
 
     <!--图标-->
     <link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon">
@@ -26,17 +26,17 @@
             <div class="form-group my-group">
                 <div class="input-group col-sm-10 col-sm-offset-1">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input id="FindPwd" type="text" name="FindPwd" class="form-control" placeholder="请输入账号" aria-describedby="FindPwd">
+                    <input id="studentNum" type="text" name="studentNum" class="form-control" placeholder="请输入账号" aria-describedby="studentNum">
                 </div>
             </div>
 
             <div class="form-group my-group">
                 <div class="input-group col-sm-10 col-sm-offset-1">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                    <input id="code" type="text" name="code" style="width: 130px ; height: 43px" placeholder="验证码" aria-describedby="code">
+                    <input id="code" type="text" name="code" style="width: 130px ; height: 63px" placeholder="验证码" aria-describedby="code">
                     <div style="width: 110px; float: right;padding-left: 14px;">
-                        看不清？<a id="switchCode" href="javascript:void();" style="text-decoration: none;" >换一张</a>
-                        <img id="imgcode" class="authcode" src="/Online/GetAuthCode" width="80" height="25" />
+                        看不清？<a id="switchCode" href="javascript:void();" style="text-decoration: none;"  onclick="NewCode()" >换一张</a>
+                        <img id="imgcode" class="authcode" src="/api/user/verification_code" width="80" height="25" onclick="NewCode()"/>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
         <div class="form-group my-group">
             <div class="input-group col-sm-10 col-sm-offset-1">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
-                <input id="MailCode" type="text" name="MailCode" class="form-control" placeholder="请输入验证码" aria-describedby="MailCode">
+                <input id="mailCode" type="text" name="mailCode" class="form-control" placeholder="请输入验证码" aria-describedby="mailCode">
             </div>
         </div>
 
@@ -69,14 +69,14 @@
         <div class="form-group my-group">
             <div class="input-group col-sm-10 col-sm-offset-1">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <input id="NewPwd" type="text" name="NewPwd" class="form-control" placeholder="请输入新密码" aria-describedby="NewPwd">
+                <input id="password" type="text" name="password" class="form-control" placeholder="请输入新密码" aria-describedby="password">
             </div>
         </div>
 
         <div class="form-group my-group">
             <div class="input-group col-sm-10 col-sm-offset-1">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <input id="AgainNewPwd" type="password" name="AgainNewPwd" class="form-control" placeholder="请再次输入密码" aria-describedby="AgainNewPwd">
+                <input id="rpassword" type="text" name="rpassword" class="form-control" placeholder="请再次输入密码" aria-describedby="rpassword">
             </div>
         </div>
 
@@ -86,9 +86,14 @@
             </div>
         </div>
     </div>
-
-    <script src="~/Scripts/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="~/Scripts/FindPwd.js"></script>
+    <script>
+        function NewCode() {
+            var newcode = document.getElementById("imgcode");
+            newcode.src = '/api/user/verification_code?'+Math.random();
+        }
+    </script>
+    <script src="/resources/js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/resources/js/FindPwd.js"></script>
 
 </body>
 </html>

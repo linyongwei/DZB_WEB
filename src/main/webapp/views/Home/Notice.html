@@ -1,23 +1,47 @@
-﻿@{
-    Layout = null;
-}
-
+﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>计机第二党支部通知</title>
-    <link rel="stylesheet" type="text/css" href="/Style/main.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/main.css">
 </head>
 <body>
-    <div class="notice_style_img"><img src="/Image/05.jpg" alt=""></div>
+    <div class="notice_style_img"><img src="/resources/image/05.jpg" alt=""></div>
     <div class="notice_style">
-        <h2>@ViewData.Model.NoticeName</h2>                                            /////？？
+        <div id="noticeTitle"></div>
         <p class="notice_style_text" style="line-height: 45px;text-align: left">
-            @(new HtmlString(ViewData.Model.NoticeContents))                               /////？？
+        <div id="noticeContent"></div>
         </p>
-        <div style="margin-right:200px ;text-align: right">@ViewData.Model.Time.ToString("yyyy年MM月dd日")</div>
-
+        <div id="pubTime" style="margin-right:200px ;text-align: right" ></div>
     </div>
 </body>
+
+    <script type="text/javascript" language="javascript" charset=GB2312">
+    //从url中分离出内容和标题，显示在网页上
+    var noticeTitle = document.getElementById("noticeTitle");
+    var noticeContent =document.getElementById("noticeContent");
+    var pubTime = document.getElementById("pubTime");
+    function GetRequest() {
+        var url =decodeURI(location.search); //获取url中"?"符后的字串，要对url解码
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for(var i = 0; i < strs.length; i ++) {
+                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+    var Request = new Object();
+    Request = GetRequest();
+    noticeTitle.innerHTML =  Request['noticeTitle'];
+    noticeContent.innerHTML = Request['noticeContent'];
+    pubTime.innerHTML =Request['pubTime'];
+
+</script>
+
+        
+
 </html>

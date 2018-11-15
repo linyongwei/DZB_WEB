@@ -32,13 +32,6 @@ public class NoticeController {
     @RequestMapping(value = "/noticelist",method = RequestMethod.GET)
     public Result noticelist(HttpServletRequest request){
 
-        HttpSession session = request.getSession();
-        System.out.println("currentUser" + session.getAttribute("currentUser"));
-        User currentUser;
-        currentUser=(User)session.getAttribute("currentUser");
-        if(!currentUser.getRole().equals("支委")){
-            return Result.createBySuccessMessage("没有权限访问！");
-        }
         List<Notice> noticeList = noticeService.getAll();
         if(noticeList == null){
             return Result.createByErrorMessage("获取失败");
