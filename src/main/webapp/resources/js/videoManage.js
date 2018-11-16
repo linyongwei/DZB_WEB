@@ -42,8 +42,8 @@
         tdNumber.innerHTML = i+1;
         tdNumber.setAttribute("class", "text-danger");
 
-        var studentNum = document.createElement("td");                                                                   //
-        studentNum.innerHTML = rawData.studentNum;
+        var publisher = document.createElement("td");                                                                   //
+        publisher.innerHTML = rawData.publisher;
 
         var videoName = document.createElement("td");
         videoName.innerHTML = rawData.videoName; 
@@ -60,7 +60,7 @@
         deleteTd.appendChild(deleteBtn);
 
         tr.appendChild(tdNumber);
-        tr.appendChild(studentNum);
+        tr.appendChild(publisher);
         tr.appendChild(videoName);
         tr.appendChild(uploadTime);
         tr.appendChild(deleteTd);      
@@ -77,6 +77,7 @@
     //从后台得到数据
     function init() {
         $.getJSON("/api/video/videolist", function (result) {
+
             if (result != null) {
                 json = result.data.videoList;
                 hasDataInit();
@@ -235,7 +236,7 @@
        var index = parseInt(this.id);
         var videoId = parseInt(json[index].id);
         $.ajax({
-            url: "/api/video/delete",
+            url: "/api/video/delete?videoId=" +videoId,
             type: "DELETE",
             contentType: 'application/json',
             data: JSON.stringify(

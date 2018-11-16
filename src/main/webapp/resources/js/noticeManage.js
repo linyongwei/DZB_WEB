@@ -141,7 +141,7 @@
         var noticeId = parseInt(json[index].id);
         $.ajax({
             type: "DELETE",
-            url: "/api/notice/delete",
+            url: "/api/notice/delete?noticeId=" + noticeId,
             dataType: "json",
             contentType : 'application/json',
             data:JSON.stringify(  {
@@ -179,8 +179,8 @@
     function createRaw(rawData, i) {
         var tbody = document.getElementById("noticeTable");
         var tr = document.createElement("tr");
-        var studentNum = document.createElement("td");
-        studentNum.innerHTML = rawData.studentNum;
+        var  publisher = document.createElement("td");
+        publisher.innerHTML = rawData.publisher;
         var noticeTitle = document.createElement("td");
         var linkHtml = document.createElement("a");
 
@@ -204,7 +204,7 @@
         deleteBtn.id = i;
         deleteBtn.onclick = deleteNotice;
         deleteTd.appendChild(deleteBtn);
-        tr.appendChild(studentNum);
+        tr.appendChild( publisher);
         tr.appendChild(noticeTitle);
         tr.appendChild(pubTime);
         tr.appendChild(updateTd);

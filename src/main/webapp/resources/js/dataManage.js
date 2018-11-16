@@ -42,14 +42,14 @@ $(document).ready(function () {
         var fileName = document.createElement("td");
         fileName.innerHTML = rawData.fileName;
 
-        var uploadTime = document.createElement("td");
-        uploadTime.innerHTML = rawData.uploadTime;
+        var createTime = document.createElement("td");
+        createTime.innerHTML = rawData.createTime;
 
-        var downloadTimes = document.createElement("td");
-        var DownloadsSpan = document.createElement("span")
-        DownloadsSpan.setAttribute("class", "label label-warning");
-        DownloadsSpan.innerHTML = rawData.downloadTimes;
-        downloadTimes.appendChild(DownloadsSpan);
+        // var downloadTimes = document.createElement("td");
+        // var DownloadsSpan = document.createElement("span")
+        // DownloadsSpan.setAttribute("class", "label label-warning");
+        // DownloadsSpan.innerHTML = rawData.downloadTimes;
+        // downloadTimes.appendChild(DownloadsSpan);
 
         var downloadBtnTd = document.createElement("td");
         var downloadBtn = document.createElement("button");
@@ -67,8 +67,8 @@ $(document).ready(function () {
         deleteTd.appendChild(deleteBtn);
 
         tr.appendChild(fileName);
-        tr.appendChild(uploadTime);
-        tr.appendChild(downloadTimes);
+        tr.appendChild(createTime);
+       // tr.appendChild(downloadTimes);
         tr.appendChild(downloadBtnTd);
         tr.appendChild(deleteTd);
         tbody.appendChild(tr);
@@ -257,7 +257,7 @@ $(document).ready(function () {
         index = parseInt(this.id);
         var fileId = parseInt(json[index].id);
         $.ajax({
-            url: "/api/file/delete",
+            url: "/api/file/delete?fileId="+ fileId,
             type: "DELETE",
             contentType: 'application/json',
             data: JSON.stringify(

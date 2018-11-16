@@ -117,11 +117,11 @@ $(document).ready(function () {
         var newsId = json[index].id;
         $.ajax({
             type: "DELETE",
-            url: "/api/news/delete",                                                                                    //删除新闻
+            url: "/api/news/delete?newsId=" +newsId,
             dataType: "json",
             contentType : 'application/json',
             data:  JSON.stringify({
-                newsId:newsId                                                                                          //
+                newsId:newsId
             }),
             success: function (data) {
                 if (data != "no") {
@@ -155,8 +155,8 @@ $(document).ready(function () {
     function createRaw(rawData, i) {
 
         var tr = document.createElement("tr");
-        var studentNum = document.createElement("td");                                                                 //
-        studentNum.innerHTML = rawData.studentNum;
+        var publisher = document.createElement("td");                                                                 //
+        publisher.innerHTML = rawData.publisher;
 
         var newsTitle = document.createElement("td");
         var linkHtml = document.createElement("a");
@@ -186,7 +186,7 @@ $(document).ready(function () {
         deleteBtn.onclick = deleteNews;
         deleteTd.appendChild(deleteBtn);
 
-        tr.appendChild(studentNum);
+        tr.appendChild(publisher);
         tr.appendChild(newsTitle);
         tr.appendChild(newsType);
         tr.appendChild(putTime);
@@ -205,6 +205,7 @@ $(document).ready(function () {
     }
     //从后台得到数据
     function init() {
+
         $.getJSON("/api/news/newslist", function (result) {
 
             if (result != "no") {
