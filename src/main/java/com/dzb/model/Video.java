@@ -15,6 +15,8 @@ public class Video {
 
     private String realPath;
 
+    private String publisher;
+
     public void setRealPath(String realPath) {
         this.realPath = realPath;
     }
@@ -61,5 +63,13 @@ public class Video {
 
     public String getRealPath() {
         return realPath;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 }

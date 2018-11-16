@@ -8,8 +8,11 @@
 
     <!--查询-->
     <select id="queryVideoList"  resultType="com.dzb.model.Video">
-        SELECT * FROM video WHERE is_delete = 0
-        ORDER BY upload_time DESC
+        SELECT a.id, a.student_num, a.upload_time, a.video_name, a.web_path, a.real_path, b.name as publisher
+        FROM video a LEFT JOIN user b
+        on a.student_num = b.student_num
+        WHERE a.is_delete = 0
+        ORDER BY a.upload_time DESC
     </select>
 
     <!--insert-->
