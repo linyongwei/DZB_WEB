@@ -62,6 +62,7 @@ public class NewsController {
         if (!currentUser.getRole().equals("支委")) {
             return Result.createBySuccessMessage("没有权限访问！");
         }
+        news.setStudentNum(currentUser.getStudentNum());
         return newsService.addNews(news);
     }
 

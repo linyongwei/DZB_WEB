@@ -27,6 +27,10 @@ public class News {
 
     private long studentNum;
 
+
+
+    private String publisher;
+
     private String newsTitle;
 
     private String newsType;
@@ -43,6 +47,14 @@ public class News {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 
     public String getNewsLink() {

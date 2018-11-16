@@ -8,16 +8,19 @@
 
     <!--查询-->
     <select id="queryNewsList"  resultType="com.dzb.model.News">
-        SELECT * FROM news WHERE is_delete = 0
+        SELECT a.id, a.pub_time, a.news_title, a.news_content, a.news_type, a.news_link, b.name as publisher
+        FROM news a LEFT join user b
+        ON a.student_num = b.student_num
+        WHERE a.is_delete = 0
         ORDER BY pub_time DESC
     </select>
 
     <!--插入新建新闻-->
     <insert id="addNews" parameterType="com.dzb.model.News">
         INSERT INTO news
-        (news_title,news_content,news_type, news_link)
+        (student_num, news_title,news_content,news_type, news_link)
         VALUES
-        (#{newsTitle},#{newsContent},#{newsType}, #{newsLike})
+        (#{studentNum}, #{newsTitle},#{newsContent},#{newsType}, #{newsLike})
     </insert>
 
     <!--删除指定新闻-->
