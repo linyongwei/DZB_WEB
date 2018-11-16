@@ -1,9 +1,7 @@
 package com.dzb.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import javax.xml.crypto.Data;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,8 +9,7 @@ import java.util.Date;
  * @author: Tomgood
  * @date: 2018-10-08
  */
-//@JsonIgnoreProperties(ignoreUnknown = true)
-public class News {
+public class News implements Serializable{
 
     /**
      *       "id": 15,
@@ -26,8 +23,6 @@ public class News {
     private int id;
 
     private long studentNum;
-
-
 
     private String publisher;
 
@@ -63,18 +58,6 @@ public class News {
 
     public void setNewsLink(String newsLink) {
         this.newsLink = newsLink;
-    }
-
-    public Date getPubTime() {
-        return pubTime;
-    }
-
-    public void setPubTime(Date pubTime) {
-        this.pubTime = pubTime;
-    }
-
-    public void setid(int id) {
-        this.id = id;
     }
 
     public long getStudentNum() {

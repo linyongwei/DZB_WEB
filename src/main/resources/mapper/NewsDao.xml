@@ -12,7 +12,7 @@
         FROM news a LEFT join user b
         ON a.student_num = b.student_num
         WHERE a.is_delete = 0
-        ORDER BY pub_time DESC
+        ORDER BY a.pub_time DESC
     </select>
 
     <!--插入新建新闻-->
@@ -20,7 +20,7 @@
         INSERT INTO news
         (student_num, news_title,news_content,news_type, news_link)
         VALUES
-        (#{studentNum}, #{newsTitle},#{newsContent},#{newsType}, #{newsLike})
+        (#{studentNum}, #{newsTitle},#{newsContent},#{newsType}, #{newsLink})
     </insert>
 
     <!--删除指定新闻-->
