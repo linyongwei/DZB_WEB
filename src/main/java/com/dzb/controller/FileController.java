@@ -67,6 +67,7 @@ public class FileController {
         String appRootDir = request.getServletContext().getContextPath();
 
         FileInfo newFile = new FileInfo();
+        System.out.println("学号" + currentUser.getStudentNum());
         newFile.setStudentNum(currentUser.getStudentNum());
         newFile = fileService.uploadFile(fileDirPath, appRootDir, file, newFile);
         if (newFile == null) {

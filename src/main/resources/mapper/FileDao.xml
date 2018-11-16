@@ -14,9 +14,9 @@
     <!--insert-->
     <insert id="uploadFile" parameterType="com.dzb.model.FileInfo">
         INSERT INTO file
-        (file_name,web_path,real_path)
+        (student_num, file_name,web_path,real_path)
         VALUES
-        (#{fileName},#{webPath},#{realPath})
+        (#{studentNum}, #{fileName},#{webPath},#{realPath})
     </insert>
 
     <!--Delete-->

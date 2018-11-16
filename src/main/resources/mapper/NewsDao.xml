@@ -15,9 +15,9 @@
     <!--插入新建新闻-->
     <insert id="addNews" parameterType="com.dzb.model.News">
         INSERT INTO news
-        (news_title,news_content,news_type)
+        (news_title,news_content,news_type, news_link)
         VALUES
-        (#{newsTitle},#{newsContent},#{newsType} )
+        (#{newsTitle},#{newsContent},#{newsType}, #{newsLike})
     </insert>
 
     <!--删除指定新闻-->

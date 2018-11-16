@@ -237,7 +237,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: "DELETE",
-            url: "/api/usermanage/delete",
+            url: "/api/usermanage/delete?studentNum=" + studentNum,
             dataType: "json",
             contentType : 'application/json',
             data: JSON.stringify( {

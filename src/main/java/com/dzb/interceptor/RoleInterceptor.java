@@ -36,7 +36,9 @@ public class RoleInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) {
         User currentUser = (User)request.getSession().getAttribute("currentUser");
+        System.out.println(currentUser.getRole());
         if (currentUser != null && !"支委".equals(currentUser.getRole())) {
+            System.out.println("无权限");
             try {
                 return buildResponseResult(response, ResultCodeEnum.RESULT_CODE_UNAUTHORIZED);
             } catch (IOException e) {

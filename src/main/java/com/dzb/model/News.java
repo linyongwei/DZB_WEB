@@ -33,10 +33,32 @@ public class News {
 
     private String newsContent;
 
+    private String newsLink;
+
     private Date pubTime;
 
-    public int getid() {
+    public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNewsLink() {
+        return newsLink;
+    }
+
+    public void setNewsLink(String newsLink) {
+        this.newsLink = newsLink;
+    }
+
+    public Date getPubTime() {
+        return pubTime;
+    }
+
+    public void setPubTime(Date pubTime) {
+        this.pubTime = pubTime;
     }
 
     public void setid(int id) {
