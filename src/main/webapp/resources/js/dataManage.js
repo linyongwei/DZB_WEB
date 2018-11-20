@@ -269,7 +269,7 @@ $(document).ready(function () {
                     fileId: fileId
                 }),
             error: function (err) {
-                alert(JSON.stringify(err))
+                alert("出错");
             },
             success: function (data) {
                 if (data != null) {

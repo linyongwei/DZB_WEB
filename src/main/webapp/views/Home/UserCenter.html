@@ -804,7 +804,7 @@
                         <br />
                         <div style="margin:0 auto;">
                             <label>新闻类型：</label>
-                            <input type="radio" value="学习十九大" id="SJD" name="newsType" checked />学习十九大 &nbsp;
+                            <input type="radio" value="改革开放" id="SJD" name="newsType" checked />改革开放 &nbsp;
                             <input type="radio" value="校内新闻" id="inSchool" name="newsType" />校内新闻 &nbsp;
                             <input type="radio" value="校外新闻" id="outSchool" name="newsType" />校外新闻 &nbsp;                       
                         </div>
@@ -1034,8 +1034,7 @@
                         phone:phone
                     }),
                     error: function (err) {
-                        var error = json.stringify(err);
-                        alert(error); },
+                        alert("出错了！"); },
                     success: function (result) {
                         if (result.code == 200) {
                             alert("保存成功！");

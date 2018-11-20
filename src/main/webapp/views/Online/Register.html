@@ -163,13 +163,12 @@
 
                         error: function (err) { alert("出错") },
                         success: function (result) {
-
                             if (result.code == 200) {
                                 alert("注册成功！");
                                 window.location.href = "/views/Online/Login.html";
                             }
 
-                            else if (result == "Error") {
+                            else if (result.code== 500) {
                                 alert("该账号已注册！");
                                 //window.location.href = "@Url.Action("Register", "Online")";
                             }

@@ -20,10 +20,22 @@ $(document).ready(function () {
     var newsLink =document.getElementById('new_Link');
     //右上角的发布新闻按钮的点击事件
     $("#btn-newsRelease").click(function () {
-
+        KindEditor.html("#editor_id", "");
+        document.getElementById('newsTitle').value = "";
+        document.getElementById('editor_new').value = "";
+        //清空标题和内容以便再次输入
         newsDiv.style.display = 'none';
         newsPageTurn.style.display = 'none';
         inputDiv.style.display = 'block';
+    });
+
+    KindEditor.ready(function (K) {
+        var editor = K.create('textarea[name="noticeContent"]', {
+            //下面这行代码就是关键的所在，当失去焦点时执行 this.sync()，即可获取textarea的值
+            afterBlur: function () { this.sync(); },
+            allowImageUpload: true,
+            newlineTag: "br",
+        });
     });
     //右下角的发布新闻按钮的点击事件（即真正发布新闻的按钮）
     $("#btn-newsReallyRelease").click(function () {
@@ -36,7 +48,7 @@ $(document).ready(function () {
 
     $(":radio").click(function () {
         var newsType = $('input[name="newsType"]:checked').val();
-        if (newsType == "学习十九大") {
+        if (newsType == "改革开放") {
             newsLink.style.display = 'none';
             newsText.style.display = 'block';
         }
@@ -62,7 +74,8 @@ $(document).ready(function () {
             return false;
         }
         var newsType1 = $('input[name="newsType"]:checked').val();
-        if (newsType1 == "学习十九大") {
+        if (newsType1 == "改革开放") {
+
             var newsContent = $("#editor_new").val().trim();
             if (newsContent  == "") {
                 alert("请输入新闻内容！");
@@ -161,7 +174,7 @@ $(document).ready(function () {
         var newsTitle = document.createElement("td");
         var linkHtml = document.createElement("a");
         var newsType = rawData.newsType;
-        if(newsType == "学习十九大"){
+        if(newsType == "改革开放"){
             //判断类型是不是学习十九大，以决定是跳去网页or链接
             linkHtml.href = "/views/Home/News.html?"+"newsTitle="+rawData.newsTitle+"&newsContent="+rawData.newsContent+"&pubTime="+rawData.putTime;
         }

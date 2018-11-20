@@ -67,7 +67,7 @@ $(document).ready(function () {
         var span = document.createElement("span");
         span.setAttribute("class", "circle");
         var newsLink = document.createElement("a");
-        if(rawData.newsType == "学习十九大"){
+        if(rawData.newsType == "改革开放"){
             newsLink.href = "/views/Home/News.html?"+"newsTitle="+rawData.newsTitle+"&newsContent="+rawData.newsContent+"&pubTime="+rawData.putTime;
         }
         else{

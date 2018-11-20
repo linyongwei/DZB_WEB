@@ -243,7 +243,7 @@
                 {
                     videoId: videoId
                 }),
-            error: function (err) { alert(JSON.stringify(err)) },
+            error: function (err) { alert("出错"); },
             success: function (data) {
                 if (data != null) {
                     alert("删除成功");

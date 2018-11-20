@@ -26,12 +26,12 @@
         //打开发布公告页面时清空内容，以便再次输入。
         KindEditor.html("#editor_id", "");
         document.getElementById('noticeTitle').value = "";
+        document.getElementById('editor_id').value = "";
         releaseDiv.style.display = 'none';
         notice_pageTurn.style.display = 'none';
         inputDiv.style.display = 'block';
 
     }
-    //编辑器  由于提示KingEditor未定义，所以暂时注释掉
 
     KindEditor.ready(function (K) {
         var editor = K.create('textarea[name="noticeContent"]', {
