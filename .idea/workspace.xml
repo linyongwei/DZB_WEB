@@ -6,12 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="406255ee-9391-4673-9caf-fd664b40b269" name="Default" comment="把网站上发布人的显示从学号改成发布人,删除功能接口的修正。">
+    <list default="true" id="406255ee-9391-4673-9caf-fd664b40b269" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/Index.html" afterPath="$PROJECT_DIR$/src/main/webapp/Index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/dataManage.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/dataManage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/newsManage.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/newsManage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/headPageNotice.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/headPageNotice.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/noticeManage.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/noticeManage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/videoManage.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/videoManage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/Home/UserCenter.html" afterPath="$PROJECT_DIR$/src/main/webapp/views/Home/UserCenter.html" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,8 +30,28 @@
       <file leaf-file-name="headPageNotice.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/headPageNotice.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="598">
+              <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/Index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3680">
+              <caret line="160" column="51" lean-forward="false" selection-start-line="160" selection-start-column="51" selection-end-line="160" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/Online/Login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1127">
+              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -40,8 +60,8 @@
       <file leaf-file-name="newsManage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/newsManage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="209" column="0" lean-forward="false" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
+            <state relative-caret-position="391">
+              <caret line="17" column="64" lean-forward="false" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -50,18 +70,8 @@
       <file leaf-file-name="noticeManage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/noticeManage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DZB_WEB.iml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DZB_WEB.iml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="782">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -70,8 +80,8 @@
       <file leaf-file-name="userManage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/userManage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="286" column="49" lean-forward="false" selection-start-line="286" selection-start-column="49" selection-end-line="286" selection-end-column="49" />
+            <state relative-caret-position="6555">
+              <caret line="285" column="51" lean-forward="false" selection-start-line="285" selection-start-column="51" selection-end-line="285" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -80,7 +90,7 @@
       <file leaf-file-name="videoManage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/videoManage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
+            <state relative-caret-position="1817">
               <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding />
             </state>
@@ -90,8 +100,8 @@
       <file leaf-file-name="UserCenter.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/views/Home/UserCenter.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="1042" column="99" lean-forward="false" selection-start-line="1042" selection-start-column="99" selection-end-line="1042" selection-end-column="99" />
+            <state relative-caret-position="121">
+              <caret line="1042" column="46" lean-forward="false" selection-start-line="1042" selection-start-column="46" selection-end-line="1042" selection-end-column="46" />
               <folding>
                 <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -105,8 +115,18 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6440">
-              <caret line="280" column="0" lean-forward="true" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
+            <state relative-caret-position="5428">
+              <caret line="236" column="18" lean-forward="false" selection-start-line="236" selection-start-column="18" selection-end-line="236" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dataManage.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/dataManage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5681">
+              <caret line="247" column="59" lean-forward="false" selection-start-line="247" selection-start-column="59" selection-end-line="247" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -146,8 +166,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/views/Home/News.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/Home/Notice.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/plugins/headPageNotice.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/Index.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/headPageNotice.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/dzb/controller/NoticeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dzb/controller/NewsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dzb/controller/VideoController.java" />
@@ -155,11 +173,13 @@
         <option value="$PROJECT_DIR$/target/DZB_WEB/resources/js/videoPage.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/userManage.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/videoPage.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/dataManage.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/newsManage.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/noticeManage.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/videoManage.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/headPageNotice.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/Index.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/noticeManage.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/Home/UserCenter.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/dataManage.js" />
       </list>
     </option>
   </component>
@@ -214,12 +234,67 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="DZB_WEB" type="b2602c69:ProjectViewProjectNode" />
               <item name="DZB_WEB" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DZB_WEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DZB_WEB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DZB_WEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DZB_WEB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DZB_WEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DZB_WEB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DZB_WEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DZB_WEB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DZB_WEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DZB_WEB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DZB_WEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DZB_WEB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DZB_WEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DZB_WEB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Online" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DZB_WEB" type="b2602c69:ProjectViewProjectNode" />
@@ -231,9 +306,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -443,7 +515,12 @@
       <workItem from="1542261898090" duration="41000" />
       <workItem from="1542281907798" duration="8573000" />
       <workItem from="1542340825900" duration="4752000" />
-      <workItem from="1542358118196" duration="7049000" />
+      <workItem from="1542358118196" duration="11687000" />
+      <workItem from="1542535538232" duration="3035000" />
+      <workItem from="1542602463546" duration="1564000" />
+      <workItem from="1542626942112" duration="4413000" />
+      <workItem from="1542631620753" duration="1319000" />
+      <workItem from="1542724464864" duration="185000" />
     </task>
     <task id="LOCAL-00001" summary="前端代码的实现，后端代码的微调">
       <created>1542258547594</created>
@@ -452,17 +529,24 @@
       <option name="project" value="LOCAL" />
       <updated>1542258547594</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="把网站上发布人的显示从学号改成发布人,删除功能接口的修正。">
+      <created>1542367307986</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1542367307987</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130391000" />
+    <option name="totallyTimeSpent" value="145545000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.50625" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5083333" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -475,17 +559,16 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3991228" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.49375" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32785088" sideWeight="0.475" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.4875" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32785088" sideWeight="0.46458334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.49583334" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1484375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1484375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -494,6 +577,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.49166667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -544,7 +628,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="前端代码的实现，后端代码的微调" />
     <MESSAGE value="把网站上发布人的显示从学号改成发布人,删除功能接口的修正。" />
-    <option name="LAST_COMMIT_MESSAGE" value="把网站上发布人的显示从学号改成发布人,删除功能接口的修正。" />
+    <MESSAGE value="修正了文件下载的问题。" />
+    <option name="LAST_COMMIT_MESSAGE" value="修正了文件下载的问题。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -697,13 +782,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/plugins/headPageNotice.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/Index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="157" column="66" lean-forward="true" selection-start-line="157" selection-start-column="66" selection-end-line="157" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dzb/service/NewsService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -729,13 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="397">
           <caret line="106" column="37" lean-forward="false" selection-start-line="106" selection-start-column="21" selection-end-line="106" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/Online/Login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="62" column="47" lean-forward="false" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -820,9 +891,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-32152">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -830,23 +898,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/dataManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/headPageNotice.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -854,135 +905,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-203198">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1540826984000" expanded="true" signature="34734:34747" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="46825:46838" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="65429:65442" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="72240:72246" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="81862:81880" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="81970:81999" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="82086:82108" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="82260:82284" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="82833:82846" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="89517:89531" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="100756:100812" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="110016:110029" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="115378:115429" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="144146:144164" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="144197:144222" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="150133:150158" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="150620:150642" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="151446:151458" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="151529:151535" ph="©" />
-            <marker date="1540826984000" expanded="true" signature="168240:168253" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="168435:168447" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="171034:171052" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="171230:171242" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="171725:171777" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="172632:172696" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="173242:173294" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="174195:174213" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="174367:174379" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="174609:174634" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="177638:177661" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="177817:177842" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="179905:179923" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="180648:180673" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="186581:186599" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="193074:193087" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="193158:193169" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="193282:193294" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="193299:193305" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="193390:193396" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="193667:193678" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="193912:193923" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="199065:199078" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="199143:199156" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="199229:199240" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="199362:199374" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="199379:199385" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="199654:199665" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="200050:200065" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="200168:200179" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="200818:200829" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="200954:200966" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="201028:201041" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="201087:201100" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="201359:201370" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="201486:201498" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="201519:201525" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="209063:209076" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="209145:209156" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="209259:209271" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="209276:209282" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="209366:209372" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="209637:209648" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="209766:209778" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="213250:213274" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="213995:214008" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="214083:214094" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="214209:214221" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="214306:214317" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="216473:216486" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="216557:216568" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="216681:216693" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="216698:216704" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="216789:216795" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="217066:217077" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="217310:217321" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="228353:228366" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="262487:262512" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="263498:263516" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="263539:263558" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="263632:263657" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="264875:264893" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="264955:264980" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="266828:266844" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="269012:269025" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="269097:269108" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="269264:269270" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="269471:269482" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="269640:269646" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="269804:269810" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="269931:269937" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="270182:270193" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="270358:270364" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="270571:270582" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="271000:271011" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="271179:271185" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="271353:271364" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="278064:278077" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="278150:278161" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="278319:278325" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="278483:278489" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="278610:278616" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="278859:278870" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="279700:279711" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="279879:279885" ph="&amp;nbsp;" />
-            <marker date="1540826984000" expanded="true" signature="280053:280064" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="290398:290416" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="290986:291033" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="292262:292280" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="292303:292322" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="292410:292435" ph="..." />
-            <marker date="1540826984000" expanded="true" signature="293080:293128" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/newsManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="209" column="0" lean-forward="false" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/noticeManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -990,38 +912,85 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/videoManage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6440">
-          <caret line="280" column="0" lean-forward="true" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
+        <state relative-caret-position="1817">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/userManage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="286" column="49" lean-forward="false" selection-start-line="286" selection-start-column="49" selection-end-line="286" selection-end-column="49" />
+        <state relative-caret-position="6555">
+          <caret line="285" column="51" lean-forward="false" selection-start-line="285" selection-start-column="51" selection-end-line="285" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/videoManage.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/headPageNotice.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+        <state relative-caret-position="598">
+          <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/noticeManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/newsManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="64" lean-forward="false" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5428">
+          <caret line="236" column="18" lean-forward="false" selection-start-line="236" selection-start-column="18" selection-end-line="236" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/Online/Login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1127">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/Index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3680">
+          <caret line="160" column="51" lean-forward="false" selection-start-line="160" selection-start-column="51" selection-end-line="160" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/dataManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5681">
+          <caret line="247" column="59" lean-forward="false" selection-start-line="247" selection-start-column="59" selection-end-line="247" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/Home/UserCenter.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="1042" column="99" lean-forward="false" selection-start-line="1042" selection-start-column="99" selection-end-line="1042" selection-end-column="99" />
+        <state relative-caret-position="121">
+          <caret line="1042" column="46" lean-forward="false" selection-start-line="1042" selection-start-column="46" selection-end-line="1042" selection-end-column="46" />
           <folding>
             <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />

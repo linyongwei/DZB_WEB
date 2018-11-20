@@ -37,7 +37,6 @@ $(document).ready(function () {
         li.setAttribute("class", "content-main-li");
         var span = document.createElement("span");
         span.setAttribute("class", "circle");
-
         var linkHtml = document.createElement("a");
         linkHtml.href = "/views/Home/Notice.html?" + "noticeTitle=" + rawData.noticeTitle + "&noticeContent=" + rawData.noticeContent + "&pubTime=" + rawData.pubTime;
         linkHtml.target = "_blank";

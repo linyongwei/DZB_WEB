@@ -54,6 +54,7 @@ $(document).ready(function () {
         var downloadBtnTd = document.createElement("td");
         var downloadBtn = document.createElement("button");
         downloadBtn.innerHTML = "下载";
+        downloadBtn.onclick = downloadFile ;
         downloadBtn.className = "btn btn-success download";
         downloadBtn.id = i;
         downloadBtnTd.appendChild(downloadBtn);
@@ -240,16 +241,19 @@ $(document).ready(function () {
 
 
     // 给下载按钮添加事件，下载量加一
-    $("#dataTable").delegate(".download", "click", function () {
-        var fileId = $(this).parents('tr').children('td').eq(0).text();
-        var downloadTimes = $(this).parents('tr').children('td').eq(2).text();
-        var newdownloads = parseInt(downloadTimes);
-        newdownloads++;
-        $(this).parents('tr').children('td').eq(2).children("span").text(newdownloads.toString());
-        var downloadBtn = document.createElement("button");
-        downloadBtn.src = '/api/file/download?fileId=';
+    function downloadFile() {
 
-    });
+            index = parseInt(this.id);
+            var webPath = json[index].webPath;
+            var $eleForm = $("<form method='get'></form>");
+            $eleForm.attr("action",webPath);
+            $(document.body).append($eleForm);
+            //提交表单，实现下载
+            $eleForm.submit();
+
+
+
+    }
 
 
     //删除按钮添加事件

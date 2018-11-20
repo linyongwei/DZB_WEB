@@ -32,9 +32,9 @@
 
     }
     //编辑器  由于提示KingEditor未定义，所以暂时注释掉
-    var editor;
+
     KindEditor.ready(function (K) {
-        editor = K.create('textarea', {
+        var editor = K.create('textarea[name="noticeContent"]', {
             //下面这行代码就是关键的所在，当失去焦点时执行 this.sync()，即可获取textarea的值
             afterBlur: function () { this.sync(); },
             allowImageUpload: true,
