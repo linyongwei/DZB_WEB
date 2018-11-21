@@ -30,7 +30,7 @@ $(document).ready(function () {
     });
 
     KindEditor.ready(function (K) {
-        var editor = K.create('textarea[name="noticeContent"]', {
+        var editor = K.create('textarea[name="newsContent"]', {
             //下面这行代码就是关键的所在，当失去焦点时执行 this.sync()，即可获取textarea的值
             afterBlur: function () { this.sync(); },
             allowImageUpload: true,
