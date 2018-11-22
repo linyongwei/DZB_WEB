@@ -1,4 +1,4 @@
-package com.dzb.service.impl;
+﻿package com.dzb.service.impl;
 
 import com.dzb.commons.Result;
 import com.dzb.dao.UserDao;
@@ -31,6 +31,18 @@ public class UserServiceImpl implements UserService {
         boolean validStudentNum = checkStudentNum(user.getStudentNum());
         if(!validStudentNum){
             return Result.createByErrorMessage("用户已存在");
+        }
+        validStudentNum = checkStudentDelete(user.getStudentNum());
+        if(!validStudentNum){
+            //此时用户之前被软删除过
+            log.debug("密码:" + user.getPassword());
+            user.setPassword(MD5Util.md5Encode(user.getPassword(), "UTF-8"));
+            int resultCount = userDao.updateUser(user);
+            if(resultCount == 0){
+                //未知错误
+                return Result.createByErrorMessage("注册失败！");
+            }
+            return Result.createBySuccessMessage("注册成功");
         }
         log.debug("密码:" + user.getPassword());
         user.setPassword(MD5Util.md5Encode(user.getPassword(), "UTF-8"));
@@ -88,6 +100,14 @@ public class UserServiceImpl implements UserService {
 
     public boolean checkStudentNum(Long studentNum) {
         int resultCount = userDao.checkStudentNum(studentNum);
+        if(resultCount > 0) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean checkStudentDelete(Long studentNum) {
+        int resultCount = userDao.checkStudentDelete(studentNum);
         if(resultCount > 0) {
             return false;
         }

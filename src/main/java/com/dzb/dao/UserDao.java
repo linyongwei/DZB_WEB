@@ -1,4 +1,4 @@
-package com.dzb.dao;
+﻿package com.dzb.dao;
 
 
 import com.dzb.model.User;
@@ -18,11 +18,25 @@ public interface UserDao {
     int save(User user);
 
     /**
+     * 更新用户，用于注册软删除的用户
+     * @param user
+     * @return
+     */
+    int updateUser(User user);
+
+    /**
      * 查找数据库中是否存在该学号
      * @param studentNum
      * @return
      */
     int checkStudentNum(Long studentNum);
+
+    /**
+     * 查看用户是否被软删除
+     * @param studentNum
+     * @return
+     */
+    int checkStudentDelete(Long studentNum);
 
     /**
      * 验证用户密码是否与学号匹配

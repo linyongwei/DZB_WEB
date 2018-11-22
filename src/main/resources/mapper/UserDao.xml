@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -18,10 +18,25 @@
         #{identity}, #{joinPartyContact})
     </insert>
 
+    <!--更新软删除的用户-->
+    <insert id="updateUser" parameterType="com.dzb.model.User">
+        update user set
+         password=#{password}, name=#{name}, grade=#{grade}, major=#{major}, class_name=#{className},
+         email=#{email}, phone=#{phone}, party_branch_name=#{partyBranchName},role=#{role},
+         join_party_time=#{joinPartyTime}, identity=#{identity}, join_party_contact=#{joinPartyContact}, is_delete=0
+        where student_num=#{studentNum}
+    </insert>
+
     <!--检查用户是否已存在-->
     <select id="checkStudentNum" parameterType="long" resultType="int">
         SELECT count(1) FROM user
         WHERE student_num = #{studentNum} and is_delete = 0
+    </select>
+
+    <!--检查用户是否被软删除-->
+    <select id="checkStudentDelete" parameterType="long" resultType="int">
+        SELECT count(1) FROM user
+        WHERE student_num = #{studentNum} and is_delete = 1
     </select>
 
     <!--检查用户密码是否正确-->
