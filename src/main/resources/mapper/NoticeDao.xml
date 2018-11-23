@@ -15,11 +15,9 @@
 
     <!--取出所有公告-->
     <select id="getAll"  resultType="com.dzb.model.Notice" >
-        SELECT a.id, a.student_num,a.pub_time, a.notice_title, a.notice_content, b.name as publisher
-        FROM notice a LEFT JOIN user b
-        ON a.student_num = b.student_num
-        WHERE a.is_delete = 0
-        ORDER BY a.pub_time DESC
+        SELECT * FROM notice WHERE is_delete = 0
+        ORDER BY pub_time DESC
+
     </select>
 
     <!--返回公告总条数-->
@@ -28,8 +26,8 @@
     </select>
 
     <!--取出ID公告-->
-    <select id="getNotice"  resultType="com.dzb.model.Notice">
-        SELECT * FROM notice WHERE id = #{Id}
+    <select id="getNotice"  parameterType="long" resultType="com.dzb.model.Notice">
+        SELECT * FROM notice WHERE id = #{noticeId} AND is_delete = 0;
     </select>
 
     <!--按ID修改公告-->
