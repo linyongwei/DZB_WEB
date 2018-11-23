@@ -10,7 +10,7 @@ public interface NoticeService {
 
       List<Notice> getAll();
 
-      Notice getNotice(Notice notice);
+      Notice getNotice(long noticeId);
 
       int modifyNotice(Notice notice);
 
