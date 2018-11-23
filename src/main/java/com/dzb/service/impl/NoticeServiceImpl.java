@@ -46,8 +46,8 @@ public class NoticeServiceImpl implements NoticeService{
     }
 
     @Override
-    public  Notice getNotice(Notice notice){
-        Notice notice1 = noticeDao.getNotice(notice);
+    public  Notice getNotice(long noticeId){
+        Notice notice1 = noticeDao.getNotice(noticeId);
         return notice1;
     }
 
