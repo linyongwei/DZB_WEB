@@ -1,8 +1,6 @@
 package com.dzb.dao;
-import com.dzb.commons.Result;
 import com.dzb.model.Notice;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface NoticeDao {
@@ -28,7 +26,7 @@ public interface NoticeDao {
      * 获得公告
      *  @return
      */
-    Notice getNotice(Notice notice);
+    Notice getNotice(long noticeId);
 
     /**
      * 修改公告
