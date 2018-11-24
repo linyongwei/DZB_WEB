@@ -5,6 +5,10 @@ public class Notice {
 //    编号
     private long Id;
 
+
+
+    private String publisherName;
+
     //发布者学号
     private long studentNum;
 
@@ -14,11 +18,17 @@ public class Notice {
     //正文
     private String noticeContent;
 
-    private String publisher;
-
     //发布时间
-
     private Date pubTime;
+
+    public String getPublisherName() {
+        return publisherName;
+    }
+
+    public void setPublisherName(String publisherName) {
+        this.publisherName = publisherName;
+    }
+
     public long getId() {
         return Id;
     }
@@ -49,14 +59,6 @@ public class Notice {
 
     public void setNoticeContent(String noticeContent) {
         this.noticeContent = noticeContent;
-    }
-
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
     }
 
     public Date getPubTime() {
