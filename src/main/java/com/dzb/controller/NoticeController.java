@@ -37,6 +37,9 @@ public class NoticeController {
             return Result.createBySuccessMessage("没有权限访问！");
         }
         List<Notice> noticeList = noticeService.getAll();
+        for(int i = 0; i < noticeList.size();i++){
+            noticeList.get(i).setPublisherName(currentUser.getName());
+        }
         if(noticeList == null){
             return Result.createByErrorMessage("获取失败");
         }
@@ -59,6 +62,7 @@ public class NoticeController {
             return Result.createByErrorMessage("获取失败");
         }
         Map<String , Object> data = new HashMap<>();
+        notice1.setPublisherName(currentUser.getName());
         data.put("Notice",notice1);
         return Result.createBySuccess(data);
     }
