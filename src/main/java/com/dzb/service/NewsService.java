@@ -13,4 +13,5 @@ public interface NewsService {
 
     Result<String> deleteNews(Integer newsId);
 
+    News getNews(int id);
 }

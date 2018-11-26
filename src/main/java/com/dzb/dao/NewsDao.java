@@ -29,4 +29,6 @@ public interface NewsDao {
      * @return
      */
     int deleteNews(int id);
+
+    News getNews(int id);
 }

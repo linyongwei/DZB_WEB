@@ -34,4 +34,9 @@
         <!--DELETE FROM news WHERE id = #{newsId}-->
     <!--</delete>-->
 
+    <!--取出ID公告-->
+    <select id="getNews"  parameterType="int" resultType="com.dzb.model.News">
+        SELECT * FROM news WHERE id = #{id} AND is_delete = 0;
+    </select>
+
 </mapper>

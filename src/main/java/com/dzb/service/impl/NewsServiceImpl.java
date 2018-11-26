@@ -57,5 +57,11 @@ public class NewsServiceImpl implements NewsService {
         }
     }
 
+    @Override
+    public News getNews(int id) {
+        News news1 = newsDao.getNews(id);
+        return news1;
+    }
+
 
 }
