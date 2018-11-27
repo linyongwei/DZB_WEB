@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,39 +6,45 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/main.css">
 </head>
 <body>
-    <div class="notice_style_img"><img src="/resources/image/05.jpg" alt=""></div>
-    <div class="notice_style">
-        <h id="newsTitle"></h>
-        <p id="newsContent" class="notice_style_text" style="line-height: 45px;text-align: left">
-        </p>
-        <div id="pubTime" style="margin-right:200px ;text-align: right" ></div>
+<div class="notice_style_img"><img src="/resources/image/05.jpg" alt=""></div>
+<div class="notice_style">
+    <h2 id="newsTitle"></h2>
+    <p id="newsContent" class="notice_style_text" style="line-height: 45px;text-align: left">
+    </p><div id="pubTime" style="margin-right:200px ;text-align: right" ></div>
 
-    </div>
+</div>
 </body>
-<script type="text/javascript">
-        //从url中分离出内容和标题，显示在网页上
-        var newsTitle = document.getElementById("newsTitle");
-        var newsContent =document.getElementById("newsContent");
-        var pubTime = document.getElementById("pubTime");
-        function GetRequest() {
-            var url =decodeURI(location.search);//获取url中"?"符后的字串
-            var theRequest = new Object();
-            if (url.indexOf("?") != -1) {
-                var str = url.substr(1);
-                strs = str.split("&");
-                for(var i = 0; i < strs.length; i ++) {
-                    theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
-                }
+
+<script type="text/javascript" src="/resources/js/jquery-1.10.2.js"> </script>
+<script >
+    //从url中分离出内容和标题，显示在网页上
+    var newsTitle = document.getElementById("newsTitle");
+    var newsContent =document.getElementById("newsContent");
+    var pubTime = document.getElementById("pubTime");
+    $(function(){
+        var url =decodeURI(location.search);
+        var newsid = url.substr(1,url.length-1);
+        var id = parseInt(newsid);
+        $.ajax({
+            url: "/api/news/getNews",
+            type: "GET",
+            datatype: "json",
+            contentType : 'application/json',
+            data: ({
+                id:id
+            }),
+            error: function (err) {
+                alert("无法获取相关数据！"); },
+            success: function (result) {
+                    var message = result.data.News;
+                    newsTitle.innerHTML  = message.newsTitle;
+                    newsContent.innerHTML = message.newsContent;
+                    pubTime.innerHTML = message.putTime;
             }
-            return theRequest;
-        }
-        var Request = new Object();
-        Request = GetRequest();
-        newsTitle.innerHTML = Request['newsTitle'];
-        newsContent.innerHTML =Request['newsContent'];
-        pubTime.innerHTML =Request['pubTime'];
+        });
+    })
 </script>
-        
+
 
 
 </html>

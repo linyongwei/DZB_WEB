@@ -105,8 +105,8 @@
             dataType: "json",
             contentType : 'application/json',
             data: JSON.stringify({
-            	noticeTitle: noticeTitle,
-            	noticeContent : noticeContent,
+                noticeTitle: noticeTitle,
+                noticeContent : noticeContent,
             }),
             success: function (data) {
                 if (data != "no") {
@@ -180,11 +180,11 @@
         var tbody = document.getElementById("noticeTable");
         var tr = document.createElement("tr");
         var  publisher = document.createElement("td");
-        publisher.innerHTML = rawData.publisher;
+        publisher.innerHTML = rawData.publisherName;
         var noticeTitle = document.createElement("td");
         var linkHtml = document.createElement("a");
-
-        linkHtml.href = "/views/Home/Notice.html?"+"noticeTitle="+rawData.noticeTitle+"&noticeContent="+rawData.noticeContent+"&pubTime="+rawData.pubTime;
+        linkHtml.href = "/views/Home/Notice.html?"+rawData.id;
+        // linkHtml.href = "/views/Home/Notice.html?"+"noticeTitle="+rawData.noticeTitle+"&noticeContent="+rawData.noticeContent+"&pubTime="+rawData.pubTime;
         linkHtml.target = "_blank";
         linkHtml.innerHTML = rawData.noticeTitle;
         noticeTitle.appendChild(linkHtml);

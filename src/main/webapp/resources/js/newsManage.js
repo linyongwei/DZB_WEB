@@ -1,4 +1,6 @@
-﻿//新闻管理页面
+﻿
+
+//新闻管理页面
 $(document).ready(function () {
 
     // 定义分页所需变量
@@ -57,7 +59,7 @@ $(document).ready(function () {
             newsText.style.display = 'none';
         }
     });
-    
+
     //返回列表响应事件
     $("#btn-return").click(function () {
         newsDiv.style.display = 'block';
@@ -81,16 +83,16 @@ $(document).ready(function () {
                 alert("请输入新闻内容！");
                 return false;
             }
-            	newsContent = newsContent.replace(/\n/gi, "<br>");
-            	newsContent = newsContent.replace(/<br>/gi, "");
-            	newsContent = newsContent.replace(/</gi, "&lt;");
-            	newsContent = newsContent.replace(/>/gi, "&gt;");
-            	newsContent = newsContent.replace(/ /gi, "&nbsp;");
-            	newsContent = newsContent.replace(/&/gi, "&amp;");
-            	newsContent = newsContent.replace(/'/gi, "&#39;");
-            	newsContent = newsContent.replace(/"/gi, "&quot;");
+            newsContent = newsContent.replace(/\n/gi, "<br>");
+            newsContent = newsContent.replace(/<br>/gi, "");
+            newsContent = newsContent.replace(/</gi, "&lt;");
+            newsContent = newsContent.replace(/>/gi, "&gt;");
+            newsContent = newsContent.replace(/ /gi, "&nbsp;");
+            newsContent = newsContent.replace(/&/gi, "&amp;");
+            newsContent = newsContent.replace(/'/gi, "&#39;");
+            newsContent = newsContent.replace(/"/gi, "&quot;");
         }
-       else{
+        else{
             var newsContent = $("#newsLink").val().trim();
             if (newsContent  == "") {
 
@@ -104,14 +106,14 @@ $(document).ready(function () {
             dataType: "json",
             contentType : 'application/json',
             data: JSON.stringify({
-            	newsTitle:newsTitle,
+                newsTitle:newsTitle,
                 newsContent:newsContent,
                 newsType:newsType1
             }),
             error: function (err) { alert(JSON.stringify(err)); },
             success: function (data) {
                 if (data != "no") {
-                   alert("发布成功！");
+                    alert("发布成功！");
                     // 发布成功后显示最新公告
                     currentPage = 1;
                     init();
@@ -176,7 +178,8 @@ $(document).ready(function () {
         var newsType = rawData.newsType;
         if(newsType == "改革开放"){
             //判断类型是不是学习十九大，以决定是跳去网页or链接
-            linkHtml.href = "/views/Home/News.html?"+"newsTitle="+rawData.newsTitle+"&newsContent="+rawData.newsContent+"&pubTime="+rawData.putTime;
+            // linkHtml.href = "/views/Home/News.html?"+"newsTitle="+rawData.newsTitle+"&newsContent="+rawData.newsContent+"&pubTime="+rawData.putTime;
+            linkHtml.href = "/views/Home/News.html?"+rawData.id;
         }
         else{
             linkHtml.href = rawData.newsContent;
@@ -187,7 +190,7 @@ $(document).ready(function () {
 
         var newsType = document.createElement("td");
         newsType.innerHTML = rawData.newsType;
-       
+
         var putTime = document.createElement("td");
         putTime.innerHTML = rawData.putTime;                                                                      //
 
@@ -211,7 +214,7 @@ $(document).ready(function () {
 
     //重置显示的内容
     function reset() {
-        
+
         while (tbody.hasChildNodes()) {
             tbody.removeChild(tbody.lastChild);
         }

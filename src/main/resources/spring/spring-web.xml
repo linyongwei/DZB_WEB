@@ -74,6 +74,9 @@
             <mvc:exclude-mapping path="/api/notice/noticelist" />
             <mvc:exclude-mapping path="/api/news/newslist" />
             <mvc:exclude-mapping path="/api/video/videolist" />
+            <mvc:exclude-mapping path="/api/notice/getnotice" />
+            <mvc:exclude-mapping path="/api/news/getNews" />
+
             <bean class="com.dzb.interceptor.LoginInterceptor" />
         </mvc:interceptor>
 

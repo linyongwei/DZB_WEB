@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,40 +6,64 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/main.css">
 </head>
 <body>
-    <div class="notice_style_img"><img src="/resources/image/05.jpg" alt=""></div>
-    <div class="notice_style">
-        <h2 id="noticeTitle">关于申请优秀党员通知</h2>
-        <p id="noticeContent" class="notice_style_text" style="line-height: 45px;text-align: left">
-        </p>
-        <div id="pubTime" style="margin-right:200px ;text-align: right" ></div>
-    </div>
+<div class="notice_style_img"><img src="/resources/image/05.jpg" alt=""></div>
+<div class="notice_style">
+    <h2 id="noticeTitle" ></h2>
+    <p id="noticeContent" class="notice_style_text" style="line-height: 45px;text-align: left">
+    </p>
+    <div id="pubTime" style="margin-right:200px ;text-align: right" ></div>
+</div>
 </body>
 
-    <script type="text/javascript" language="javascript" charset=GB2312">
-    //从url中分离出内容和标题，显示在网页上
+<script type="text/javascript" src="/resources/js/jquery-1.10.2.js"> </script>
+
+<script>
     var noticeTitle = document.getElementById("noticeTitle");
     var noticeContent =document.getElementById("noticeContent");
     var pubTime = document.getElementById("pubTime");
-    function GetRequest() {
-        var url =decodeURI(location.search); //获取url中"?"符后的字串，要对url解码
-        var theRequest = new Object();
-        if (url.indexOf("?") != -1) {
-            var str = url.substr(1);
-            strs = str.split("&");
-            for(var i = 0; i < strs.length; i ++) {
-                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+    $(function(){
+        var url =decodeURI(location.search);
+        var id = url.substr(1,url.length-1);
+        var noticeId = parseInt(id);
+        $.ajax({
+            url: "/api/notice/getnotice",
+            type: "GET",
+            datatype: "json",
+            contentType : 'application/json',
+            data: ({
+                noticeId:noticeId
+            }),
+            error: function (err) {
+                alert("无法获取相关数据！"); },
+            success: function (result) {
+                var message = result.data.Notice;
+                noticeTitle.innerHTML  = message.noticeTitle;
+                noticeContent.innerHTML = message.noticeContent;
+                pubTime.innerHTML = message.pubTime;
             }
-        }
-        return theRequest;
-    }
-    var Request = new Object();
-    Request = GetRequest();
-    noticeTitle.innerHTML =  Request['noticeTitle'];
-    noticeContent.innerHTML = Request['noticeContent'];
-    pubTime.innerHTML =Request['pubTime'];
+        });
+    })
+
+    //    function GetRequest() {
+    //        var url =decodeURI(location.search); //获取url中"?"符后的字串，要对url解码
+    //        var theRequest = new Object();
+    //        if (url.indexOf("?") != -1) {
+    //            var str = url.substr(1);
+    //            strs = str.split("&");
+    //            for(var i = 0; i < strs.length; i ++) {
+    //                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+    //            }
+    //        }
+    //        return theRequest;
+    //    }
+    //    var Request = new Object();
+    //    Request = GetRequest();
+    //    noticeTitle.innerHTML =  Request['noticeTitle'];
+    //    noticeContent.innerHTML = Request['noticeContent'];
+    //    pubTime.innerHTML =Request['pubTime'];
+
+
 
 </script>
-
-        
 
 </html>
