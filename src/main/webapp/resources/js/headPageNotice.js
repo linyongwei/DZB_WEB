@@ -38,7 +38,8 @@ $(document).ready(function () {
         var span = document.createElement("span");
         span.setAttribute("class", "circle");
         var linkHtml = document.createElement("a");
-        linkHtml.href = "/views/Home/Notice.html?" + "noticeTitle=" + rawData.noticeTitle + "&noticeContent=" + rawData.noticeContent + "&pubTime=" + rawData.pubTime;
+        // linkHtml.href = "/views/Home/Notice.html?" + "noticeTitle=" + rawData.noticeTitle + "&noticeContent=" + rawData.noticeContent + "&pubTime=" + rawData.pubTime;
+        linkHtml.href = "/views/Home/Notice.html?"+rawData.id;
         linkHtml.target = "_blank";
         linkHtml.innerHTML = rawData.noticeTitle;
         noticeTitle.appendChild(linkHtml);

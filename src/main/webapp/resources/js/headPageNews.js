@@ -68,7 +68,8 @@ $(document).ready(function () {
         span.setAttribute("class", "circle");
         var newsLink = document.createElement("a");
         if(rawData.newsType == "改革开放"){
-            newsLink.href = "/views/Home/News.html?"+"newsTitle="+rawData.newsTitle+"&newsContent="+rawData.newsContent+"&pubTime="+rawData.putTime;
+            // newsLink.href = "/views/Home/News.html?"+"newsTitle="+rawData.newsTitle+"&newsContent="+rawData.newsContent+"&pubTime="+rawData.putTime;
+            newsLink.href = "/views/Home/News.html?"+rawData.id;
         }
         else{
             newsLink.href = rawData.newsContent;
