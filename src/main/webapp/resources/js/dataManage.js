@@ -87,7 +87,7 @@ $(document).ready(function () {
     function init() {
 
         $.getJSON("/api/file/filelist", function (result) {
- alert(JSON.stringify(result));
+
             if (result != null) {
                 json = result.data.fileList;
                 hasDataInit();
