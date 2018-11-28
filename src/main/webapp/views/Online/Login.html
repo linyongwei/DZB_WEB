@@ -88,8 +88,11 @@
 
                           window.location.href = "/views/Home/UserCenter.html";
                       }
+                      else if (result.message == "密码错误"){
+                         alert("密码错误！请重新输入");
+                     }
                     else if(result.code == 10000){
-                        alert("验证码错误！");
+                        alert("验证码错误！请重新输入");
                     }
                 }
 

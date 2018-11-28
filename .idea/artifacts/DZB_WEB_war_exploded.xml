@@ -7,6 +7,9 @@
           <element id="module-output" name="DZB_WEB" />
         </element>
         <element id="directory" name="lib">
+          <element id="archive" name="DZB_WEB-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="DZB_WEB" />
+          </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.8.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.8.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:5.0.8.RELEASE" />
@@ -44,9 +47,6 @@
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.11" />
           <element id="library" level="project" name="Maven: io.jsonwebtoken:jjwt:0.9.1" />
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
-          <element id="archive" name="DZB_WEB-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="DZB_WEB" />
-          </element>
         </element>
       </element>
       <element id="directory" name="META-INF">
