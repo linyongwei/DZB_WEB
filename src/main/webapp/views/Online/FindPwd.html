@@ -35,7 +35,7 @@
                     <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
                     <input id="code" type="text" name="code" style="width: 130px ; height: 63px" placeholder="验证码" aria-describedby="code">
                     <div style="width: 110px; float: right;padding-left: 14px;">
-                        看不清？<a id="switchCode" href="javascript:void();" style="text-decoration: none;"  onclick="NewCode()" >换一张</a>
+                        看不清？<a id="switchCode" href="javascript:void(0);" style="text-decoration: none;"  onclick="NewCode()" >换一张</a>
                         <img id="imgcode" class="authcode" src="/api/user/verification_code" width="80" height="25" onclick="NewCode()"/>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
         <div class="form-group my-group">
             <div class="input-group col-sm-10 col-sm-offset-1">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
-                <input id="mailCode" type="text" name="mailCode" class="form-control" placeholder="请输入验证码" aria-describedby="mailCode">
+                <input id="mailCode" type="text" name="mailCode" class="form-control" placeholder="密码已发至您的邮箱，请输入验证码" aria-describedby="mailCode">
             </div>
         </div>
 

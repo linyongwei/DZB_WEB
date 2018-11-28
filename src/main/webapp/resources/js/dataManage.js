@@ -85,8 +85,9 @@ $(document).ready(function () {
 
     //从后台得到数据
     function init() {
-        $.getJSON("/api/file/filelist", function (result) {
 
+        $.getJSON("/api/file/filelist", function (result) {
+ alert(JSON.stringify(result));
             if (result != null) {
                 json = result.data.fileList;
                 hasDataInit();
