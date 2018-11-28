@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="DZB_WEB:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="DZB_WEB.war">
-      <element id="artifact" artifact-name="DZB_WEB:war exploded" />
-    </root>
-  </artifact>
-</component>

@@ -27,19 +27,8 @@ public class NoticeController {
     private NoticeDao noticeDao;
 
     @RequestMapping(value = "/noticelist",method = RequestMethod.GET)
-    public Result noticelist(HttpServletRequest request){
-
-        HttpSession session = request.getSession();
-        System.out.println("currentUser" + session.getAttribute("currentUser"));
-        User currentUser;
-        currentUser=(User)session.getAttribute("currentUser");
-        if(!currentUser.getRole().equals("支委")){
-            return Result.createBySuccessMessage("没有权限访问！");
-        }
+    public Result noticelist(){
         List<Notice> noticeList = noticeService.getAll();
-        for(int i = 0; i < noticeList.size();i++){
-            noticeList.get(i).setPublisherName(currentUser.getName());
-        }
         if(noticeList == null){
             return Result.createByErrorMessage("获取失败");
         }
@@ -49,21 +38,15 @@ public class NoticeController {
     }
 
     @RequestMapping(value = "/getnotice",method = RequestMethod.GET)
-    public Result getNotice(long noticeId,HttpServletRequest request){
-        HttpSession session = request.getSession();
-        System.out.println("currentUser" + session.getAttribute("currentUser"));
-        User currentUser;
-        currentUser=(User)session.getAttribute("currentUser");
-        if(!currentUser.getRole().equals("支委")){
-            return Result.createBySuccessMessage("没有权限访问！");
-        }
-       Notice notice1 = noticeService.getNotice(noticeId);
+    public Result getNotice(long noticeId){
+
+        Notice notice1 = noticeService.getNotice(noticeId);
         if(notice1 == null){
             return Result.createByErrorMessage("获取失败");
         }
         Map<String , Object> data = new HashMap<>();
-        notice1.setPublisherName(currentUser.getName());
         data.put("Notice",notice1);
+        System.out.println("公告");
         return Result.createBySuccess(data);
     }
 

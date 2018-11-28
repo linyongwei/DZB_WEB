@@ -43,6 +43,7 @@ public class NewsController {
         }
         Map<String, Object> data = new HashMap<>();
         data.put("newslist", newsList);
+        System.out.println("新闻列表");
         return Result.createBySuccess(data);
     }
 
@@ -88,24 +89,15 @@ public class NewsController {
     *根据id获取标题和内容
      */
     @RequestMapping(value = "/getNews",method = RequestMethod.GET)
-    public Result getNotice(int id,HttpServletRequest request){
-        HttpSession session = request.getSession();
-        System.out.println("currentUser" + session.getAttribute("currentUser"));
-        User currentUser;
-        currentUser=(User)session.getAttribute("currentUser");
-        if(!currentUser.getRole().equals("支委")){
-            return Result.createBySuccessMessage("没有权限访问！");
-        }
-        System.out.println("111");
-        News news1 = newsService.getNews(id);
-        if(news1 == null){
+    public Result getNews(@RequestParam Integer id){
+        News news = newsService.getNews(id);
+        if(news == null){
             return Result.createByErrorMessage("获取失败");
         }
-        Map<String , Object> data = new HashMap<>();
-        news1.setPublisher(currentUser.getName());
-        data.put("News",news1);
+        System.out.println("newsid" + news.getId());
+        Map<String, Object> data = new HashMap<>();
+        data.put("News", news);
         return Result.createBySuccess(data);
     }
-
 }
 

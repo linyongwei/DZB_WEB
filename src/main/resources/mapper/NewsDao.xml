@@ -36,7 +36,10 @@
 
     <!--取出ID公告-->
     <select id="getNews"  parameterType="int" resultType="com.dzb.model.News">
-        SELECT * FROM news WHERE id = #{id} AND is_delete = 0;
+        SELECT a.id, a.pub_time, a.news_title, a.news_content, a.news_type, a.news_link, b.name as publisher
+        FROM news a LEFT join user b
+        ON a.student_num = b.student_num
+        WHERE a.id = #{id} AND a.is_delete = 0
     </select>
 
 </mapper>

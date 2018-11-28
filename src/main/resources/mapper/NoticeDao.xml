@@ -27,7 +27,10 @@
 
     <!--取出ID公告-->
     <select id="getNotice"  parameterType="long" resultType="com.dzb.model.Notice">
-        SELECT * FROM notice WHERE id = #{noticeId} AND is_delete = 0;
+        SELECT a.id, a.notice_title, a.notice_content, a.pub_time, b.name as publisher
+        FROM notice a LEFT join user b
+        ON a.student_num = b.student_num
+        WHERE a.id = #{noticeId} AND a.is_delete = 0
     </select>
 
     <!--按ID修改公告-->

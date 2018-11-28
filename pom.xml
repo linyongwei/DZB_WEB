@@ -216,11 +216,7 @@
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
-      <dependency>
-          <groupId>com.pinnuli</groupId>
-          <artifactId>DZB_WEB</artifactId>
-          <version>1.0-SNAPSHOT</version>
-      </dependency>
+
 
   </dependencies>
 
