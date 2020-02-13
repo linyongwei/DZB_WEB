@@ -20,7 +20,7 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
+//import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
 /**
  * Created by DYYing on 2018/10/21.
@@ -72,7 +72,7 @@ public class FileServiceImpl implements FileService {
         try{
             File1.transferTo(targetFile);
         } catch (IOException e){
-            log.println("Upload Error!");
+           // log.println("Upload Error!");
             return null;
         }
 

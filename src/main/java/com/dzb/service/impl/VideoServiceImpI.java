@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
+//import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
 @Service
 public class VideoServiceImpI implements VideoService {
@@ -58,7 +58,7 @@ public class VideoServiceImpI implements VideoService {
         try{
             videoFile.transferTo(targetVideo);
         } catch (IOException e){
-            log.println("Upload Error!");
+           // log.println("Upload Error!");
             return null;
         }
 
